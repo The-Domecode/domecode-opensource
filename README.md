@@ -2,7 +2,7 @@
 
 ![GitHub](https://img.shields.io/github/license/arthtyagi/domecode-opensource?style=flat-square)
 ![Discord](https://img.shields.io/discord/723603615582912512?color=black&logo=discord&logoColor=white)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/arthtyagi/domecode-opensource/)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/arthtyagi/domecode-opensource)
 
 
 
