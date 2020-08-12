@@ -25,6 +25,8 @@ Once you're done with that, you can start working on fixing the nitty gritty det
 
 - The static files root is the `notes` directory which is weird and I'm aware of it but since the inception of this platform, the root static directory has been situated there and it's alright. `notes` app was the first app on this, anyway.
 
+Note : In the repo's language stats, HTML and CSS have been disabled intentionally.
+
 ## A few other projects you might wanna look out for
 
 ### Geddit
