@@ -1,0 +1,85 @@
+{% extends "notes/base.html" %}
+{%load countit%}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-sm-6">
+    <div class="card-deck">
+        <form class="form-inline" method="GET" autocomplete="off" action="/notes/">
+            <div class="input-group">
+                <input class="form-control mr-sm-2" type="search" name="q" class="form-control"
+                    placeholder="content/keyword">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<!--Improve Search with Incremental Search (AJAX and JQuery)-->
+
+<small class="text-muted">Your query has returned {{ paginator.count }}
+    result{{ paginator.count|pluralize }}.</small>
+<br>
+
+<h1>Your Notes </h1>
+<span class="badge badge-dark badge-pill"> <a class="nav-item nav-link" href="{%url 'notes:create'%}">New Note</a>
+</span>
+<br><br>
+<span class="badge badge-dark badge-pill">Hi {{user.first_name}}, you have made a total of {%count_posts_of user%}
+    notes.</span>
+<br><br>
+
+
+{% for notes in notes %}
+<article class="media content-section shadow">
+    <img class="rounded-circle article-img" src="{{ notes.user.profile.image.url }}">
+    <div class="media-body container-fluid">
+        <div class="article-metadata">
+            <small class="text-muted">Last modified on {{ notes.last_modified|date:"F d, Y" }}</small>
+            <small class="text-muted">and created on {{ notes.created|date:"F d, Y" }}</small>
+        </div>
+        <span class="badge badge-info badge-pill">{{notes.category}}</span>
+        <h4><a class="article-title" href="{% url 'notes:detail' notes.slug %}">{{ notes.title }}</a></h4>
+
+
+        <p class="article-content">{{ notes.content|safe|truncatewords_html:30 }}</p>
+    </div>
+</article>
+{% endfor %}
+
+{% if page_obj.has_previous %}
+
+<a class="page-link badge badge-dark badge-pill"
+    href="?{% if query %}q={{query}}&{% endif %}page={{ page_obj.previous_page_number }}">&laquo; Previous</a>
+
+{% endif %}
+
+{% for i in page_obj.paginator.page_range %}
+{% if page_obj.number == i %}
+<a class="page-link badge badge-dark badge-pill">Page {{ i }}</a>
+{% else %}
+<a class="page-link badge badge-dark badge-pill" href="?{% if query %}q={{query}}&{% endif %}page={{ i }}">
+    {{ i }}</a>
+
+{% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+
+<a class="page-link badge badge-dark badge-pill"
+    href="?{% if query %}q={{query}}&{% endif %}page={{ page_obj.next_page_number }}">Next</a>
+
+
+<a class="page-link badge badge-dark badge-pill"
+    href="?{% if query %}q={{query}}&{% endif %}page={{ page_obj.paginator.num_pages }}">Last
+    &raquo;</a>
+
+{% endif %}
+
+<br>
+
+
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends "notes/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section shadow">
+        <form method="POST" autocomplete="off" id="post-form">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Todo</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Do it!</button>
+            </div>
+        </form>
+    </div>
+    <p><a href="{%url 'todo:list'%}">Go Back</a></p>
+{% endblock content %}

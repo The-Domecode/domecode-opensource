@@ -1,0 +1,19 @@
+{%extends "notes/base.html"%}
+{%block content%}
+<h1><a style="font-family:'Flavors' ;font-weight: bolder;  font-size:40px ;  background: linear-gradient(to right, #f12711, #f5af19);
+    -webkit-background-clip: text; background-clip:text;
+    -webkit-text-fill-color: transparent;">DomeCode </a>Leaderboard - <a
+        style="color:rgb(255, 255, 255); font-family:'Raleway';">Top 100</a></h1>
+<small>This is DomeCode Leaderboard's Top 100. You can earn points by attempting question in the Quiz module and/or
+    attempting problems in
+    the Practice Module. Have fun!</small>
+<hr>
+<ol>
+    {%for profile in profile%}
+    <li><a style="color: beige;" href="{% url 'users:profilepage' profile.slug%}">{{profile.user.username}}</a> <a> - </a> <a
+            style=" color: rgb(235, 192, 99); background-color: rgb(41, 41, 41);"> {{profile.domes}} Domes</a></li>
+    <hr>
+    {%endfor%}
+</ol>
+
+{%endblock content%}

@@ -1,0 +1,114 @@
+{% extends "notes/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="content-section shadow">
+
+  <div class="media">
+    <img class="rounded-circle account-img" src="{{profile.image.url }}">
+      <a class="badge badge-light badge-pill"
+          href="{%url 'users:profilepage' profile.slug%}">{{profile.user.username}}</a>
+        </div>
+        <div class="media-body">
+      {%if request.user.username == profile.user.username%}
+      <small class="text-muted">
+        <p>Psst...users outside DomeCode can't see your profile. This is what makes DomeCode more privacy-focused.</p>
+      </small>
+
+      <a class="btn badge btn-sm badge-pill badge-dark " href="{% url 'users:profile' %}">Edit ✏️️</a>
+      {%endif%}
+      <h3 class="account-heading">{{ profile.user.first_name }}</h3>
+      <p class="text-secondary">{{ profile.user.email }}</p>
+      {%if profile.githubusername is not None%}
+      <p class="text-secondary" style="background-color: rgb(26, 26, 26); font-size: larger;"><a
+          style=" color: rgb(235,192,99);" href="https://github.com/{{profile.githubusername}}" target=_new> Github <i
+            style="color: rgb(255, 255, 255); font-size: larger;" class="fab fa-github"></i></a></p>
+      {%endif%}
+      <p style="font-size: larger; color: rgb(235, 192, 99); background-color: rgb(26, 26, 26);">Domes:
+        {{profile.domes}}</p>
+      <h3>About</h3>
+      {%if profile.about is not None%}
+      <p>{{profile.about}}</p>
+      {%else%}
+      <small class='text-muted'>
+        <p>This person doesn't have their About filled up.</p>
+      </small>
+
+      {%endif%}
+    </div>
+
+      <br>
+      {%if request.user.username == profile.user.username%}
+      <div class=" card-deck">
+        <div class="row">
+          <div class="col-xl col-lg-2" style="padding-bottom: 20px;">
+            <a href="{%url 'notes:list'%}" class="btn btn-primary">Your Notes</a>
+          </div>
+          <br><br><br>
+          <div class="col-xl col-lg-2" style="padding-bottom: 20px;">
+            <a href="{%url 'todo:list'%}" class="btn btn-primary">Your Tasks</a>
+          </div>
+          <br><br><br>
+          <div class="col-xl col-lg-2" style="padding-bottom: 20px;">
+            <a href="{%url 'forum:list'%}" class="btn btn-primary">Visit Forum</a>
+          </div>
+          <br><br><br>
+          <div class="col-xl col-lg-2" style="padding-bottom: 20px;">
+            <a href="{%url 'users:leaderboard'%}" class="btn btn-primary">Leaderboard</a>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <br>
+      <div class="card-deck">
+        <div class="row">
+          <div class="col-xl col-lg-2" style="padding-bottom: 20px;">
+            <a href="{%url 'coder:home'%}" class="btn btn-primary">Learn </a>
+          </div>
+          <div class="col-xl col-lg-2" style="padding-bottom: 20px;">
+            <a href="{%url 'coder:home'%}" class="btn btn-primary">Practice</a>
+          </div>
+          <div class="col-xl col-lg-2" style="padding-bottom: 20px;">
+            <a href="{%url 'quizzes:home'%}" class="btn btn-primary">Trivia</a>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="accordion" id="accordionExample">
+        <div class="container-fluid">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <span class="btn btn-link badge nav-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                Rewards
+              </span>
+            </h2>
+          </div>
+          <div id="collapseOne" class="collapse show " aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <div class="media content-section shadow">
+                <ol> 
+                  <li>GitKraken - Pro using this <a href="https://www.gitkraken.com/invite/q4P3SkPP">link</a> to have a
+                    chance at winning a $100 Amazon Gift Card. For Free</li>
+                  <p>More rewards coming soon!</p>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <br>
+      <div class="card-deck">
+        <div class="row">
+          <div class="col-sm">
+            <a href="{%url 'logout'%}" class="btn btn-danger btn-sm">Logout</a>
+          </div>
+        </div>
+      </div>
+      {%endif%}
+
+</div>
+
+
+{% endblock content %}

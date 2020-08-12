@@ -1,0 +1,18 @@
+{% extends "notes/base.html" %}
+{% block content %}
+
+
+<article class="media content-section shadow">
+    <div class="media-body">
+        <div class="article-metadata">
+            <span class="badge badge-info badge-pill badge-light">{{object.category}}</span>
+            <h2 class="article-title">{{ object.title }}</h2>
+            {{object.content|safe}}
+        </div>
+        <p><a href="{%url 'resources:home'%}">Go Back</a></p>
+</article>
+
+<p>Optional Java Editor for your use</p>
+<iframe src="https://trinket.io/embed/java/d1fcaa7e44" width="90%" height="500" frameborder="0" marginwidth="0"
+    marginheight="0" allowfullscreen></iframe>
+{% endblock content %}

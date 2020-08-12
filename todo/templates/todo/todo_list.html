@@ -1,0 +1,76 @@
+{% extends "notes/base.html" %}
+{%load countodo%}
+{% block content %}
+<div class="col-sm-6">
+    <div class="card-deck">
+        <form class="form-inline" method="GET" autocomplete="off" action="/todo/">
+            <div class="input-group">
+                <input class="form-control mr-sm-2" type="search" name="q" class="form-control"
+                    placeholder="content/keyword">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<small class="text-muted">Your query {{ query }} has returned {{ paginator.count }}
+    result{{ paginator.count|pluralize }}.</small>
+<h1>Your Tasks</h1>
+<span class="badge badge-dark badge-pill"> <a class="nav-item nav-link" href="{%url 'todo:create'%}">New
+        To-Do</a></span>
+<span class="badge badge-dark badge-pill">Hi {{user.first_name}}, you have a total of {%count_posts_of user%}
+    task(s).</span>
+<br>
+<br>
+{% for todo in todo %}
+<article class="media content-section shadow">
+    <img class="rounded-circle article-img" src="{{ todo.user.profile.image.url }}">
+    <div class="media-body">
+        <div class="article-metadata">
+            <small class="text-muted">{{ todo.created|date:"F d, Y" }}</small>
+        </div>
+        <h2><a class="article-title" href="{% url 'todo:update' todo.id %}">{{ todo.title }}</a></h2>
+        <p class="article-content">{{ todo.content }}</p>
+        <a class="btn badge btn-danger btn-sm badge-pill " href="{% url 'todo:delete' todo.id %}">Done</a>
+        <a class="badge badge-dark badge-pill" href="{% url 'todo:update' todo.id %}">Edit ✏️️</a>
+    </div>
+</article>
+{% endfor %}
+
+{% if page_obj.has_previous %}
+
+<a class="page-link badge badge-dark badge-pill"
+    href="?{% if query %}q={{query}}&{% endif %}page={{ page_obj.previous_page_number }}">&laquo; Previous</a>
+
+{% endif %}
+
+{% for i in page_obj.paginator.page_range %}
+{% if page_obj.number == i %}
+<a class="page-link badge badge-dark badge-pill">Page {{ i }}</a>
+{% else %}
+<a class="page-link badge badge-dark badge-pill" href="?{% if query %}q={{query}}&{% endif %}page={{ i }}">
+    {{ i }}</a>
+
+{% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+
+<a class="page-link badge badge-dark badge-pill"
+    href="?{% if query %}q={{query}}&{% endif %}page={{ page_obj.next_page_number }}">Next</a>
+
+
+<a class="page-link badge badge-dark badge-pill"
+    href="?{% if query %}q={{query}}&{% endif %}page={{ page_obj.paginator.num_pages }}">Last
+    &raquo;</a>
+
+{% endif %}
+
+<br>
+
+{% endblock content %}

@@ -1,0 +1,226 @@
+{%extends "notes/base.html"%}
+{% block content%}
+<div class="fade-in">
+	<div class="d-flex justify-content-center ">
+		<a style="font-family:'Flavors' ;font-weight: bolder;  font-size:20vw ;  background: linear-gradient(to right, #f12711, #f5af19);
+					-webkit-background-clip: text; background-clip:text;
+	-webkit-text-fill-color: transparent;">DomeCode</a>
+
+	</div>
+	<br>
+	<div class="d-flex justify-content-center" style="font-family: Mulish; font-size: 38px;">
+		<p>Get more. With less hassle. Free & Open Source.</p>
+	</div>
+	<br>
+	<div class="d-flex justify-content-center" style="font-family: Mulish; font-size: 28px; font-weight: lighter; background: linear-gradient(to right, #ffc340, #ff2c15);
+-webkit-background-clip: text; background-clip:text;
+-webkit-text-fill-color: transparent;">
+		<p>Learn. Practice. Discuss. Have the musical element. All in one place. And more.</p>
+	</div>
+	{%if not user.is_authenticated%}
+	<div class="d-flex justify-content-center" style="font-family: Mulish; font-size: 21px; font-weight: lighter; ">
+		<p><a style="background: linear-gradient(to right, #ff2c15, #ffc340);
+		-webkit-background-clip: text; background-clip:text;
+		-webkit-text-fill-color: transparent;">Let DomeCode be the partner in your coding journey.</a>
+			<br>
+			<a href="{%url 'users:register'%}" style="font-weight: bold; color: aliceblue;">Sign up</a> or <a
+				href="{%url 'login'%}" style="font-weight: bold; color: aliceblue;">Login</a>
+			using Github
+			<i class="fab fa-github"></i> or Google <i style="color: rgb(255, 0, 0);" class="fab fa-google"></i> today.
+		</p>
+	</div>
+	{%endif%}
+	<hr>
+	<div class=" d-flex justify-content-center" style="font-family: Mulish; font-size: 20px; font-weight: bold;background: linear-gradient(to right, #6085ff, hsl(211, 100%, 82%));
+	-webkit-background-clip: text; background-clip:text;
+	-webkit-text-fill-color: transparent;">
+		DomeCode is an open source platform where you can advance your coding journey with compiled resources to learn
+		programming
+		concepts, take notes, plan tasks, practice coding problems, discuss interesting stuff on the forum, meet other
+		developers and most all even get to listen to music conveniently without ever leaving this open source platform
+		to
+		navigate to paid platforms.
+	</div>
+	<hr>
+	<div class=" d-flex justify-content-center" style="font-family: Mulish; font-size: 10vw; font-weight: bold; background: linear-gradient(to right,  hsl(246, 100%, 85%), #df70c3);
+	-webkit-background-clip: text; background-clip:text;
+	-webkit-text-fill-color: transparent;">
+		Features
+	</div>
+	<br>
+	<div class=" d-flex justify-content-center" style="font-family: Mulish; font-size: 36px; font-weight: bold; background: linear-gradient(to right, #6085ff, hsl(211, 100%, 82%));
+	-webkit-background-clip: text; background-clip:text;
+	-webkit-text-fill-color: transparent;">
+		<p>Growth Tools</a></p>
+	</div>
+	<br>
+	<div class="row container-fluid shadow">
+		<div class="col-md-4">
+			<div class="card-deck">
+				<div class="card-body">
+					<img class="card-img-top" src="/static/images/lesson.png" alt="Card image cap">
+					<br><br><br>
+					<h5 class="card-title" style="color:antiquewhite;">TRACKS</h5>
+					<p class="card-text">
+						Learn to code in Python and Java with a curated list of resources. There's always more content
+						being compiled and added to DomeCode with each release.
+					</p>
+					<a href="{%url 'resources:home'%}" class="btn btn-primary">Go check out Tracks</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card-deck">
+				<div class="card-body">
+					<img class="card-img-top" src="/static/images/coding.png" alt="Card image cap">
+					<br><br><br>
+					<h5 class="card-title" style="color: antiquewhite;">PRACTICE</h5>
+					<p class="card-text">
+						The Practice module has sorted problems for you to implement your coding skills.
+					</p>
+					<a href="{%url 'coder:home'%}" class="btn btn-primary">Practice now?</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card-deck">
+				<div class="card-body">
+					<img class="card-img-top" src="/static/images/quiz.png" alt="Card image cap">
+					<br><br><br>
+					<h5 class="card-title" style="color:antiquewhite;">QUIZZES</h5>
+					<p class="card-text">
+						You can try out the quizzes on the concepts from Tracks and test your understanding.
+					</p>
+					<a href="{%url 'quizzes:home'%}" class="btn btn-primary">Go to Quizzes</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class=" d-flex justify-content-center" style="font-family: Mulish; font-size: 36px; font-weight: bold; background: linear-gradient(to right, #6085ff, hsl(211, 100%, 82%));
+	-webkit-background-clip: text; background-clip:text;
+	-webkit-text-fill-color: transparent;" <p>Additional Tools</a></p>
+	</div>
+	<br>
+	<div class="row container-fluid shadow">
+		<div class="col-md-4">
+			<div class="card-deck">
+				<div class="card-body">
+					<img class="card-img-top" src="/static/images/badge.png" alt="Card image cap">
+					<br><br><br>
+					<h5 class="card-title" style="color:antiquewhite;">LEADERBOARD</h5>
+					<p class="card-text">
+						Earn points through <strong>Quizzes</strong> and <strong>Practice problems</strong> to end up in
+						the Top 100!
+					</p>
+					<a href="{%url 'users:leaderboard'%}" class="btn btn-primary">Leaderboard</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card-deck">
+				<div class="card-body">
+					<img class="card-img-top" src="/static/images/music.png" alt="Card image cap">
+					<br><br><br>
+					<h5 class="card-title" style="color: antiquewhite;">MUSIC</h5>
+					<p class="card-text">
+						Have a little musical element to keep focused right from here. It's lo-fi non lyrical music.
+					</p>
+					<a href="{%url 'notes:music'%}" onClick="return popup(this, 'notes')" class="btn btn-primary">Play
+						Music</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card-deck">
+				<div class="card-body">
+					<img class="card-img-top" src="/static/images/forum1.png" alt="Card image cap">
+					<br><br><br>
+					<h5 class="card-title" style="color:antiquewhite;">FORUM</h5>
+					<p class="card-text">
+						These are Geddit Forums. The latest feature of Geddit. Hop on it!
+					</p>
+					<a href="{%url 'forum:list'%}" class="btn btn-primary">Go check out Forum</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class=" d-flex justify-content-center" style="font-family: Mulish; font-size: 36px; font-weight: bold; background: linear-gradient(to right, #6085ff, hsl(211, 100%, 82%));
+	-webkit-background-clip: text; background-clip:text;
+	-webkit-text-fill-color: transparent;">
+		<p>Planning Tools</a></p>
+	</div>
+	<br>
+	<div class="row container-fluid shadow">
+
+		<div class="col-md-6">
+			<div class="card-deck">
+				<div class="card-body">
+					<img class="card-img-top" src="/static/images/notes.png" alt="Card image cap">
+					<br><br><br>
+					<h5 class="card-title" style="color:antiquewhite;">NOTES</h5>
+					<p class="card-text">
+						Your notes lie here. You can label your notes as well. Your plans on
+						learning code, music or maybe something else?
+					</p>
+					<a href="{%url 'notes:list'%}" class="btn btn-primary">Your Notes</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="card-deck">
+				<div class="card-body">
+					<img class="card-img-top" src="/static/images/tasks.png" alt="Card image cap">
+					<br><br><br>
+					<h5 class="card-title" style="color:antiquewhite;">TASKS</h5>
+					<p class="card-text">
+						You can plan out your tasks from right within DomeCode. Pretty sick, right?
+					</p>
+					<a href="{%url 'todo:list'%}" class="btn btn-primary">Your Tasks</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<p class="d-flex justify-content-center">The whole point was to have an integrated platform for all your needs and now
+	it's being as open-source.<strong></p>
+<div class=" d-flex justify-content-center" style="font-family: Mulish; font-size: 28px; font-weight: bold; background: linear-gradient(to right, #ffc340, #ff2c15);
+		-webkit-background-clip: text; background-clip:text;
+		-webkit-text-fill-color: transparent;">
+		<br>
+	<p style="font-size: larger;"><a style="font-weight:lighter ;">Consider</a> <a style="font-weight: bolder;"
+			href="{%url 'notes:sponsor'%}">sponsoring us.</a></p>
+</div>
+<hr>
+<br>
+{%if not user.is_authenticated%}
+<div class="fade-in d-flex justify-content-center" style="font-family: Mulish; font-size: 34px; font-weight: bold; background: linear-gradient(to right, hsl(246, 100%, 73%), #a42b85);
+	-webkit-background-clip: text; background-clip:text;
+	-webkit-text-fill-color: transparent;">
+	<p><a style="font-weight: bolder;" href="{%url 'users:register'%}">Get started now!</a></p>
+</div>
+{%endif%}
+</div>
+
+{%endblock content%}
+
+
+
+<!--		<div class="col-md-4">
+			<div class="card-deck">
+				<div class="card-body">
+					<img class="card-img-top" src="/static/images/notes.png" alt="Card image cap">
+					<br><br><br>
+					<h5 class="card-title" style="color:antiquewhite;">NOTES</h5>
+					<p class="card-text">
+						Your notes lie here. You can label your notes as well. Your plans on
+						learning code, music or maybe something else?
+					</p>
+					<a href="{%url 'notes:list'%}" class="btn btn-primary">Go check your notes</a>
+				</div>
+			</div>
+		</div>
+-->

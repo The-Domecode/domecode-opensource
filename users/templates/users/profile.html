@@ -1,0 +1,23 @@
+{% extends "notes/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section shadow">
+  <div class="media"><img class="rounded-circle account-img" src="{{user.profile.image.url }}">
+    <div class="media-body">
+      <a class="badge badge-light badge-pill"
+          href="{%url 'users:profilepage' user.profile.slug%}">{{user.username}}</a>
+      <h3 class="account-heading">{{ user.first_name }}</h3>
+    </div></div>
+  <form method="POST" enctype="multipart/form-data" id="profile_ajax">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Profile Info</legend>
+      {{ u_form| crispy}}
+      {{ p_form| crispy}}
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-outline-info" type="submit">Update Your Profile</button>
+    </div>
+  </form>
+</div>
+{% endblock content %}

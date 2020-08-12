@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64pt" height="64pt" viewBox="0 0 64 64" version="1.1">
+<defs>
+<linearGradient id="linear0" gradientUnits="userSpaceOnUse" x1="86" y1="22.01331" x2="86" y2="149.0165" gradientTransform="matrix(0.372093,0,0,0.372093,0,0)">
+<stop offset="0" style="stop-color:rgb(58.431373%,98.039216%,80%);stop-opacity:1;"/>
+<stop offset="1" style="stop-color:rgb(43.137255%,78.431373%,100%);stop-opacity:1;"/>
+</linearGradient>
+<linearGradient id="linear1" gradientUnits="userSpaceOnUse" x1="86" y1="17.66763" x2="86" y2="155.65731" gradientTransform="matrix(0.372093,0,0,0.372093,0,0)">
+<stop offset="0" style="stop-color:rgb(16.470588%,96.078431%,59.607843%);stop-opacity:1;"/>
+<stop offset="1" style="stop-color:rgb(0%,61.960784%,99.215686%);stop-opacity:1;"/>
+</linearGradient>
+<linearGradient id="linear2" gradientUnits="userSpaceOnUse" x1="86" y1="17.66763" x2="86" y2="155.65731" gradientTransform="matrix(0.372093,0,0,0.372093,0,0)">
+<stop offset="0" style="stop-color:rgb(16.470588%,96.078431%,59.607843%);stop-opacity:1;"/>
+<stop offset="1" style="stop-color:rgb(0%,61.960784%,99.215686%);stop-opacity:1;"/>
+</linearGradient>
+</defs>
+<g id="surface5907347">
+<path style=" stroke:none;fill-rule:nonzero;fill:url(#linear0);" d="M 32 7 C 18.191406 7 7 18.191406 7 32 C 7 45.808594 18.191406 57 32 57 C 45.808594 57 57 45.808594 57 32 C 57 18.191406 45.808594 7 32 7 Z M 32 53 C 20.402344 53 11 43.597656 11 32 C 11 20.402344 20.402344 11 32 11 C 43.597656 11 53 20.402344 53 32 C 53 43.597656 43.597656 53 32 53 Z M 32 53 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:url(#linear1);" d="M 32 6 C 17.664062 6 6 17.664062 6 32 C 6 46.335938 17.664062 58 32 58 C 46.335938 58 58 46.335938 58 32 C 58 17.664062 46.335938 6 32 6 Z M 32 56 C 18.765625 56 8 45.234375 8 32 C 8 18.765625 18.765625 8 32 8 C 45.234375 8 56 18.765625 56 32 C 56 45.234375 45.234375 56 32 56 Z M 32 56 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:url(#linear2);" d="M 32 10 C 19.867188 10 10 19.867188 10 32 C 10 44.132812 19.867188 54 32 54 C 44.132812 54 54 44.132812 54 32 C 54 19.867188 44.132812 10 32 10 Z M 32 52 C 20.972656 52 12 43.027344 12 32 C 12 20.972656 20.972656 12 32 12 C 43.027344 12 52 20.972656 52 32 C 52 43.027344 43.027344 52 32 52 Z M 32 52 "/>
+</g>
+</svg>

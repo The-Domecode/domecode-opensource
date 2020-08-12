@@ -1,0 +1,192 @@
+body {
+    background: #fefeef;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(60, 60, 60);
+    margin-top: 3rem;
+    overflow-y: scroll;
+    font-family: "Roboto Mono";
+    padding-top: 30px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: rgb(57, 57, 57);
+    font-family: "Poppins";
+  }
+  
+  .light-mode {
+    background-color: aliceblue;
+    color: #1f1f1f;
+  }
+  
+  ul {
+    margin: 0;
+  }
+  
+  .bg-steel {
+    background: #fefeef;
+  }
+  
+  .navbar-nav {
+    padding-bottom: 8px;
+    padding-top: 10px;
+  }
+  
+  .site-header .navbar-nav .nav-link {
+    color: #000000;
+    font-family: "Poppins";
+    font-weight: lighter;
+    font-size: 18px;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #656565;
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: lighter;
+  }
+  
+  .content-section {
+    background-image: repeat 0 0;
+    padding: 10px 20px;
+    color: rgb(50, 50, 50);
+    border: 1px solid #1f1f1f;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .shadow {
+    box-shadow: 5px 10px 18px #888888;
+  }
+  
+  .article-title {
+    color: #4b4b4b;
+  }
+  
+  a.article-title:hover {
+    color: #8c8c8c;
+    text-decoration: none;
+  }
+  
+  .article-content {
+    color: rgb(38, 38, 37);
+    white-space: pre-line;
+  }
+  
+  .article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+  }
+  
+  .article-metadata {
+    color: rgb(60, 60, 60);
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #7d7d7d
+  }
+  
+  .article-metadata a:hover {
+    color: rgb(55, 55, 55);
+    text-decoration: none;
+  }
+  
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  
+  .account-img {
+    height: 150px;
+    width: 150px;
+    margin-right: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .account-heading {
+    color: rgb(57, 57, 57);
+    font-size: 2.5rem;
+  }
+  
+  .footer {
+    font-family: "Roboto Mono";
+    font-size: 12px;
+    font-weight: bolder;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 18px;
+    background: #000000;
+    color: white;
+    text-align: center;
+  }
+  
+  .pagination>li>a {
+    background-color: transparent;
+    color: rgb(53, 53, 53);
+    position: absolute !important;
+    bottom: auto !important;
+    border-color: #171717;
+  }
+  
+  .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+    color: #5a5a5a;
+    background-color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+  }
+  
+  .pagination>.active>a {
+    color: rgb(0, 0, 0);
+    background-color: rgb(34, 34, 34)!Important;
+    border: solid 1px #000000 !Important;
+  }
+  
+  .pagination>.active>a:hover {
+    background-color: #000000 !Important;
+    border: solid 1px #000000;
+  }
+  
+  ::-moz-selection {
+    /* Code for Firefox */
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+  }
+  
+  ::selection {
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+  }
+  
+  .btn-xl {
+    padding: 5px 30px;
+    font-size: 16px;
+    border-radius: 10px;
+    width: 110%;
+  }
+  
+  .btn-primary {
+    padding: 5px 30px;
+    border-radius: 10px;
+  }
+  
+  .btn-dark {
+    color: black;
+  }
+  
+  .btn-light {
+    color: whitesmoke
+  }
+  
+  input[type="button"]:focus{
+    width: 120px;
+    height: 60px;
+    margin-left: 35px;
+    display: block;
+    background-color: gray;
+    color: white;
+    border: none;
+    outline: none;
+  }

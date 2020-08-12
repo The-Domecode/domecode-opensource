@@ -1,0 +1,6 @@
+*.sqlite3
+media/notes_pics/
+media/profile_pics/
+media/media/
+.txt
+.env

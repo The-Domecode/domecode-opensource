@@ -1,0 +1,45 @@
+{% extends "notes/base.html" %}
+{%load static%}
+{%load viewsub%}
+{% block content %}
+<p><a href="{%url 'quizzes:home'%}"> Quiz Home</a> | <a
+        href="https://domecode.com/quiz/{{ques.quiz.Language}}/{{ques.quiz.slug}}">Go Back</a></p>
+
+
+{%notsolved user ques as notattempted%}
+{%notcorrect user ques as notcorrect%}
+{%if notattempted%}
+<h2 class="article-title" style="color: rgb(255, 255, 255);">{{ ques.title }}
+    <span class="badge badge-dark badge-pill">{{ques.Language}}</span> </h2>
+{%endif%}
+{%if not notattempted and notcorrect%}
+<h2 class="article-title" style="color: rgb(255, 255, 255);">{{ ques.title }}
+    <span class="badge badge-dark badge-pill">{{ques.Language}}</span> </h2>
+<small> <img src="{%static 'coder/false.svg'%}" height="14" width="14"></small>
+{%elif not notcorrect%}
+<h2 class="article-title" style="color: rgb(255, 255, 255);">{{ ques.title }}
+    <span class="badge badge-dark badge-pill">{{ques.Language}}</span> </h2>
+<small>
+    {%if ques.quiz.typeof == "EASY"%}
+    Solved <img src="{%static 'coder/check.svg'%}" height="14" width="14">(+2)</a></small>
+{%elif ques.quiz.typeof == "MEDIUM"%}
+Solved <img src="{%static 'coder/check.svg'%}" height="14" width="14">(+4)</small>
+{%elif ques.quiz.typeof == "HARD"%}
+Solved <img src="{%static 'coder/check.svg'%}" height="14" width="14">(+10)</small>
+{%endif%}
+{%endif%}
+<div class="article-content shadow">
+    {{ques.content|safe}}
+</div>
+{%notsolved user ques as notattempted%}
+{%if notattempted%}
+<span class="badge badge-dark badge-pill"> <a class="nav-item nav-link"
+        href="{%url 'quizzes:submit' object.slug%}">Submit
+        Answer</a></span>
+{%endif%}
+<hr>
+<div class="article-content">
+    <p> You can join our discord btw! <a href="https://discord.gg/k6AKtsA">Discord</a>
+    </p> 
+</div>
+{% endblock content %}

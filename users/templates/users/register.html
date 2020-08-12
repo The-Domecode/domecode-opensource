@@ -1,0 +1,23 @@
+{% extends "notes/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="content-section shadow">
+    <p>DomeCode offers authentication with well-known services like Github <i style="color: rgb(255, 255, 255);"
+            class="fab fa-github"></i>, Google <i style="color: rgb(255, 0, 0);" class="fab fa-google"></i> and the new
+        privacy-focused AppleID <i style="color: rgb(255, 255, 255);" class="fab fa-apple"></i> is coming soon to
+        DomeCode as well.</p>
+    <hr>
+    <span class="badge badge-dark badge-pill"> <a style="color:rgb(255, 255, 255);font-size:18px ;"
+            class="nav-item nav-link" href="{% url 'social:begin' 'github' %}">Sign up with Github <i
+                class="fab fa-github"></i></a></span>
+                <br><br>
+    <span class="badge badge-danger badge-pill"> <a style="color:rgb(255, 255, 255);font-size:18px ;"
+            class="nav-item nav-link" href="{% url 'social:begin' 'google-oauth2' %}">Sign up with Google <i
+                class="fab fa-google"></i></a></span>
+    <hr>
+    <small style="color: rgb(124, 124, 255);">Already a DomeCode user? <a href="{%url 'login'%}">Signin</a></small>
+
+</div>
+{% endblock content %}

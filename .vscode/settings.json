@@ -1,0 +1,19 @@
+{
+  "python.pythonPath": "/Users/arthtyagi/.local/share/virtualenvs/domecode-C1btIXLe/bin/python",
+  "python.linting.pylintArgs": [
+    "--load-plugins",
+    "pylint_django",
+    "--max-line-length=100"
+  ],
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    ".vscode": true,
+    "**/*.pyc": true
+  }
+}

@@ -1,0 +1,42 @@
+{% extends "notes/base.html" %}
+{%load static%}
+{% block content %}
+<a href="javascript:history.back()">Go Back</a>
+<h2>Your submissions</h2>
+{%for submission in submission%}
+
+{%if submission.iscorrect%}
+
+{%if submission.question.category == "EASY" %}
+- {{ submission.question.title }} ({{submission.question.typeof}} - {{submission.question.category}}) - <a
+    href="{{submission.result.url}}">{{submission.result}} <img src="{%static 'coder/check.svg'%}" height="14"
+        width="14"></a>(+10)
+{%elif submission.question.category == "HARD" %}
+- {{ submission.question.title }} ({{submission.question.typeof}} - {{submission.question.category}}) - <a
+    href="{{submission.result.url}}">{{submission.result}} <img src="{%static 'coder/check.svg'%}" height="14"
+        width="14"></a>(+20)
+{%elif submission.question.category == "MEDIUM" %}
+- {{ submission.question.title }} ({{submission.question.typeof}} - {{submission.question.category}}) - <a
+    href="{{submission.result.url}}">{{submission.result}} <img src="{%static 'coder/check.svg'%}" height="14"
+        width="14"></a>(+15)
+{%elif submission.question.category == "ADVANCED" %}
+- {{ submission.question.title }} ({{submission.question.typeof}} - {{submission.question.category}}) - <a
+    href="{{submission.result.url}}">{{submission.result}} <img src="{%static 'coder/check.svg'%}" height="14"
+        width="14"></a>(+30)
+{%elif submission.question.category == "IMPLEMENT" %}
+- {{ submission.question.title }} ({{submission.question.typeof}} - {{submission.question.category}}) - <a
+    href="{{submission.result.url}}">{{submission.result}} <img src="{%static 'coder/check.svg'%}" height="14"
+        width="14"></a>(No Points for Implmentation, knowledge dripped hard tho)
+{%endif%}
+
+
+<br>
+{%else%}
+- {{ submission.question.title }} ({{submission.question.typeof}} - {{submission.question.category}}) - <a
+    href="{{submission.result.url}}">{{submission.result}} <img src="{%static 'coder/false.svg'%}" height="14"
+        width="14"></a>
+<br>
+{%endif%}
+{%endfor%}
+
+{% endblock content %}

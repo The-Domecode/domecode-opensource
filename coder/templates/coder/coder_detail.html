@@ -1,0 +1,82 @@
+{% extends "notes/base.html" %}
+{%load static%}
+{%load viewans%}
+{% block content %}
+{%if user.is_authenticated%}
+<p style="font-size: small;">Practice <a href="{%url 'coder:list-python'%}">Python</a> | <a
+        href="{%url 'coder:list-java'%}">Java</a> | <a href="{%url 'coder:list-general'%}">General</a> |<a
+        href="{%url 'coder:home'%}"> Look at what "Practice is all
+        about".</a></p>
+{%notsolved user question as result%}
+{%if result%}
+<h2 class="article-title" style="color: rgb(255, 255, 255);">{{ question.title }}</h2>
+<span class="badge badge-light badge-pill">{{question.category}}</span>
+<span class="badge badge-dark badge-pill">{{question.typeof}}</span>
+{%else%}
+<h2 class="article-title" style="color: rgb(255, 255, 255);">{{ question.title }} </h2>
+<span class="badge badge-light badge-pill">{{question.category}}</span>
+<span class="badge badge-dark badge-pill">{{question.typeof}}</span>
+<small>Solved <img src="{%static 'coder/check.svg'%}" height="14" width="14"></a> </small>
+{%endif%}
+{%else%}
+<h2 class="article-title" style="color: rgb(255, 255, 255);">{{ question.title }}</h2>
+<span class="badge badge-light badge-pill">{{question.category}}</span>
+<span class="badge badge-dark badge-pill">{{question.typeof}}</span>
+{%endif%}
+<div class="article-content shadow">
+    {{question.content|safe}}
+</div>
+
+
+
+
+<div class="article-content shadow">
+    <p> <strong>NOTE</strong>
+        <strong>You need to submit the solution's output as a text file for it to be graded.</strong>
+        These are some resources to help you with that :
+        <a target="_blank" href="https://stackoverflow.com/questions/3538156/file-i-o-in-every-programming-language">
+            File IO in Every Language</a>
+        <a target="_blank"
+            href="https://cmdlinetips.com/2012/09/three-ways-to-write-text-to-a-file-in-python/#:~:text=Here%20is%20three%20ways%20to,a%20new%20file%20to%20write.">
+            This one is specific to Python.</a>
+        <a target="_blank"
+            href="https://www.geeksforgeeks.org/redirecting-system-out-println-output-to-a-file-in-java/">
+            This one is specific to Java.</a>
+
+        If you feel stuck, you can ask for help at our <a href="https://discord.gg/k6AKtsA">Discord</a> or on our
+        <a href="{%url 'forum:list'%}">Forum</a>.
+    </p> 
+</div>
+<br>
+
+{%if user.is_authenticated%}
+{%notsolved user question as result%}
+{%if result%}
+<span class="badge badge-dark badge-pill"> <a class="nav-item nav-link" href="{%url 'coder:submit' object.slug%}">Submit
+        Answer</a></span>
+<small><a href="{%url 'coder:submissions'%}">View your submissions and results here.</a></small>
+{%else%}
+<small><a href="{%url 'coder:submissions'%}">View your submissions and results here.</a></small>
+{%endif%}
+{%else%}
+<span class="badge badge-dark badge-pill"> <a class="nav-item nav-link" href="{%url 'coder:submit' object.slug%}">Submit
+        Answer</a></span>
+{%endif%}
+<hr>
+{%if question.typeof == "PYTHON"%}
+<p>Optional Python Editor for your use</p>
+<iframe src="https://trinket.io/embed/python3/9d578a67e3" width="90%" height="400" frameborder="0" marginwidth="0"
+    marginheight="0"></iframe>
+{%elif question.typeof == "JAVA"%}
+<p>Optional Java Editor for your use</p>
+<iframe src="https://trinket.io/embed/java/d1fcaa7e44" width="90%" height="500" frameborder="0" marginwidth="0"
+    marginheight="0" allowfullscreen></iframe>
+{%elif question.typeof == "General"%}
+<p>Optional Python Editor for your use</p>
+<iframe src="https://trinket.io/embed/python3/9d578a67e3" width="90%" height="400" frameborder="0" marginwidth="0"
+    marginheight="0"></iframe>
+<p>Optional Java Editor for your use</p>
+<iframe src="https://trinket.io/embed/java/d1fcaa7e44" width="90%" height="500" frameborder="0" marginwidth="0"
+    marginheight="0" allowfullscreen></iframe>
+{%endif%}
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends "notes/base.html" %}
+{%load crispy_forms_tags%}
+{% block content %}
+
+
+
+<article class="media content-section shadow">
+
+    <div class="media-body">
+        <p> {{answer.content|safe}}</p>
+        <small>
+            <p> by <a href="{answer.user.url}">{{answer.user}}</a></p>
+        </small>
+        <form method="POST" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {%if answer.isaccepted is not True%}
+                <legend class="border-bottom mb-4">Accept answer?</legend>
+                {%else%}
+                <legend class="border-bottom mb-4">Unaccept answer?</legend>
+                {%endif%}
+                {{form.media}}
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                {%if answer.isaccepted is not True%}
+                <button class="btn btn-outline-info" type="submit">Accept this answer.</button>
+                {%else%}
+                <button class="btn btn-outline-info" type="submit">Unaccept this answer.</button>
+                {%endif%}
+            </div>
+        </form>
+
+    </div>
+</article>
+
+{% endblock content %}

@@ -1,0 +1,120 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="shortcut icon" type="image/png" href="{%static 'assets/favicon.ico'%}" />
+
+<head>
+
+    <!-- IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+        integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="monetization" content="$ilp.uphold.com/DFYMWhkmjUND">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174981481-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-174981481-1');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,300;0,400;1,200;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Flavors&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{%static 'notes/dark.css'%}">
+    <script src="{%static 'js/audio.js'%}"></script>
+
+
+    {%if title%}
+    <title>DomeCode - {{title}}</title>
+    {%else%}
+    <title>DomeCode</title>
+    {%endif%}
+</head>
+
+<body>
+
+    <script src="{%static 'js/script.js'%}"></script>
+
+    <header class="site-header">
+        <nav class="navbar navbar-expand-sm py-0 navbar-dark bg-steel fixed-top shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand mr-3" style="font-family:'Flavors' ;font-weight: bolder;  font-size:36px ;  background: linear-gradient(to right, #f12711, #f5af19);
+					-webkit-background-clip: text; background-clip:text;
+					-webkit-text-fill-color: transparent;" href="#">DomeCode Lo-Fi Music Popup Window</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            </div>
+            </li>
+
+            </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <div role="main" class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+
+                Play Lofi Music :P ( Yes, click on that white button looking like an arrow ) <object id="audioplayer"
+                    type="application/x-shockwave-flash" width="10" height="40"
+                    data="https://www.youtube.com/v/smxBIS3USKI?version=2&theme=dark">
+                    <param name="wmode" value="dark" /></object>
+                <hr>
+                <h3 style="color: white;">Keep this popup window open in the background for some good lofi music!</h3>
+                <hr>
+                This is more of a trick since it's a YouTube video in the form of a shockwave object but it's 10 hours
+                of legal Lo-Fi
+                music on loop so enjoy.
+                <br><br> Enough reading about this, minimize the window and continue with your coding
+                tasks on <a style=" font-family:'Flavors' ;font-weight: bolder; font-size:30px ; background:
+                    linear-gradient(to right, #f12711, #f5af19); -webkit-background-clip: text; background-clip:text;
+                    -webkit-text-fill-color: transparent;">DomeCode</a>.
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+
+    </div>
+    <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+<div class="footer">
+    <p><span>&#169;</span>2020. DomeCode. All rights reserved. An Arth Tyagi production.</p>
+</div>
+
+</html>

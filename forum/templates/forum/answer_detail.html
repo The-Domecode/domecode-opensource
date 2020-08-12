@@ -1,0 +1,51 @@
+{% extends "notes/base.html" %}
+{%load forumtags%}
+{% block content %}
+<p><a href="javascript:history.back()">Go Back</a></p>
+<article class="media content-section shadow">
+    <a href="{%url 'users:profilepage' object.user.profile.slug%}"><img class="rounded-circle article-img"
+            src="{{ object.user.profile.image.url }}" /></a>
+    <div class="media-body">
+        <div class="article-metadata">
+            <small class="text-muted">{{ object.created|date:"F d, Y" }}</small>
+            <span class="badge badge-light badge-pill">{{object.category}}</span>
+
+            {% if object.user == user %}
+            <div>
+                <small> <a class="badge badge-dark badge-pill"
+                        href="{% url 'forum:query-update' answer.query.slug answer.slug %}">Edit
+                        ✏️️</a> <a class="badge badge-danger badge-pill"
+                        href="{% url 'forum:query-delete' answer.slug %}">Delete</a></small>
+            </div>
+            {% endif %}
+        </div>
+        <h2 class="article-title">{{ object.title }}</h2>
+        {{object.content|safe}}
+    </div>
+</article>
+<span class="badge badge-dark badge-pill"> <a class="nav-item nav-link"
+        href="{%url 'forum:comment-create' answer.query.slug answer.slug%}">Make a comment.</a></span>
+
+{%for comment in object|comments%}
+{%if comment.user == user%}
+<div class="media-body shadow">
+    <p>{{comment.content|safe}}</p>
+    <small>
+        <p> by <a href="{%url 'users:profilepage' comment.user.profile.slug %}">{{comment.user}}</a></p>
+    </small>
+    <small> <a class="badge badge-dark badge-pill"
+            href="{% url 'forum:comment-update' answer.query.slug answer.slug comment.slug %}">Edit
+            ✏️️</a> <a class="badge badge-danger badge-pill"
+            href="{% url 'forum:comment-delete' answer.query.slug answer.slug comment.slug%}">Delete</a></small>
+</div>
+<hr>
+{%else%}
+<div class="media-body shadow">
+    <p> {{comment.content|safe}}</p>
+    <small>
+        <p> by <a href="{%url 'users:profilepage' comment.user.profile.slug%}">{{comment.user}}</a></p>
+    </small>
+</div>
+{%endif%}
+{%endfor%}
+{% endblock content %}

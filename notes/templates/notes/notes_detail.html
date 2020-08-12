@@ -1,0 +1,22 @@
+{% extends "notes/base.html" %}
+{% block content %}
+<article class="media content-section shadow">
+  <img class="rounded-circle article-img" src="{{ object.user.profile.image.url }}" />
+  <div class="media-body">
+    <div class="article-metadata">
+      <small class="text-muted">{{ object.created|date:"F d, Y" }}</small>
+      <span class="badge badge-info badge-pill">{{object.category}}</span>
+
+      {% if object.user == user %}
+      <div>
+        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'notes:update' object.slug %}">Update</a>
+        <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'notes:delete' object.slug %}">Delete</a>
+      </div>
+      {% endif %}
+    </div>
+    <h2 class="article-title">{{ object.title }}</h2>
+    {{object.content|safe}}
+  </div>
+  <p><a href="{%url 'notes:list'%}">Go Back</a></p>
+</article>
+{% endblock content %}
