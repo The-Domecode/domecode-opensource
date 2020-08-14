@@ -9,9 +9,10 @@
     <div class="media-body">
         <div class="article-metadata">
             {%for ques in ques%}
-            <h6> <span class="badge badge-info badge-pill badge-light">{{ques.quiz.typeof}}</span></h6>
-            <h6> <span class="badge badge-info badge-pill badge-dark">{{ques.quiz.name}}</span></h6>
+            <span class="badge badge-info badge-pill badge-light">{{ques.quiz.typeof}}</span></h6>
+             <span class="badge badge-info badge-pill badge-dark">{{ques.quiz.name}}</span></h6>
             <h2><a class="article-title" href="{%url 'quizzes:detail' ques.slug%}">{{ques.title}}</a></h2>
+            <hr>
             {%endfor%}
         </div>
     </div>

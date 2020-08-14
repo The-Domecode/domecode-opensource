@@ -37,9 +37,9 @@
                 <div class="card-body">
                     <div class="media content-section shadow">
                         <ol> 
-                            {%for ques in ques%}
-                            {%if ques.quiz.Language == "python"%}
-                            <li><a href="{%url 'quizzes:detail-python' ques.quiz.slug%}">{{ques.quiz.name}}</a></li>
+                            {%for quiz in quiz%}
+                            {%if quiz.Language == "python"%}
+                            <li><a href="{%url 'quizzes:detail-python' quiz.slug%}">{{quiz.name}}</a></li>
                             {%endif%}
                             {%endfor%}
                         </ol>
@@ -62,9 +62,9 @@
                 <div class="card-body">
                     <div class="media content-section shadow">
                         <ol> 
-                            {%for ques in ques%}
-                            {%if ques.quiz.language == "python"%}
-                            <li><a href="{%url 'quizs:detail-java' quiz.slug%}">{{ques.quiz.name}}</a></li>
+                            {%for quiz in quiz%}
+                            {%if quiz.language == "python"%}
+                            <li><a href="{%url 'quizzes:detail-java' quiz.slug%}">{{quiz.name}}</a></li>
                             {%endif%}
                             {%endfor%}
                             {%if ques.quiz.language is not "java"%}

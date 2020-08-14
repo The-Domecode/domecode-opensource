@@ -8,10 +8,11 @@ from django.urls import reverse
 
 
 class QuizHomeView(PageTitleMixin, ListView):
-    model = Ques
+    model = Quiz
     template_name = "quizzes/quiz_home.html"
-    context_object_name = "ques"
+    context_object_name = "quiz"
     title = 'Quizzes'
+
 
 class QuizDetailView(PageTitleMixin, DetailView):
     model = Quiz
@@ -26,13 +27,13 @@ class QuizDetailView(PageTitleMixin, DetailView):
         return context
 
 
-class QuesDetailView(PageTitleMixin,LoginRequiredMixin, DetailView):
+class QuesDetailView(PageTitleMixin, LoginRequiredMixin, DetailView):
     model = Ques
     title = 'Quiz Question'
     template_name = "quizzes/ques_detail.html"
 
 
-class AnswerCreateView(PageTitleMixin,LoginRequiredMixin, CreateView):
+class AnswerCreateView(PageTitleMixin, LoginRequiredMixin, CreateView):
     model = Answer
     title = 'Attempt Question'
     fields = ['answer']

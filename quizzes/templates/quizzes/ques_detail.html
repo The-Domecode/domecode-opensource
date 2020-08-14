@@ -9,16 +9,16 @@
 {%notsolved user ques as notattempted%}
 {%notcorrect user ques as notcorrect%}
 {%if notattempted%}
-<h2 class="article-title" style="color: rgb(255, 255, 255);">{{ ques.title }}
-    <span class="badge badge-dark badge-pill">{{ques.Language}}</span> </h2>
+<h2 class="article-title" style="color: rgb(255, 255, 255);">{{ ques.title }}</h2>
+    <span class="badge badge-dark badge-pill">{{ques.Language}}</span>
 {%endif%}
 {%if not notattempted and notcorrect%}
-<h2 class="article-title" style="color: rgb(255, 255, 255);">{{ ques.title }}
-    <span class="badge badge-dark badge-pill">{{ques.Language}}</span> </h2>
+<h2 class="article-title" style="color: rgb(255, 255, 255);">{{ ques.title }}</h2>
+    <span class="badge badge-dark badge-pill">{{ques.Language}}</span>
 <small> <img src="{%static 'coder/false.svg'%}" height="14" width="14"></small>
 {%elif not notcorrect%}
-<h2 class="article-title" style="color: rgb(255, 255, 255);">{{ ques.title }}
-    <span class="badge badge-dark badge-pill">{{ques.Language}}</span> </h2>
+<h2 class="article-title" style="color: rgb(255, 255, 255);">{{ ques.title }}</h2>
+    <span class="badge badge-dark badge-pill">{{ques.Language}}</span>
 <small>
     {%if ques.quiz.typeof == "EASY"%}
     Solved <img src="{%static 'coder/check.svg'%}" height="14" width="14">(+2)</a></small>
@@ -28,11 +28,13 @@ Solved <img src="{%static 'coder/check.svg'%}" height="14" width="14">(+4)</smal
 Solved <img src="{%static 'coder/check.svg'%}" height="14" width="14">(+10)</small>
 {%endif%}
 {%endif%}
+<br>
 <div class="article-content shadow">
     {{ques.content|safe}}
 </div>
 {%notsolved user ques as notattempted%}
 {%if notattempted%}
+<br>
 <span class="badge badge-dark badge-pill"> <a class="nav-item nav-link"
         href="{%url 'quizzes:submit' object.slug%}">Submit
         Answer</a></span>
