@@ -13,7 +13,7 @@
             {% if object.user == user %}
             <div>
                 <small> <a class="badge badge-dark badge-pill"
-                        href="{% url 'forum:query-update' answer.query.slug answer.slug %}">Edit
+                        href="{% url 'forum:query-update' answer.slug %}">Edit
                         ✏️️</a> <a class="badge badge-danger badge-pill"
                         href="{% url 'forum:query-delete' answer.slug %}">Delete</a></small>
             </div>
