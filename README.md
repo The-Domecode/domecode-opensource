@@ -1,9 +1,14 @@
 # DomeCode Open Source
+
 ![domecode](https://user-images.githubusercontent.com/41021374/89816875-e9909280-db64-11ea-8b93-484239dfa8d7.png)
 
 ![GitHub](https://img.shields.io/github/license/the-domecode/domecode-opensource?style=flat-square)
+
 ![Discord](https://img.shields.io/discord/723603615582912512?color=black&logo=discord&logoColor=white)
+
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/the-domecode/domecode-opensource)
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C4226J0)
 
 DomeCode open-source is the open-source codebase of DomeCode, a unified platform to learn code, practice, discuss, plan tasks, take notes, listen to music and more!
 
@@ -11,19 +16,19 @@ The AGPL license allows the free use of this code-base in other free open-source
 
 ## Setup
 
-- Clone this repository. 
-- Run the migrations.
-- Run this on your localhost.
+* Clone this repository. 
+* Run the migrations.
+* Run this on your localhost.
 
 Once you're done with that, you can start working on fixing the nitty gritty details, make improvements, finding issues and reporting them in the issues tab of this repository. Create PRs and have fun!
 
 ### Code Style
 
-- Flake8 is not used at this point, however Pylint is and autopep8 is used.
+* Flake8 is not used at this point, however Pylint is and autopep8 is used.
 
-- Make sure the code has docstrings unless of course the code is pretty generic and is self explainable. If you came up with a solution by yourself on some sort of problem, make sure to include comments and/or docstring(s).
+* Make sure the code has docstrings unless of course the code is pretty generic and is self explainable. If you came up with a solution by yourself on some sort of problem, make sure to include comments and/or docstring(s).
 
-- The static files root is the `notes` directory which is weird and I'm aware of it but since the inception of this platform, the root static directory has been situated there and it's alright. `notes` app was the first app on this, anyway.
+* The static files root is the `notes` directory which is weird and I'm aware of it but since the inception of this platform, the root static directory has been situated there and it's alright. `notes` app was the first app on this, anyway.
 
 Note : In the repo's language stats, HTML and CSS have been disabled intentionally.
 
@@ -56,12 +61,9 @@ If you want to be an outside collaborator with involvement in DomeCode at your o
 
 However, if you want to be part of the DomeCode's new features development team ( we have a private repository for that ) and want to have any future benefits that MIGHT be tied to working on DomeCode in any form, apply at `iwantin@domecode.com` for the following positions :
 
-- Full Stack Web Developer ( FrontEnd - React.js/Vue.js/Angular.js ( preferably React.js) ; Backend - Django/Flask(preferably Django) )
-- Generalist Full Stack Developer ( include what technologies you know of inside the email )
-- Front-End Developer ( React.js/Vue.js/Angular.js ( preferably React.js ) along with basic understanding of Python.
-- Backend Developer ( Django/Flask ( preferably Django ) ; basic understanding of JS and a basic sense of aesthetics )
-- Mobile Developer ( React Native/Flutter, Native Android/Native iOS ( preferably ReactNative for Android and iOS )
-- ML Developer ( fluent in Python, familiar with TensorFlow )
-
-
-
+* Full Stack Web Developer ( FrontEnd - React.js/Vue.js/Angular.js ( preferably React.js) ; Backend - Django/Flask(preferably Django) )
+* Generalist Full Stack Developer ( include what technologies you know of inside the email )
+* Front-End Developer ( React.js/Vue.js/Angular.js ( preferably React.js ) along with basic understanding of Python.
+* Backend Developer ( Django/Flask ( preferably Django ) ; basic understanding of JS and a basic sense of aesthetics )
+* Mobile Developer ( React Native/Flutter, Native Android/Native iOS ( preferably ReactNative for Android and iOS )
+* ML Developer ( fluent in Python, familiar with TensorFlow )

@@ -32,14 +32,31 @@ class ProductCreateView(PageTitleMixin, LoginRequiredMixin, generic.CreateView):
     model = Product
     title = "Create Product"
     template_name = "creator/product_form.html"
+    fields = ['name', 'description', 'category', 'github_repo', 'producthunt', 'youtube_videoid',
+              'linkedin', 'demo', 'contributors', 'isreleased', 'readmeusers', 'readmedevs']
     context_object_name = "product"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class ProductUpdateView(PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Product
     title = "Update Product"
     template_name = "creator/product_form.html"
+    fields = ['name', 'description', 'category', 'github_repo', 'producthunt', 'youtube_videoid',
+              'linkedin', 'demo', 'contributors', 'isreleased', 'readmeusers', 'readmedevs']
     context_object_name = "product"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        product = self.get_object()
+        if self.request.user == product.user:
+            return True
 
 
 class ProductDeleteView(PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
@@ -48,6 +65,7 @@ class ProductDeleteView(PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin,
     template_name = "creator/product_confirm_delete.html"
     context_object_name = "product"
 
-
-
-
+    def test_func(self):
+        product = self.get_object()
+        if self.request.user == product.user:
+            return True
