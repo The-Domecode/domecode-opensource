@@ -1,11 +1,15 @@
 # DomeCode Open Source
 
 ![domecode](https://user-images.githubusercontent.com/41021374/89816875-e9909280-db64-11ea-8b93-484239dfa8d7.png)
+![GitHub](https://img.shields.io/github/license/the-domecode/domecode-opensource)
+![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/the-domecode/domecode-opensource)
+![GitHub issues](https://img.shields.io/github/issues-raw/the-domecode/domecode-opensource)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/the-domecode/domecode-opensource)
+![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/the-domecode/domecode-opensource/django)
 
-![GitHub](https://img.shields.io/github/license/the-domecode/domecode-opensource?style=flat-square)
-
+![Relative date](https://img.shields.io/date/1596609000?label=domecode%20)
+![Website](https://img.shields.io/website?down_color=red&down_message=down%20for%20maintenance&label=domecode%20status&up_color=blue&up_message=online&url=https%3A%2F%2Fdomecode.com%2F)
 ![Discord](https://img.shields.io/discord/723603615582912512?color=black&logo=discord&logoColor=white)
-
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/the-domecode/domecode-opensource)
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C4226J0)
