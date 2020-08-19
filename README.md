@@ -22,15 +22,20 @@ The AGPL license allows the free use of this code-base in other free open-source
 
 Once you're done with that, you can start working on fixing the nitty gritty details, make improvements, finding issues and reporting them in the issues tab of this repository. Create PRs and have fun!
 
-### Code Style
+## Code Style
 
-* Flake8 is not used at this point, however Pylint is and autopep8 is used.
+* Flake8 is used.
 
 * Make sure the code has docstrings unless of course the code is pretty generic and is self explainable. If you came up with a solution by yourself on some sort of problem, make sure to include comments and/or docstring(s).
 
 * The static files root is the `notes` directory which is weird and I'm aware of it but since the inception of this platform, the root static directory has been situated there and it's alright. `notes` app was the first app on this, anyway.
 
 Note : In the repo's language stats, HTML and CSS have been disabled intentionally.
+
+## Contributors
+
+* [Arth Tyagi](https://github.com/arthtyagi) - Project Maintainer and Founder of [DomeCode](https://github.com/arthtyagi)
+* [Arhaan Ahmad](https://github.com/Arhaan)
 
 ## A few other projects you might wanna look out for
 
