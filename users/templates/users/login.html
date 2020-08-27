@@ -7,13 +7,28 @@
         privacy-focused AppleID <i style="color: rgb(255, 255, 255);" class="fab fa-apple"></i> is coming soon to
         DomeCode as well.</p>
     <hr>
-    <span class="badge badge-dark badge-pill"> <a style="color:rgb(255, 255, 255);font-size:18px ;"
-            class="nav-item nav-link" href="{% url 'social:begin' 'github' %}">Login with Github <i
-                class="fab fa-github"></i></a></span>
-                <br><br>
-    <span class="badge badge-danger badge-pill"> <a style="color:rgb(255, 255, 255);font-size:18px ;"
-            class="nav-item nav-link" href="{% url 'social:begin' 'google-oauth2' %}">Login with Google <i
-                class="fab fa-google"></i></a></span>
+    <span class="badge badge-dark badge-pill">
+        {%if request.GET.next %}
+        <a style="color:rgb(255, 255, 255);font-size:18px ;" class="nav-item nav-link"
+            href="{% url 'social:begin' 'github' %}?next={{ request.GET.next }}">Login with Github <i
+                class="fab fa-github"></i></a>
+        {%else%}
+        <a style="color:rgb(255, 255, 255);font-size:18px ;" class="nav-item nav-link"
+            href="{% url 'social:begin' 'github' %}?next={{ request.GET.next }}/">Login with Github <i
+                class="fab fa-github"></i></a>
+        {%endif%}
+    </span>
+    <br><br>
+    <span class="badge badge-danger badge-pill">
+        {%if request.GET.next %}
+        <a style="color:rgb(255, 255, 255);font-size:18px ;" class="nav-item nav-link"
+            href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.GET.next }}">Login
+            with Google <i class="fab fa-google"></i></a></span>
+    {%else%}
+    <a style="color:rgb(255, 255, 255);font-size:18px ;" class="nav-item nav-link"
+        href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.GET.next }}/">Login
+        with Google <i class="fab fa-google"></i></a></span>
+    {%endif%}
     <hr>
 
     <small style="color: rgb(97, 97, 255);"><a href="{%url 'users:register'%}">Register</a>, maybe?</small>

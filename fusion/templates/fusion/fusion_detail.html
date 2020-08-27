@@ -1,0 +1,100 @@
+{%load static%}
+<html>
+<link rel="shortcut icon" type="image/png" href="{%static 'assets/favicon.ico'%}" />
+
+<head>
+    <title>DomeCode - Fusion</title>
+    <meta name="monetization" content="$ilp.uphold.com/DFYMWhkmjUND">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="title" content="DomeCode - A single platform to learn to code">
+    <meta name="description"
+        content="DomeCode is a platform that simplifies your process to learn code and provides you with other tools as well to help you learn to code. Get more, with less hassle.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://domecode.com/">
+    <meta property="og:title" content="DomeCode - A single platform to learn to code">
+    <meta property="og:description"
+        content="DomeCode is a platform that simplifies your process to learn code and provides you with other tools as well to help you learn to code. Get more, with less hassle.">
+    <meta property="og:image"
+        content="https://django-domecode.s3.ap-south-1.amazonaws.com/DOMECODE.png?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPn%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLXNvdXRoZWFzdC0xIkYwRAIgLlLO0VOKjCIaLKvldC%2BY2No6F8l5M6uc0JqlXUor2JYCIEV3IvkbGiUMEzOPMm%2BaM3V%2Fg%2FUPJVssykJiUkXl1HFDKs0CCML%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMOTc5NDEzMDUxOTQzIgyVwKeTsSBDFtJMYBAqoQLDeI6nkkayrNDXRQoUkQXd5rek%2F88dyLWJ1KSA8PmFdIDmy3sBz%2BP9NpSqm51UDOKE6DSg7Un3Y%2B%2B%2BfWLEDlivLv4%2F4CxsL6KOeEPVhe9atHAV%2BwAnDlTaahRh4062ITm%2Fmk6dI5X43rO99ZZno8XP64IM693O%2F4gzHmSVGIcXz%2BDyiAUiP6H0UyHHYgglLmgn1MwadhW50psNdxd89MBh3LrzmoLIlMLR02kF%2Fo0EoYsjk4nWQpkSK%2FW74Zujfu0bb6xUaEYasyNYyMvxfi4mn%2FID1No5XDCOqBd0zcX1ECMR9tuQUKVxCeaDB%2FmuJue5IgAmVD4svdWs10QvwpaS8ki8ImyN97CWrY7sFa5vrURQMtI8q0%2BOy8zV2w1ViBylMI3Lq%2FkFOrECRRFllrT3DSKhJL98NRt4rm2LYJlXpRB4ZD0mVulFdqBRpeEtDSrqVjAdfMLoZye%2F22O0FpP7R0XDr9gzuP0wjUlYozH859jkFjb5J0%2FnUT6Cd5FCF0bC%2BMD2mqcQvVHNAYJOcMLcbaOCQy26EkSKAASuYBtzzWF5opuS4T7wg3Qop0xGS3vywV9MC37HUv%2Bx4RdwjVHBMMYVCwmvv%2FdFnaFz7gs8cyB%2Fy2Y9NFxBvDJpRZw2axpFrs9iR6%2BEf2Ph1GwrEjj6LH4fHqxWGyL02b5yjSL7OAiBA3iMW33xoCx%2F%2FiHgQDBNSFgaUbmxcRP9mVLy2AvN4kTebLasR4%2FPvMITRooTPAZC9yB%2F5ke0inct5z1ykOnXShdRhlT8VrboFAVe%2BRIXzPyYpXbhUJJ4Qss%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200805T190730Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIA6ICMRFIT56HRDXH6%2F20200805%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=02e6a41f2ae16a5c883dab1731cfcf23fd09692a609eb1bf982d188244047cc3">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://domecode.com/">
+    <meta property="twitter:title" content="DomeCode - A single platform to learn to code">
+    <meta property="twitter:description"
+        content="DomeCode is a platform that simplifies your process to learn code and provides you with other tools as well to help you learn to code. Get more, with less hassle.">
+    <meta property="twitter:image"
+        content="https://django-domecode.s3.ap-south-1.amazonaws.com/DOMECODE.png?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPn%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLXNvdXRoZWFzdC0xIkYwRAIgLlLO0VOKjCIaLKvldC%2BY2No6F8l5M6uc0JqlXUor2JYCIEV3IvkbGiUMEzOPMm%2BaM3V%2Fg%2FUPJVssykJiUkXl1HFDKs0CCML%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMOTc5NDEzMDUxOTQzIgyVwKeTsSBDFtJMYBAqoQLDeI6nkkayrNDXRQoUkQXd5rek%2F88dyLWJ1KSA8PmFdIDmy3sBz%2BP9NpSqm51UDOKE6DSg7Un3Y%2B%2B%2BfWLEDlivLv4%2F4CxsL6KOeEPVhe9atHAV%2BwAnDlTaahRh4062ITm%2Fmk6dI5X43rO99ZZno8XP64IM693O%2F4gzHmSVGIcXz%2BDyiAUiP6H0UyHHYgglLmgn1MwadhW50psNdxd89MBh3LrzmoLIlMLR02kF%2Fo0EoYsjk4nWQpkSK%2FW74Zujfu0bb6xUaEYasyNYyMvxfi4mn%2FID1No5XDCOqBd0zcX1ECMR9tuQUKVxCeaDB%2FmuJue5IgAmVD4svdWs10QvwpaS8ki8ImyN97CWrY7sFa5vrURQMtI8q0%2BOy8zV2w1ViBylMI3Lq%2FkFOrECRRFllrT3DSKhJL98NRt4rm2LYJlXpRB4ZD0mVulFdqBRpeEtDSrqVjAdfMLoZye%2F22O0FpP7R0XDr9gzuP0wjUlYozH859jkFjb5J0%2FnUT6Cd5FCF0bC%2BMD2mqcQvVHNAYJOcMLcbaOCQy26EkSKAASuYBtzzWF5opuS4T7wg3Qop0xGS3vywV9MC37HUv%2Bx4RdwjVHBMMYVCwmvv%2FdFnaFz7gs8cyB%2Fy2Y9NFxBvDJpRZw2axpFrs9iR6%2BEf2Ph1GwrEjj6LH4fHqxWGyL02b5yjSL7OAiBA3iMW33xoCx%2F%2FiHgQDBNSFgaUbmxcRP9mVLy2AvN4kTebLasR4%2FPvMITRooTPAZC9yB%2F5ke0inct5z1ykOnXShdRhlT8VrboFAVe%2BRIXzPyYpXbhUJJ4Qss%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200805T190730Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIA6ICMRFIT56HRDXH6%2F20200805%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=02e6a41f2ae16a5c883dab1731cfcf23fd09692a609eb1bf982d188244047cc3">
+    <!-- IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+        integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174981481-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-174981481-1');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,300;0,400;1,200;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Flavors&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta name="monetization" content="$ilp.uphold.com/DFYMWhkmjUND">
+    <link rel="stylesheet" type="text/css" href="{%static 'notes/editor.css'%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <script src="{%static 'js/script.js'%}"></script>
+    <div class="code-area" id="code-area">
+        <textarea rows="1" cols="1" style="height: 5%;" id="ytcode"
+            placeholder="Insert YouTube Video Embed Code ( adjust height and width accordingly )"
+            oninput="ytpreview()"></textarea>
+        <textarea id="htmlCode" placeholder="HTML Code" oninput="showPreview()"></textarea>
+        <textarea id="cssCode" placeholder="CSS Code" oninput="showPreview()"></textarea>
+        <textarea id="jsCode" placeholder="JavaScript Code" oninput="showPreview()"></textarea> 
+    </div>
+    <div class="preview-area">
+        <iframe id="preview-window"></iframe>
+        <iframe id="ytvideo"></iframe>
+    </div>
+
+</body>
+<script src="{%static 'js/editor.js'%}"></script>
+<div class="footer">
+    <span>&#169;</span>2020. <a href="{%url 'notes:home'%}" target="_blank" style=" font-family:'Flavors' ;font-weight:
+        bolder; font-size:20px ; background: linear-gradient(to right, #f12711, #f5af19); -webkit-background-clip: text;
+        background-clip:text; -webkit-text-fill-color: transparent;">DomeCode</a>. All rights reserved.
+    An <a target=_blank href="https://github.com/arthtyagi">Arth
+        Tyagi</a>
+    production. Wanna go back? Click <a href="{%url 'notes:home'%}">here.</a>
+</div>
+
+</html>

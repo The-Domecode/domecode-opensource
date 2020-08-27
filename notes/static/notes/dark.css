@@ -187,6 +187,12 @@ a.article-title:hover {
   border-radius: 10px;
 }
 
+.btn-secondary {
+  padding: 5px 30px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
 .btn-dark {
   color: black;
 }
@@ -332,5 +338,35 @@ audio::-webkit-media-controls-play-button, audio::-webkit-media-controls-panel {
 @keyframes pulse {
   to {
     opacity: 1;
+  }
+}
+
+p {
+  display: flexbox;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.grad {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  background-clip: text;
+  clip: text;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

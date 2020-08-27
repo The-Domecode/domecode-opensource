@@ -7,7 +7,11 @@ from django.db.models import Q
 from . import compare
 from domecode.mixins import PageTitleMixin
 
+from django.conf import settings
 from .models import Question, Answer
+import requests
+import json
+import time
 
 
 def coderhome(request):
@@ -101,7 +105,7 @@ class CoderDetailView(PageTitleMixin, DetailView):
 
 class CoderCreateView(PageTitleMixin, LoginRequiredMixin, CreateView):
     model = Answer
-    fields = ['result']
+    fields = ['result', 'language']
     context_object_name = 'answer'
     template_name = "coder/coder_form.html"
     title = 'Submit'
@@ -115,14 +119,51 @@ class CoderCreateView(PageTitleMixin, LoginRequiredMixin, CreateView):
         question = Question.objects.get(slug=self.kwargs['qslug'])
 
         form.instance.question = question
-        f = (list(self.request.FILES.values())[0],
-             str(question.solution.read()))
+        expected_output = question.solution.read().decode('utf-8')  # API won't compile this if you don't decode
+        src_code = form.instance.result.read().decode('utf-8')
 
-        f1 = (list(self.request.FILES.values())[0],
-              str(form.instance.result.read()))
+        # Judge API
+        API_URL = 'https://judge0.p.rapidapi.com/submissions/'
+        querystring = {"base64_encoded": "false"}
 
-        form.instance.iscorrect = compare.compare(f, f1)
-        if form.instance.iscorrect:
+        # Later change to wait = false
+        headers_post = {
+            'x-rapidapi-host': "judge0.p.rapidapi.com",
+            'x-rapidapi-key': settings.JUDGE0_RAPID_API_KEY,
+            'content-type': "application/json",
+            'accept': "application/json"
+            }
+
+        LANGUAGE_CODES = {'PYTHON': 71, 'JAVA': 62, 'C++': 54, 'RUST': 73, 'GO': 60, 'C': 50}
+        # Update above line whenever a new language is added
+
+        data_post = {
+            'source_code': src_code,
+            'language_id': LANGUAGE_CODES[form.instance.language],
+            'expected_output': expected_output,
+        }
+        data_post = json.dumps(data_post)
+        response = requests.post(url=API_URL, data=data_post, headers=headers_post, params=querystring)
+        token = json.loads(response.text)['token']
+
+        headers_get = {
+            'x-rapidapi-host': "judge0.p.rapidapi.com",
+            'x-rapidapi-key': settings.JUDGE0_RAPID_API_KEY}
+        status = 'Processing'
+        i = 0
+        while status == 'Processing' or status == 'In Queue':
+            response2 = requests.request("GET", API_URL+token, headers=headers_get, params=querystring)
+            status = json.loads(response2.text)['status']['description']
+            time.sleep(0.1)
+            i = i+1
+            if i == 200:  # Break if it takes more than 20 seconds (probably means api is down)
+                status = "TLE"  # Setting the status = TLE
+                break
+
+        form.instance.status = status
+        form.instance.response_from_judge = response2.text
+        form.instance.iscorrect = (form.instance.status == 'Accepted')
+        if (form.instance.iscorrect and Answer.objects.filter(question=question).filter(iscorrect=True).filter(user=form.instance.user).count() == 0):
             if form.instance.question.category == "EASY":
                 form.instance.user.profile.domes += 10
             if form.instance.question.category == "MEDIUM":

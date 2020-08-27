@@ -14,7 +14,7 @@ class Notes(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     category = models.CharField(max_length=25, default="CS")
-    slug = models.SlugField(null = True, unique = True, max_length = 256)
+    slug = models.SlugField(null=True, unique=True, max_length=256)
 
     def __str__(self):
         return self.title
@@ -23,6 +23,6 @@ class Notes(models.Model):
         return reverse('notes:detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
-        uniqueid = get_random_string(length = 64)
+        uniqueid = get_random_string(length=64)
         self.slug = slugify(uniqueid)
         super().save(*args, **kwargs)

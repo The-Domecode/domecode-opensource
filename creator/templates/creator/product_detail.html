@@ -1,0 +1,99 @@
+{% extends "notes/base.html" %}
+{% block content %}
+<article class="media content-section shadow">
+    <img class="rounded-circle article-img" src="{{ product.user.profile.image.url }}" />
+    <div class="media-body">
+        <div class="article-metadata">
+            <small class="text-muted">{{ product.created|date:"F d, Y" }}</small>
+            <span class="badge badge-info badge-pill">{{product.category}}</span>
+
+            {% if product.user == user %}
+            <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'creator:update' product.slug %}">Update</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'creator:delete' product.slug %}">Delete</a>
+            </div>
+            {% endif %}
+        </div>
+        <h2 class="article-title">{{ product.name }}</h2>
+        <span class="text-muted">by <a
+                href="{% url 'users:profilepage' product.user.profile.slug%}">{{product.user}}</a></span>
+        <hr>
+        <div class="media-content">
+            <h3>What's this product? </h3>
+            {{product.description|safe}}
+
+            {%if product.github_Repo_Link%}
+            <br>
+            <h3>Github/Gitlab/Bitbucket Repo <i class="fab fa-github"></i>/<i class="fab fa-gitlab"></i>/<i
+                    class="fab fa-bitbucket"></i></h3>
+            <a target="_blank" href="{{product.github_Repo_Link}}">Check out the repository.</a>
+            {%endif%}
+
+            {%if product.producthunt%}
+            <br>
+            <h3>Product Hunt Listing <i class="fab fa-product-hunt"></i></h3>
+            <a target="_blank" href="{{product.producthunt}}">Check out Product Hunt Listing</a>
+            {%endif%}
+
+            {%if product.linkedin%}
+            <br>
+            <h3>LinkedIn Product Page <i class="fab fa-linkedin-in"></i></h3>
+            <a href="{{product.linkedin}}">Check out LinkedIn Product Page</a>
+            {%endif%}
+
+            {%if product.youtube_videoid%}
+            <br>
+            <h3>YouTube Video <i class="fab fa-youtube"></i></h3>
+            <a target="_blank" href="{{product.youtube_videoid}}">Check out YouTube demo video</a>
+            {%endif%}
+
+            {%if product.demo%}
+            <br>
+            <h3>Demo Link</h3>
+            <a target="_blank" href="{{product.demo}}">Check out the Demo</a>
+            {%endif%}
+
+            {%if product.documentation_Users_Link%}
+            <br>
+            <h3>Documentation for Users</h3>
+            <a target="_blank" href="{{product.documentation_Users_Link}}">Check it out</a>
+            {%endif%}
+
+            {%if product.documentation_Devs_Link%}
+            <br>
+            <h3>Documentation for Developers</h3>
+            <a target="_blank" href="{{product.documentation_Devs_Link}}">Check it out</a>
+            {%endif%}
+
+            {%if product.additional_File%}
+            <br>
+            <h3>Additional Files</h3>
+            <a target="_blank" href="{{product.additional_File.url}}">Check it out</a>
+            {%endif%}
+
+            <br>
+            <h3>Contributors</h3>
+            {{product.contributors}}
+
+            <br><br>
+            {%if product.isreleased%}
+            <a style="font-family: Mulish; font-size: 32px; font-weight: bold;background: linear-gradient(to right, #6085ff, hsl(211, 100%, 82%));
+            -webkit-background-clip: text; background-clip:text;
+            -webkit-text-fill-color: transparent;">This product has been released.</a>
+            <br>
+            {%endif%}
+        </div>
+        <hr>
+        <p style="font-weight: bolder;">Want to share this? Grab the link and share it with people!</p>
+        <br>
+        <a class="twitter-share-button" target="_blank"
+        href="https://twitter.com/intent/tweet">
+      Tweet</a> <i class="fab fa-twitter" style="color: aqua;"></i>
+    </div>
+    {%if user.is_authenticated%}
+    <p><a href="{%url 'creator:list'%}">Go Back</a></p>
+    {%else%}
+    <p><a href="{%url 'creator:list'%}">Create your own product listing?</a></p>
+    {%endif%}
+</article>
+{% endblock content %}

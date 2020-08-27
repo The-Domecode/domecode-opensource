@@ -24,6 +24,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('quiz/', include('quizzes.urls')),
     path('products/', include('creator.urls')),
+    path('fusion/', include('fusion.urls')),
     # REST FRAMEWORK URLS
     path('api/todo/', include('todo.api.urls', 'todo_api')),
     path('api/notes/', include('notes.api.urls', 'notes_api')),

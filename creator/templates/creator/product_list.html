@@ -1,0 +1,86 @@
+{% extends "notes/base.html" %}
+{% load countproducts %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Creator Module</h1>
+<br>
+<p style="font-size: larger; background: linear-gradient(to right, hsl(246, 100%, 73%), #fa44cd);
+-webkit-background-clip: text; background-clip:text;
+-webkit-text-fill-color: transparent;">
+    Creator is a shareable listing of your product that encapsulates all the other listings of your product.
+    It's tailored for developers who like building stuff.
+    The Creator Module allows you to list your products with all the relevant info at a single place including :
+
+<ol style="font-size: larger; background: linear-gradient(to left, hsl(246, 100%, 73%), #fa44cd);
+-webkit-background-clip: text; background-clip:text;
+-webkit-text-fill-color: transparent;">
+    <li>Description</li>
+    <li>Documentation for General Use</li>
+    <li>Documentation for Developers</li>
+    <li>Demo links</li>
+    <li>Github/Gitlab/BitBucket repo</li>
+    <li>Linkedin Profile</li>
+    <li>Youtube Channel</li>
+    <li>Product Hunt listing</li>
+</ol>
+<a style="font-size: larger; background: linear-gradient(to right, hsl(246, 100%, 73%), #fa44cd);
+-webkit-background-clip: text; background-clip:text;
+-webkit-text-fill-color: transparent;">All of this in a single shareable link. Start creating now :)</a>
+</p>
+<hr><br>
+<h2>Your Products</h2>
+<span class="badge badge-dark badge-pill"> <a class="nav-item nav-link" href="{%url 'creator:create'%}">New Product</a>
+</span>
+<br><br>
+
+{%if user.is_authenticated%}
+<span class="badge badge-dark badge-pill">Hi {{user.first_name}}, you have made a total of {%count_products_of user%}
+    product(s).</span>
+<br><br>
+
+
+{% for product in product %}
+<article class="media content-section shadow">
+    <img class="rounded-circle article-img" src="{{ product.user.profile.image.url }}">
+    <div class="media-body container-fluid">
+        <span class="badge badge-info badge-pill">{{product.category}}</span>
+        <h4><a class="article-title" href="{% url 'creator:detail' product.slug %}">{{ product.name }}</a></h4>
+
+
+    </div>
+</article>
+{% endfor %}
+
+{% if page_obj.has_previous %}
+
+<a class="page-link badge badge-dark badge-pill"
+    href="?{% if query %}q={{query}}&{% endif %}page={{ page_obj.previous_page_number }}">&laquo; Previous</a>
+
+{% endif %}
+
+{% for i in page_obj.paginator.page_range %}
+{% if page_obj.number == i %}
+<a class="page-link badge badge-dark badge-pill">Page {{ i }}</a>
+{% else %}
+<a class="page-link badge badge-dark badge-pill" href="?{% if query %}q={{query}}&{% endif %}page={{ i }}">
+    {{ i }}</a>
+
+{% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+
+<a class="page-link badge badge-dark badge-pill"
+    href="?{% if query %}q={{query}}&{% endif %}page={{ page_obj.next_page_number }}">Next</a>
+
+
+<a class="page-link badge badge-dark badge-pill"
+    href="?{% if query %}q={{query}}&{% endif %}page={{ page_obj.paginator.num_pages }}">Last
+    &raquo;</a>
+
+{% endif %}
+
+<br>
+{%endif%}
+
+{% endblock content %}

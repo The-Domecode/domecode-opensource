@@ -35,23 +35,35 @@
 	<div class=" d-flex justify-content-center">
 		<p style="font-family: Mulish; font-size: 20px; font-weight: bold;background: linear-gradient(to right, #6085ff, hsl(211, 100%, 82%));
 		-webkit-background-clip: text; background-clip:text;
-		-webkit-text-fill-color: transparent;">DomeCode is an open source platform where you can advance your coding journey
-			with compiled resources to learn
-			programming
-			concepts, take notes, plan tasks, practice coding problems, discuss interesting stuff on the forum, meet
+		-webkit-text-fill-color: transparent;">DomeCode is an open source platform to help you advance your coding journey
+			with pre-existing resources to learn programming concepts ( in Python as of now ), take notes, plan tasks,
+			practice coding problems in 6 different languages including,
+
+			<img src="https://img.icons8.com/color/96/000000/python.png" /> Python,
+			<img src="https://img.icons8.com/color/96/000000/golang.png" /> Go,
+			<img src="https://img.icons8.com/color/96/000000/java-coffee-cup-logo.png" /> Java,
+			<img src="https://img.icons8.com/color/96/000000/c-plus-plus-logo.png" /> C++,
+			<img src="https://img.icons8.com/color/96/000000/c-programming.png" /> C or Rust.
+
+			<br>
+
+			You can also discuss interesting stuff on the forum, meet
 			other
 			developers and most all even get to listen to music conveniently without ever leaving this open source
 			platform
 			to
-			navigate to paid platforms.</p>
+			navigate to paid platforms.
+		</p>
 	</div>
 	<hr>
 	<div class=" d-flex justify-content-center">
-		<p style="font-family: Mulish; font-size: 10vw; font-weight: bold; background: linear-gradient(to right,  hsl(246, 100%, 85%), #df70c3);
+		<p style="font-family: Mulish; font-size: 10vw; font-weight: bold; background: linear-gradient(to right,  hsl(246, 100%, 85%), #fa44cd);
 		-webkit-background-clip: text; background-clip:text;
 		-webkit-text-fill-color: transparent;">Features</p>
 	</div>
 	<br>
+	<br>
+
 	<div class=" d-flex justify-content-center">
 		<p style="font-family: Mulish; font-size: 36px; font-weight: bold; background: linear-gradient(to right, #6085ff, hsl(211, 100%, 82%));
 		-webkit-background-clip: text; background-clip:text;
@@ -158,7 +170,7 @@
 	<br>
 	<div class="row container-fluid shadow">
 
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<div class="card-deck">
 				<div class="card-body">
 					<img class="card-img-top" src="/static/images/notes.png" alt="Card image cap">
@@ -173,7 +185,24 @@
 			</div>
 		</div>
 
-		<div class="col-md-6">
+		<div class="col-md-4">
+			<div class="card-deck">
+				<div class="card-body">
+					<img class="card-img-top" src="/static/images/fire.png" alt="Card image cap">
+					<br><br><br>
+					<h5 class="card-title" style="color:antiquewhite;">CREATOR</h5>
+					<p class="card-text">
+						Creator is a shareable listing of your product that encapsulates all the other listings of your
+						product.
+						It's tailored for developers who like building stuff.
+					</p>
+					<a href="{%url 'todo:list'%}" class="btn btn-primary">Create</a>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-md-4">
 			<div class="card-deck">
 				<div class="card-body">
 					<img class="card-img-top" src="/static/images/tasks.png" alt="Card image cap">
@@ -186,6 +215,7 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
 </div>
 <br>
@@ -202,7 +232,7 @@
 <br>
 {%if not user.is_authenticated%}
 <div class="fade-in d-flex justify-content-center" style="font-family: Mulish; font-size: 34px; font-weight: bold;">
-	<p><a style="font-weight: bolder;  background: linear-gradient(to right, hsl(246, 100%, 73%), #a42b85);
+	<p><a style="font-weight: bolder;  background: linear-gradient(to right, hsl(246, 100%, 73%), #fa44cd);
 		-webkit-background-clip: text; background-clip:text;
 		-webkit-text-fill-color: transparent;" href="{%url 'users:register'%}">Get started now!</a></p>
 </div>

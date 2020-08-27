@@ -23,30 +23,13 @@
 <span class="badge badge-light badge-pill">{{question.category}}</span>
 <span class="badge badge-dark badge-pill">{{question.typeof}}</span>
 {%endif%}
+
 <div class="article-content shadow">
     {{question.content|safe}}
 </div>
 
 
 
-
-<div class="article-content shadow">
-    <p> <strong>NOTE</strong>
-        <strong>You need to submit the solution's output as a text file for it to be graded.</strong>
-        These are some resources to help you with that :
-        <a target="_blank" href="https://stackoverflow.com/questions/3538156/file-i-o-in-every-programming-language">
-            File IO in Every Language</a>
-        <a target="_blank"
-            href="https://cmdlinetips.com/2012/09/three-ways-to-write-text-to-a-file-in-python/#:~:text=Here%20is%20three%20ways%20to,a%20new%20file%20to%20write.">
-            This one is specific to Python.</a>
-        <a target="_blank"
-            href="https://www.geeksforgeeks.org/redirecting-system-out-println-output-to-a-file-in-java/">
-            This one is specific to Java.</a>
-
-        If you feel stuck, you can ask for help at our <a href="https://discord.gg/k6AKtsA">Discord</a> or on our
-        <a href="{%url 'forum:list'%}">Forum</a>.
-    </p> 
-</div>
 <br>
 
 {%if user.is_authenticated%}
@@ -63,6 +46,23 @@
         Answer</a></span>
 {%endif%}
 <hr>
+<br>
+<div class="article-content shadow">
+    <p> <strong>NOTE</strong>
+
+        These questions can be solved in either <i class="fab fa-java"> Java </i>, <i class="fab fa-python"> Python
+        </i>,
+        <i class="fab fa-rust"> Rust</i>, <i class="devicon-cplusplus-plain"> C++</i>, <i
+            class="devicon-go-plain">Go</i> or <i class="devicon-c-plain"></i> !
+
+        However, the language intended for these questions is mentioned along with the question on the top.
+        You need to submit the solution file for the autograder to grade the submission.
+
+        <strong>If you are submitting in Java, make sure that the class name is Main (with a capital M)</strong>
+    </p>
+</div>
+<br>
+
 {%if question.typeof == "PYTHON"%}
 <p>Optional Python Editor for your use</p>
 <iframe src="https://trinket.io/embed/python3/9d578a67e3" width="90%" height="400" frameborder="0" marginwidth="0"

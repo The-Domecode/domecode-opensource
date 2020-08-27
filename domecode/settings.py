@@ -1,5 +1,5 @@
 import os
-from decouple import config, Csv
+from decouple import config
 import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'quizzes.apps.QuizzesConfig',
     'resources.apps.ResourcesConfig',
     'creator.apps.CreatorConfig',
+    'fusion.apps.FusionConfig',
     # crispy
     'crispy_forms',
     # default
@@ -180,7 +181,6 @@ MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'notes:home'
 
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
@@ -234,8 +234,9 @@ def get_cache():
         return {
             'default': {
                 'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
-                # TIMEOUT is not the connection timeout! It's the default expiration
-                # timeout that should be applied to keys! Setting it to `None`
+                # TIMEOUT is not the connection timeout! It's the default
+                # expirationtimeout that should be applied to keys!
+                # Setting it to `None`
                 # disables expiration.
                 'TIMEOUT': None,
                 'LOCATION': servers,
@@ -272,3 +273,5 @@ def get_cache():
 
 
 CACHES = get_cache()
+
+JUDGE0_RAPID_API_KEY = config('JUDGE0_RAPID_API_KEY')

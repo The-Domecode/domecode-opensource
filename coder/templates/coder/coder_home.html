@@ -1,32 +1,55 @@
 {%extends "notes/base.html"%}
 {%block content%}
-<h1>Practice</h1>
-<br>
-<p style="font-size: small;">Practice <a href="{%url 'coder:list-python'%}">Python</a> | <a href="{%url 'coder:list-java'%}">Java</a> | <a
-    href="{%url 'coder:list-general'%}">General</a> |<a href="{%url 'coder:home'%}"> Look at what "Practice is all
-    about".</a></p>
-<hr>
-<br>
-<div class="media-content shadow" style="font-size: 18px;">
-    Note that the problems are categorized with languages most appropriate to be used with them.
-    You might solve them with any language of your choice and it's totally upto you but for your own sanity, you
-    should try using the appropriate language.
-    <br><br>
-    DomeCode uses output based evaluation similar to what you might've experienced in AdventOfCode.
-    <br><br>
-    Some problems on DomeCode's Practice module exist such that they might be challenging for some users. Hence, while
-    solving problems researching for appropriate help with a concept is an important set of skill. While you'll be able
-    to find the resources on DomeCode itself since with every release, the resources gathered increase both in quality
-    and quantity, it is important to try this by yourself.
-    <br><br>
-    While a lot of competitive programming happening on-site disbars the use of Internet, in the real world of
-    development, it's almost impossible to get around without looking up documentations, forums and the internet in
-    general.
-    <br><br>
-    DomeCode's goal isn't to teach you competitive programming, it's primary objective is to advance your coding skills
-    and practice them along with being able to use the features that would make the experience simply better for you
-    without having to leave a single workspace.
 
-</div>
+<ul class="media-content shadow">
+    <h1>Practice</h1>
+    <br>
+    <p style="font-size: small;">Practice <a href="{%url 'coder:list-python'%}">Python</a> | <a
+            href="{%url 'coder:list-java'%}">Java</a> | <a href="{%url 'coder:list-general'%}">General</a> |<a
+            href="{%url 'coder:home'%}"> Look at what "Practice is all
+            about".</a></p>
+    <hr>
+    <br>
+    <div class="media-content" style="font-size: 18px;">
+        <p style="background: linear-gradient(to right, hsl(246, 100%, 73%), #fa44cd);
+        -webkit-background-clip: text; background-clip:text;
+        -webkit-text-fill-color: transparent;">
+            Note that the problems are categorized with languages most appropriate to be used with them.
+            You might solve them with any language of your choice and it's totally upto you but for your own sanity, you
+            should try using the appropriate language.
+            <br></p>
+        <h4>Supported Languages</h4>
+        <br>
 
+        <li><img src="https://img.icons8.com/color/48/000000/python.png" /> Python</li>
+        <li><img src="https://img.icons8.com/color/48/000000/golang.png" /> Go</li>
+        <li><img src="https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png" /> Java</li>
+        <li><img src="https://img.icons8.com/color/48/000000/c-plus-plus-logo.png" /> C++</li>
+        <li><img src="https://img.icons8.com/color/48/000000/c-programming.png" /> C</li>
+        <li><i style="color:brown; font-size: 36px;" class="fab fa-rust"></i></i> Rust</li>
+        <br>
+        <p class="grad">
+            Some problems on DomeCode's Practice module exist such that they might be challenging for some users. Hence,
+            while
+            solving problems researching for appropriate help with a concept is an important set of skill. While you'll
+            be
+            able
+            to find the resources on DomeCode itself since with every release, the resources gathered increase both in
+            quality
+            and quantity, it is important to try this by yourself.
+            <br><br>
+            While a lot of competitive programming happening on-site disbars the use of Internet, in the real world of
+            development, it's almost impossible to get around without looking up documentations, forums and the internet
+            in
+            general.
+            <br><br>
+            DomeCode's goal isn't to teach you competitive programming, it's primary objective is to advance your coding
+            skills
+            and practice them along with being able to use the features that would make the experience simply better for
+            you
+            without having to leave a single workspace.
+            <br><br>
+        </p>
+    </div>
+</ul>
 {%endblock content%}

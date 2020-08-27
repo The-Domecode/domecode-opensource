@@ -1,5 +1,3 @@
-from coder.models import Question
-from django.shortcuts import render
 from .models import Ques, Answer, Quiz
 from django.views.generic import DetailView, ListView, CreateView
 from domecode.mixins import PageTitleMixin
@@ -14,6 +12,26 @@ class QuizHomeView(PageTitleMixin, ListView):
     title = 'Quizzes'
 
 
+"""
+Quiz Detail View is the detail of a quiz wherein the context_data method helps
+ return the questions for that particular quiz.
+There's a reason behind why the filter==Python got removed and .all() got
+placed instead.
+In order to return the questions for a particular quiz there were two options :
+
+A. Since both quiz and ques have a language attribute, we could have a quiz in
+ any language, have ques in various languages. do manipulation in quiz home
+template and create separate templates for different language quizzes. Pros :
+ Single Detail View, CONS : Too much HTML to deal with.
+
+B. Minimal manipulation in HTML, single detail view template.
+Pros : Single template,
+Single View CONS : A quiz with a specified language can't
+have questions of other languages. Not technically a con but yeah,
+something to take note of.
+"""
+
+
 class QuizDetailView(PageTitleMixin, DetailView):
     model = Quiz
     template_name = "quizzes/quiz_detail.html"
@@ -23,10 +41,11 @@ class QuizDetailView(PageTitleMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         instance = self.get_object()
-        context['ques'] = instance.ques_set.filter(Language="PYTHON")
+        context['ques'] = instance.ques_set.all()
         return context
 
 
+# TODO: Can remove LoginRequiredMixin
 class QuesDetailView(PageTitleMixin, LoginRequiredMixin, DetailView):
     model = Ques
     title = 'Quiz Question'
@@ -51,7 +70,7 @@ class AnswerCreateView(PageTitleMixin, LoginRequiredMixin, CreateView):
         if form.instance.answer == question.solution:
             form.instance.iscorrect = True
 
-        if form.instance.iscorrect:
+        if form.instance.iscorrect and Answer.objects.filter(question=question).filter(user=form.instance.user).filter(iscorrect=True).count() == 0:
             if form.instance.question.quiz.typeof == "EASY":
                 form.instance.user.profile.domes += 2
             if form.instance.question.quiz.typeof == "MEDIUM":

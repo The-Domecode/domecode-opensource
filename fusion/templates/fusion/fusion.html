@@ -1,0 +1,51 @@
+{%extends "notes/base.html"%}
+{%load static%}
+{%block content%}
+<div class="fade-in">
+    <div class="d-flex justify-content-center ">
+        <a class="grad" style="font-weight: bolder;  font-size:20vw ;">Fusion</a>
+    </div>
+    <div class="d-flex justify-content-center ">
+        <a style="font-weight: bolder; font-size:1.5rem;">Immerse yourself in Fusion.</a>
+    </div>
+    <br><br>
+    <div class="d-flex justify-content-center ">
+        <span style="font-weight: bolder; font-size:1.5rem;" class="badge badge-dark badge-pill"> <a
+                class="nav-item nav-link" href="{%url 'fusion:fusion-detail'%}" target="_blank">Get started now!</a>
+        </span>
+    </div>
+</div>
+<br><br>
+<div class=" d-flex justify-content-center">
+    <p style="font-family: Mulish; font-size: 6vw; font-weight: bold; background: linear-gradient(to right,  hsl(246, 100%, 85%), #fa44cd);
+		-webkit-background-clip: text; background-clip:text;
+        -webkit-text-fill-color: transparent;">What is Fusion?</p>
+</div>
+<br>
+<p class="grad" style="font-size:larger">
+    Fusion is a real-time disposable editor using which
+    you can start learning front-end technology
+    including HTML, CSS, JS with any YouTube tutorial of your choice in a <a style="font-size: larger;">single tab</a>
+    of </a>a code
+    editor and two browser windows like a <a style="font-size:larger">memory hog.</a></p>
+<br><br>
+<div class=" d-flex justify-content-center">
+    <p style="font-family: Mulish; font-size: 6vw; font-weight: bold; background: linear-gradient(to right,  hsl(246, 100%, 85%), #fa44cd);
+		-webkit-background-clip: text; background-clip:text;
+        -webkit-text-fill-color: transparent;">How to use it?</p>
+
+</div> <br>
+<div class=" d-flex justify-content-center">
+    <ol style="font-size:larger; background: linear-gradient(to left, hsl(246, 100%, 85%), #ff95e5);
+    -webkit-background-clip: text; background-clip:text;
+    -webkit-text-fill-color: transparent">
+        <li><a>Pick any front-end tutorial of your choice that includes HTML, CSS/JS. DomeCode recommends <a
+                    target=" _blank" href="https://www.youtube.com/watch?v=mU6anWqZJcc&t=13684s">this.</a></li>
+        <li>Copy the embed code. You can get the embed code by clicking on the "Share" button under the video.</li>
+        <li>Paste the embed code to Fusion's <a href="{%url 'fusion:fusion-detail'%}" target="_blank">Immerse</a>. Make
+            sure to set the height and width attributes accordingly.</li>
+        <li>Voila! Watch your tutorial, code and even get real-time preview in a single tab!</li>
+
+    </ol>
+</div>
+{%endblock content%}

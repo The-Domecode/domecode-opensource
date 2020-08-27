@@ -34,7 +34,7 @@
 {%else%}
 - {{ submission.question.title }} ({{submission.question.typeof}} - {{submission.question.category}}) - <a
     href="{{submission.result.url}}">{{submission.result}} <img src="{%static 'coder/false.svg'%}" height="14"
-        width="14"></a>
+        width="14"> {{submission.status}}</a>
 <br>
 {%endif%}
 {%endfor%}

@@ -85,9 +85,23 @@ element.onclick = function () {
     history.back();
     return false;
 }
+function showPreview() {
+    var htmlCode = document.getElementById("htmlCode").value;
+    var cssCode = "<style>" + document.getElementById("cssCode").value + "</style>";
+    var jsCode = "<scri" + "pt>" + document.getElementById("jsCode").value + "</scri" + "pt>";
+    var frame = document.getElementById("preview-window").contentWindow.document;
+    frame.open();
+    frame.write(htmlCode + cssCode + jsCode);
+    frame.close();
 
-
-
+}
+function ytpreview() {
+    var ytcode = document.getElementById("ytcode").value;
+    var ytframe = document.getElementById("ytvideo").contentWindow.document;
+    ytframe.open();
+    ytframe.write(ytcode);
+    ytframe.close();
+}
 
 
 var CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';

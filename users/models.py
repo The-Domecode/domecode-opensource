@@ -12,7 +12,7 @@ class Profile(models.Model):
     about = models.CharField(null=True, blank=True, max_length=200)
     githubusername = models.CharField(null=True, blank=True, max_length=80)
     domes = models.IntegerField(default=0)
-    slug = models.SlugField(null=True, unique=True, max_length = 256)
+    slug = models.SlugField(null=True, unique=True, max_length=256)
 
     def __str__(self):
         return f'{self.user.username} Profile'

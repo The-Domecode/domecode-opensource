@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'quizzes.apps.QuizzesConfig',
     'resources.apps.ResourcesConfig',
     'creator.apps.CreatorConfig',
+    'fusion.apps.FusionConfig',
     # crispy
     'crispy_forms',
     # default
@@ -51,8 +52,6 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
-    # honeybadger
-    'honeybadger.middleware.DjangoHoneybadgerMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -179,7 +178,6 @@ MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'notes:home'
 
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
@@ -249,3 +247,4 @@ def get_cache():
 
 
 CACHES = get_cache()
+JUDGE0_RAPID_API_KEY = config('JUDGE0_RAPID_API_KEY')
