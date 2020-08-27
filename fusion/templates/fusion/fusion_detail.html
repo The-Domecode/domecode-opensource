@@ -77,9 +77,9 @@
         <textarea rows="1" cols="1" style="height: 5%;" id="ytcode"
             placeholder="Insert YouTube Video Embed Code ( adjust height and width accordingly )"
             oninput="ytpreview()"></textarea>
-        <textarea id="htmlCode" placeholder="HTML Code" oninput="showPreview()"></textarea>
+        <textarea id="htmlCode" placeholder="HTML Code" onblur="showPreview()"></textarea>
         <textarea id="cssCode" placeholder="CSS Code" oninput="showPreview()"></textarea>
-        <textarea id="jsCode" placeholder="JavaScript Code" oninput="showPreview()"></textarea> 
+        <textarea id="jsCode" placeholder="JavaScript Code" onblur="showPreview()"></textarea> 
     </div>
     <div class="preview-area">
         <iframe id="preview-window"></iframe>
