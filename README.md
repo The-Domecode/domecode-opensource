@@ -24,6 +24,11 @@ The AGPL license allows the free use of this code-base in other free open-source
 * Run the migrations.
 * Run this on your localhost.
 
+
+Use the`devmanage.py` command instead of `manage.py` command on development environments.
+This project uses `decouple` so make sure to make a local `.env` file in your root directory of the project containing all the variables with dummy values.
+The variables you should include are the ones with `config()` next to them in the `devmanage.py` file. If there's an error due to the missing value of an environment variable, it can be fixed with ease by passing in appropriate variables. It's pretty generic stuff. 
+
 Once you're done with that, you can start working on fixing the nitty gritty details, make improvements, finding issues and reporting them in the issues tab of this repository. Create PRs and have fun!
 
 ## Code Style
