@@ -1,6 +1,6 @@
 # DomeCode Open Source
 
-![domecode](https://user-images.githubusercontent.com/41021374/89816875-e9909280-db64-11ea-8b93-484239dfa8d7.png)
+![DomeCode 3 800x800](https://user-images.githubusercontent.com/41021374/91971685-3b2cd700-ed37-11ea-801f-62a4cf34e1cc.png)
 ![GitHub](https://img.shields.io/github/license/the-domecode/domecode-opensource)
 ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/the-domecode/domecode-opensource)
 ![GitHub issues](https://img.shields.io/github/issues-raw/the-domecode/domecode-opensource)
