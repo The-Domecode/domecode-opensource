@@ -20,7 +20,7 @@ The AGPL license allows the free use of this code-base in other free open-source
 
 ## Setup
 
-* Clone this repository. 
+* Clone a fork of this repository. 
 * Run the migrations.
 * Run this on your localhost.
 
@@ -30,6 +30,11 @@ This project uses `decouple` so make sure to make a local `.env` file in your ro
 The variables you should include are the ones with `config()` next to them in the `devmanage.py` file. If there's an error due to the missing value of an environment variable, it can be fixed with ease by passing in appropriate variables. It's pretty generic stuff. 
 
 Once you're done with that, you can start working on fixing the nitty gritty details, make improvements, finding issues and reporting them in the issues tab of this repository. Create PRs and have fun!
+
+
+**Note :You should take note of that if you are working on the fork of this repository, you have to sync it before pushing changes to the fork and making a PR to this repo. How to sync changes made on this repo to your fork? Have a look at [this](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork). **
+
+
 
 ## Code Style
 
