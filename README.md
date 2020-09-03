@@ -1,4 +1,4 @@
-<h1 align="center"><img src="https://user-images.githubusercontent.com/41021374/92151521-e70d1a00-ee3e-11ea-8b2c-33f02cb67411.png" alt="DomeCode" height=200 width=200 align="middle">DomeCode</h1>
+<h1 align="center"><img src="https://user-images.githubusercontent.com/41021374/92151521-e70d1a00-ee3e-11ea-8b2c-33f02cb67411.png" alt="DomeCode" height=200 width=200 align="middle"> DomeCode</h1>
 <p align="center">
   <a href="https://discord.gg/ZwTJPNB"><img src="https://badgen.net/badge/discord/join%20chat/7289DA?icon=discord" alt="Discord Server"/></a>
 <a><img src="https://img.shields.io/github/license/the-domecode/domecode-opensource"/></a>
