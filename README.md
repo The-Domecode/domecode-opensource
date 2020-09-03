@@ -6,7 +6,6 @@
 <a><img src="https://img.shields.io/github/license/the-domecode/domecode-opensource"/></a>
 <a><img src="https://img.shields.io/github/issues-raw/the-domecode/domecode-opensource"/></a>
 <a><img src="https://img.shields.io/github/issues-pr/the-domecode/domecode-opensource"/></a>
-<a><img src="https://img.shields.io/github/pipenv/locked/dependency-version/the-domecode/domecode-opensource/django/"></a>
 <a><img src="https://img.shields.io/website?down_color=red&down_message=down%20for%20maintenance&label=domecode%20status&up_color=blue&up_message=online&url=https%3A%2F%2Fdomecode.com%2F"/></a>
 <a><img src="https://img.shields.io/github/commit-activity/m/the-domecode/domecode-opensource"/></a>
 <a href="https://ko-fi.com/C0C4226J0"><img src="https://www.ko-fi.com/img/githubbutton_sm.svg"/></a>
