@@ -1,0 +1,11 @@
+Django
+django-decouple
+django-heroku
+django-crispy-forms
+six
+djangorestframework
+social-auth-app-django
+django-ckeditor
+django-storages
+django-oauth-toolkit
+Pillow
