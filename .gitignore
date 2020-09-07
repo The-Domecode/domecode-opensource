@@ -4,3 +4,6 @@ media/profile_pics/
 media/media/
 .txt
 .env
+.idea/
+venv/
+__pycache__
