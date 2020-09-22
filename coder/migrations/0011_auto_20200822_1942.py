@@ -7,18 +7,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('coder', '0010_auto_20200822_0252'),
+        ("coder", "0010_auto_20200822_0252"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='answer',
-            name='response_from_judge',
+            model_name="answer",
+            name="response_from_judge",
             field=models.TextField(null=True),
         ),
         migrations.AlterField(
-            model_name='answer',
-            name='result',
-            field=models.FileField(blank=True, null=True, upload_to='media', validators=[django.core.validators.FileExtensionValidator(allowed_extensions=['txt', 'py', 'java', 'cpp', 'c++'])]),
+            model_name="answer",
+            name="result",
+            field=models.FileField(
+                blank=True,
+                null=True,
+                upload_to="media",
+                validators=[
+                    django.core.validators.FileExtensionValidator(
+                        allowed_extensions=["txt", "py", "java", "cpp", "c++"]
+                    )
+                ],
+            ),
         ),
     ]

@@ -6,13 +6,13 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('creator', '0005_product_additional_file'),
+        ("creator", "0005_product_additional_file"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='product',
-            old_name='github_repo',
-            new_name='github_Repo_Link',
+            model_name="product",
+            old_name="github_repo",
+            new_name="github_Repo_Link",
         ),
     ]

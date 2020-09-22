@@ -1,5 +1,3 @@
-
-
 """
 def compare(solution, result):
     is_same = True

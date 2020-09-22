@@ -6,13 +6,13 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0007_auto_20200731_0018'),
+        ("users", "0007_auto_20200731_0018"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='profile',
-            old_name='githuburl',
-            new_name='githubusername',
+            model_name="profile",
+            old_name="githuburl",
+            new_name="githubusername",
         ),
     ]

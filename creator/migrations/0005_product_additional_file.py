@@ -7,13 +7,30 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('creator', '0004_auto_20200817_1338'),
+        ("creator", "0004_auto_20200817_1338"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='additional_File',
-            field=models.FileField(blank=True, null=True, upload_to='media', validators=[django.core.validators.FileExtensionValidator(allowed_extensions=['pdf', 'pptx', 'ppt', 'md', 'txt', 'jpeg', 'png'])]),
+            model_name="product",
+            name="additional_File",
+            field=models.FileField(
+                blank=True,
+                null=True,
+                upload_to="media",
+                validators=[
+                    django.core.validators.FileExtensionValidator(
+                        allowed_extensions=[
+                            "pdf",
+                            "pptx",
+                            "ppt",
+                            "md",
+                            "txt",
+                            "jpeg",
+                            "png",
+                        ]
+                    )
+                ],
+            ),
         ),
     ]

@@ -10,18 +10,17 @@ from django.utils.crypto import get_random_string
 class Resource(models.Model):
 
     LANGUAGE = [
-        ('JAVA', 'Java'),
-        ('PYTHON', 'Python'),
-        ('RUST', 'Rust'),
-        ('C++', 'C++'),
-        ('General', 'General')
+        ("JAVA", "Java"),
+        ("PYTHON", "Python"),
+        ("RUST", "Rust"),
+        ("C++", "C++"),
+        ("General", "General"),
     ]
     title = models.CharField(max_length=100)
     serialno = models.IntegerField(null=True, blank=True)
     content = RichTextField()
     category = models.CharField(max_length=300)
-    language = models.CharField(
-        max_length=10, choices=LANGUAGE, default='PYTHON')
+    language = models.CharField(max_length=10, choices=LANGUAGE, default="PYTHON")
     slug = models.SlugField(null=True, unique=True, max_length=256)
     quizlink = models.CharField(max_length=100, null=True, blank=True)
 
@@ -33,13 +32,12 @@ class Resource(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('resource:detail-python', kwargs={'slug': self.slug})
+        return reverse("resource:detail-python", kwargs={"slug": self.slug})
 
 
 class Progress(models.Model):
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
-    user = models.ForeignKey(
-        get_user_model(), null=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(get_user_model(), null=True, on_delete=models.SET_NULL)
     isdone = models.BooleanField(default=False)
     slug = models.SlugField(null=True, unique=True, max_length=256)
 

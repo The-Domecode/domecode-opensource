@@ -6,13 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('quizzes', '0005_auto_20200802_1650'),
+        ("quizzes", "0005_auto_20200802_1650"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='quiz',
-            name='Language',
-            field=models.CharField(choices=[('java', 'Java'), ('python', 'Python'), ('rust', 'Rust'), ('c++', 'C++'), ('general', 'General')], default='python', max_length=10),
+            model_name="quiz",
+            name="Language",
+            field=models.CharField(
+                choices=[
+                    ("java", "Java"),
+                    ("python", "Python"),
+                    ("rust", "Rust"),
+                    ("c++", "C++"),
+                    ("general", "General"),
+                ],
+                default="python",
+                max_length=10,
+            ),
         ),
     ]

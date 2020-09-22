@@ -6,13 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('forum', '0004_auto_20200725_0400'),
+        ("forum", "0004_auto_20200725_0400"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='query',
-            name='category',
-            field=models.CharField(choices=[('GEN', 'General Development'), ('WEB', 'Web Development'), ('CS', 'Computer Science'), ('ABT', 'About DomeCode')], default='GEN', max_length=3),
+            model_name="query",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("GEN", "General Development"),
+                    ("WEB", "Web Development"),
+                    ("CS", "Computer Science"),
+                    ("ABT", "About DomeCode"),
+                ],
+                default="GEN",
+                max_length=3,
+            ),
         ),
     ]

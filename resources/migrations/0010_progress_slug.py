@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('resources', '0009_auto_20200809_2224'),
+        ("resources", "0009_auto_20200809_2224"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='progress',
-            name='slug',
+            model_name="progress",
+            name="slug",
             field=models.SlugField(max_length=256, null=True, unique=True),
         ),
     ]

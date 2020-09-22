@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView,UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from domecode.mixins import PageTitleMixin
 from .models import Progress, Resource
 from django.urls import reverse_lazy
@@ -19,13 +19,11 @@ class ResourceDetailViewPy(PageTitleMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ResourceDetailViewPy, self).get_context_data(**kwargs)
-        context['resources'] = Resource.objects.filter(
-            language="PYTHON")
+        context["resources"] = Resource.objects.filter(language="PYTHON")
         return context
 
     def get_queryset(self, *args, **kwargs):
-        object_list = Resource.objects.filter(
-            language="PYTHON")
+        object_list = Resource.objects.filter(language="PYTHON")
         return object_list
 
 
@@ -35,13 +33,10 @@ class ResourceDetailViewJava(PageTitleMixin, DetailView):
     template_name = "resources/resources_detail_java.html"
 
     def get_context_data(self, **kwargs):
-        context = super(ResourceDetailViewJava,
-                        self).get_context_data(**kwargs)
-        context['resources'] = Resource.objects.filter(
-            language="JAVA")
+        context = super(ResourceDetailViewJava, self).get_context_data(**kwargs)
+        context["resources"] = Resource.objects.filter(language="JAVA")
         return context
 
     def get_queryset(self, *args, **kwargs):
-        object_list = Resource.objects.filter(
-            language="JAVA")
+        object_list = Resource.objects.filter(language="JAVA")
         return object_list

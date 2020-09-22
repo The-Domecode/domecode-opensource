@@ -33,35 +33,55 @@ class ProductDetailView(PageTitleMixin, generic.DetailView):
     context_object_name = "product"
 
 
-class ProductCreateView(PageTitleMixin, LoginRequiredMixin,
-                        generic.CreateView):
+class ProductCreateView(PageTitleMixin, LoginRequiredMixin, generic.CreateView):
     model = Product
     title = "Create Product"
     template_name = "creator/product_form.html"
-    fields = ['name', 'description', 'category', 'github_Repo_Link',
-              'producthunt', 'youtube_videoid',
-              'linkedin', 'demo', 'contributors', 'isreleased',
-              'documentation_Users_Link', 'documentation_Devs_Link']
+    fields = [
+        "name",
+        "description",
+        "category",
+        "github_Repo_Link",
+        "producthunt",
+        "youtube_videoid",
+        "linkedin",
+        "demo",
+        "contributors",
+        "isreleased",
+        "documentation_Users_Link",
+        "documentation_Devs_Link",
+    ]
     context_object_name = "product"
-    success_url = reverse_lazy('creator:list')
+    success_url = reverse_lazy("creator:list")
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 
-class ProductUpdateView(PageTitleMixin, LoginRequiredMixin,
-                        UserPassesTestMixin, generic.UpdateView):
+class ProductUpdateView(
+    PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView
+):
     model = Product
     title = "Update Product"
     template_name = "creator/product_form.html"
-    fields = ['name', 'description', 'category', 'github_Repo_Link',
-              'producthunt', 'youtube_videoid',
-              'linkedin', 'demo', 'contributors', 'isreleased',
-              'documentation_Users_Link', 'documentation_Devs_Link']
+    fields = [
+        "name",
+        "description",
+        "category",
+        "github_Repo_Link",
+        "producthunt",
+        "youtube_videoid",
+        "linkedin",
+        "demo",
+        "contributors",
+        "isreleased",
+        "documentation_Users_Link",
+        "documentation_Devs_Link",
+    ]
 
     context_object_name = "product"
-    success_url = reverse_lazy('creator:list')
+    success_url = reverse_lazy("creator:list")
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -73,13 +93,14 @@ class ProductUpdateView(PageTitleMixin, LoginRequiredMixin,
             return True
 
 
-class ProductDeleteView(PageTitleMixin, LoginRequiredMixin,
-                        UserPassesTestMixin, generic.DeleteView):
+class ProductDeleteView(
+    PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
+):
     model = Product
     title = "Delete Product"
     template_name = "creator/product_confirm_delete.html"
     context_object_name = "product"
-    success_url = reverse_lazy('creator:list')
+    success_url = reverse_lazy("creator:list")
 
     def test_func(self):
         product = self.get_object()

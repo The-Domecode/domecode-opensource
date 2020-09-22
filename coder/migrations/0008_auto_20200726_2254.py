@@ -6,18 +6,38 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('coder', '0007_question_typeof'),
+        ("coder", "0007_question_typeof"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='question',
-            name='category',
-            field=models.CharField(choices=[('EASY', 'Easy Difficulty'), ('MEDIUM', 'Medium Difficulty'), ('HARD', 'Hard Difficulty'), ('ADVANCED', 'Advanced Difficulty'), ('IMPLEMENT', 'Implementation')], default='MEDIUM', max_length=10),
+            model_name="question",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("EASY", "Easy Difficulty"),
+                    ("MEDIUM", "Medium Difficulty"),
+                    ("HARD", "Hard Difficulty"),
+                    ("ADVANCED", "Advanced Difficulty"),
+                    ("IMPLEMENT", "Implementation"),
+                ],
+                default="MEDIUM",
+                max_length=10,
+            ),
         ),
         migrations.AlterField(
-            model_name='question',
-            name='typeof',
-            field=models.CharField(choices=[('JAVA', 'Java'), ('PYTHON', 'Python'), ('RUST', 'Rust'), ('C++', 'C++'), ('General', 'General')], default='PYTHON', max_length=10),
+            model_name="question",
+            name="typeof",
+            field=models.CharField(
+                choices=[
+                    ("JAVA", "Java"),
+                    ("PYTHON", "Python"),
+                    ("RUST", "Rust"),
+                    ("C++", "C++"),
+                    ("General", "General"),
+                ],
+                default="PYTHON",
+                max_length=10,
+            ),
         ),
     ]
