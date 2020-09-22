@@ -116,6 +116,14 @@ Unreleased features are **highlighted**.
 
 Note : In the repo's language stats, HTML and CSS have been disabled intentionally.
 
+## Workflows on this repository
+
+- Django CI is on the Private codebase. 
+- Greetings Workflow
+- Codeql Code Analysis workflow
+- Python Lint
+- PR Labeler
+
 ## 🧑 Contributors
 
 - [Arth Tyagi](https://github.com/arthtyagi) - Founder, CEO, Full Stack Developer, [DomeCode](https://domecode.com/)
