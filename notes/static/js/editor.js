@@ -324,3 +324,35 @@ function w3CodeColor(elmnt, mode) {
 		return [-1, -1, func];
 	}
 }
+
+/** Create a CodeMirror element to the text area and blur event **/
+
+var editor = CodeMirror.fromTextArea(document.getElementById("htmlCode"), {
+	mode: "htmlmixed",
+	selectionPointer: true
+});
+
+editor.on('blur', editor => {
+	showPreview();
+});
+
+var cssEditor = CodeMirror.fromTextArea(document.getElementById("cssCode"), {
+	mode: "css",
+	selectionPointer: true,
+	extraKeys: {"Ctrl-Space": "autocomplete"}
+});
+
+cssEditor.on('blur', editor => {
+	showPreview();
+});
+
+var javascriptEditor = CodeMirror.fromTextArea(document.getElementById("jsCode"),{
+	mode: "javascript",
+	matchBrackets: true,
+	continueComments: "Enter",
+	extraKeys: {"Ctrl-Q": "toggleComment"}
+});
+
+javascriptEditor.n('blur', editor => {
+	showPreview();
+});

@@ -86,9 +86,9 @@ element.onclick = function () {
     return false;
 }
 function showPreview() {
-    var htmlCode = document.getElementById("htmlCode").value;
-    var cssCode = "<style>" + document.getElementById("cssCode").value + "</style>";
-    var jsCode = "<scri" + "pt>" + document.getElementById("jsCode").value + "</scri" + "pt>";
+    var htmlCode = editor.getValue();
+    var cssCode = "<style>" + cssEditor.getValue() + "</style>";
+    var jsCode = "<scri" + "pt>" + javascriptEditor.getValue() + "</scri" + "pt>";
     var frame = document.getElementById("preview-window").contentWindow.document;
     frame.open();
     frame.write(htmlCode + cssCode + jsCode);
