@@ -68,11 +68,36 @@
     <link rel="stylesheet" type="text/css" href="{%static 'notes/editor.css'%}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="{%static 'notes/codemirror.css'%}" />
+    <link rel="stylesheet" href="{%static 'notes/show-hint.css'%}" />
+
+    <!-- Override CodeMirror div with a border -->
+    <style>
+        .CodeMirror{
+            border: 1px solid #000000;
+        }
+    </style>
 </head>
 
 <body>
 
     <script src="{%static 'js/script.js'%}"></script>
+
+    <!-- Required libraries for CodeMirror  -->
+    <script src="{%static 'js/codemirror.js'%}"></script>
+    <script src="{%static 'js/javascript.js'%}"></script>
+    <script src="{%static 'js/selection-pointer.js'%}"></script>
+    <script src="{%static 'js/xml.js'%}"></script>
+    <script src="{%static 'js/css.js'%}"></script>
+    <script src="{%static 'js/vbscript.js'%}"></script>
+    <script src="{%static 'js/htmlmixed.js'%}"></script>
+    <script src="{%static 'js/placeholder.js'%}"></script>
+    <script src="{%static 'js/show-hint.js'%}"></script>
+    <script src="{%static 'js/css-hint.js'%}"></script>
+    <script src="{%static 'js/continuecomment.js'%}"></script>
+    <script src="{%static 'js/comment.js'%}"></script>
+
     <div class="code-area" id="code-area">
         <textarea rows="1" cols="1" style="height: 5%;" id="ytcode"
             placeholder="Insert YouTube Video Embed Code ( adjust height and width accordingly )"
@@ -86,8 +111,8 @@
         <iframe id="ytvideo"></iframe>
     </div>
 
+    <script src="{%static 'js/editor.js'%}"></script>
 </body>
-<script src="{%static 'js/editor.js'%}"></script>
 <div class="footer">
     <span>&#169;</span>2020. <a href="{%url 'notes:home'%}" target="_blank" style=" font-family:'Flavors' ;font-weight:
         bolder; font-size:20px ; background: linear-gradient(to right, #f12711, #f5af19); -webkit-background-clip: text;
