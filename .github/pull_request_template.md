@@ -24,14 +24,14 @@ The description should be within 250 words. Please try to follow this word limit
 
 If yes, please mention the back-end framework used in this project. - {Name of framework here}
 
-** Have I contributed before to DomeCode? (req.) **
+**Have I contributed before to DomeCode? (req.)**
 
 - [ ] Yes, once.
 - [ ] Yes, more than once but not a lot.
 - [ ] Yes, extensively.
 - [ ] No.
 
-** Have I used DomeCode? (req.)**
+**Have I used DomeCode? (req.)**
 
 - [ ] Not a lot.
 - [ ] Extensively.
