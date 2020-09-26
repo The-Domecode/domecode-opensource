@@ -325,16 +325,33 @@ function w3CodeColor(elmnt, mode) {
 	}
 }
 
-/** Create a CodeMirror element to the text area and blur event **/
+//  Create a CodeMirror code editor from textarea with the following constructor
+//  CodeMirror.fromTextArea( elementId , options )
+//
+//  - elementId: First argument in where you need to provide the Id of the textarea element
+//  - options:   An array of arguments that make changes on the editor behavior, for example
+//               language of editor, lines, spaces, theme of the editor...
+//
+//	The following options will be applied to our html code editor
+//  - mode: "htmlmixed"         Applied to standard html page
+//  - selectionPointer: true    Makes the mouse cursor appearance pointer when hovering over the selection
 
 var editor = CodeMirror.fromTextArea(document.getElementById("htmlCode"), {
 	mode: "htmlmixed",
 	selectionPointer: true
 });
 
+//  Adding event 'blur' in the textarea element
+
 editor.on('blur', editor => {
 	showPreview();
 });
+
+//	The following options will be applied to our css code editor
+//  - mode: "css"                   Applied to standard html page
+//  - selectionPointer: true        Makes the mouse cursor appearance pointer when hovering over the selection
+//  - extraKeys: {"Ctrl-Space": "autocomplete"}   Display a list when pressing Ctrl + space when
+//        						                  you are typing css code
 
 var cssEditor = CodeMirror.fromTextArea(document.getElementById("cssCode"), {
 	mode: "css",
@@ -342,9 +359,17 @@ var cssEditor = CodeMirror.fromTextArea(document.getElementById("cssCode"), {
 	extraKeys: {"Ctrl-Space": "autocomplete"}
 });
 
+//  Adding event 'blur' in the css editor element
+
 cssEditor.on('blur', editor => {
 	showPreview();
 });
+
+//	The following options will be applied to our css code editor
+//  - mode: "css"                   Applied to standard html page
+//  - matchBrackets: true           Set the brackets to be highlighted whenever the cursor is next to them
+//  - selectionPointer: true        Makes the mouse cursor appearance pointer when hovering over the selection
+//  - extraKeys: {"Ctrl-Q": "toggleComment"}   Transform the entire line to comment line
 
 var javascriptEditor = CodeMirror.fromTextArea(document.getElementById("jsCode"),{
 	mode: "javascript",
@@ -353,6 +378,8 @@ var javascriptEditor = CodeMirror.fromTextArea(document.getElementById("jsCode")
 	extraKeys: {"Ctrl-Q": "toggleComment"}
 });
 
-javascriptEditor.n('blur', editor => {
+//  Adding event 'blur' in the javascript editor element
+
+javascriptEditor.on('blur', editor => {
 	showPreview();
 });
