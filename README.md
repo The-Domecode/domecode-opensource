@@ -90,6 +90,8 @@ Unreleased features are **highlighted**.
 
 ## Setup
 
+Please refer to the [Contribution Guide](https://github.com/The-Domecode/domecode-opensource/blob/master/contribution.md)
+
 - Clone your fork of this repository.
 - Run the migrations.
 - Run this on your localhost.
