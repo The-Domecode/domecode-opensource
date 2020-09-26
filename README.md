@@ -124,7 +124,6 @@ Note : In the repo's language stats, HTML and CSS have been disabled intentional
 - Greetings Workflow
 - Codeql Code Analysis workflow
 - Python Lint
-- PR Labeler
 
 ## 🧑 Contributors
 
