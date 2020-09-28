@@ -1,6 +1,14 @@
 # Runs a flake8 analysis on the pull request.
 name: PythonLint
-on: [push]
+on:
+	push:
+		branches:
+			- master
+			- dev
+	pull_request:
+		branches:
+			- master
+			- dev
 
 jobs:
   Flake8Test:
