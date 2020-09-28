@@ -6,23 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('forum', '0009_auto_20200803_0125'),
+        ("forum", "0009_auto_20200803_0125"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='answer',
-            name='slug',
+            model_name="answer",
+            name="slug",
             field=models.SlugField(max_length=256, null=True, unique=True),
         ),
         migrations.AlterField(
-            model_name='comment',
-            name='slug',
+            model_name="comment",
+            name="slug",
             field=models.SlugField(max_length=256, null=True),
         ),
         migrations.AlterField(
-            model_name='query',
-            name='slug',
+            model_name="query",
+            name="slug",
             field=models.SlugField(max_length=256, null=True, unique=True),
         ),
     ]

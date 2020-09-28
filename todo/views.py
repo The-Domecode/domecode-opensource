@@ -8,30 +8,33 @@ from django.db.models import Q
 
 class TodoListView(PageTitleMixin, LoginRequiredMixin, ListView):
     model = Todo
-    context_object_name = 'todo'
+    context_object_name = "todo"
     paginate_by = 15
     title = "Your Tasks"
 
     def get_queryset(self, *args, **kwargs):
         object_list = super(TodoListView, self).get_queryset(*args, **kwargs)
-        search = self.request.GET.get('q', None)
+        search = self.request.GET.get("q", None)
         if search:
             object_list = object_list.filter(
-                Q(title__icontains=search, user=self.request.user) |
-                Q(content__icontains=search, user=self.request.user)
-            ).order_by('created')
+                Q(title__icontains=search, user=self.request.user)
+                | Q(content__icontains=search, user=self.request.user)
+            ).order_by("created")
             return object_list
         else:
-            object_list = Todo.objects.filter(
-                user=self.request.user).order_by('created')
+            object_list = Todo.objects.filter(user=self.request.user).order_by(
+                "created"
+            )
             return object_list
 
 
-class TodoUpdateView(PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class TodoUpdateView(
+    PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin, UpdateView
+):
     model = Todo
-    success_url = reverse_lazy('todo:list')
+    success_url = reverse_lazy("todo:list")
     title = "Update Task"
-    fields = ['title', 'content']
+    fields = ["title", "content"]
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -45,7 +48,7 @@ class TodoUpdateView(PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin, Up
 
 class TodoDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Todo
-    success_url = reverse_lazy('todo:list')
+    success_url = reverse_lazy("todo:list")
 
     def get(self, request, *args, **kwargs):
         return self.post(request, *args, **kwargs)
@@ -58,8 +61,8 @@ class TodoDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class TodoCreateView(PageTitleMixin, LoginRequiredMixin, CreateView):
     model = Todo
-    fields = ['title', 'content']
-    success_url = reverse_lazy('todo:list')
+    fields = ["title", "content"]
+    success_url = reverse_lazy("todo:list")
     title = "Create Task"
 
     def form_valid(self, form):

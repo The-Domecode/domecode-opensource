@@ -10,29 +10,83 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Question',
+            name="Question",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100)),
-                ('content', ckeditor.fields.RichTextField()),
-                ('iscorrect', models.BooleanField(default=False)),
-                ('category', models.CharField(choices=[('EASY', 'Easy Difficulty'), ('MEDIUM', 'Medium Difficulty'), ('HARD', 'Hard Difficulty'), ('ADVANCED', 'Advanced Difficulty')], default='MEDIUM', max_length=10)),
-                ('solution', models.FileField(upload_to='media', validators=[django.core.validators.FileExtensionValidator(allowed_extensions=['txt'])])),
-                ('slug', models.SlugField(null=True, unique=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=100)),
+                ("content", ckeditor.fields.RichTextField()),
+                ("iscorrect", models.BooleanField(default=False)),
+                (
+                    "category",
+                    models.CharField(
+                        choices=[
+                            ("EASY", "Easy Difficulty"),
+                            ("MEDIUM", "Medium Difficulty"),
+                            ("HARD", "Hard Difficulty"),
+                            ("ADVANCED", "Advanced Difficulty"),
+                        ],
+                        default="MEDIUM",
+                        max_length=10,
+                    ),
+                ),
+                (
+                    "solution",
+                    models.FileField(
+                        upload_to="media",
+                        validators=[
+                            django.core.validators.FileExtensionValidator(
+                                allowed_extensions=["txt"]
+                            )
+                        ],
+                    ),
+                ),
+                ("slug", models.SlugField(null=True, unique=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Answer',
+            name="Answer",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('iscorrect', models.BooleanField(default=False)),
-                ('result', models.FileField(blank=True, null=True, upload_to='media', validators=[django.core.validators.FileExtensionValidator(allowed_extensions=['txt'])])),
-                ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='coder.Question')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("iscorrect", models.BooleanField(default=False)),
+                (
+                    "result",
+                    models.FileField(
+                        blank=True,
+                        null=True,
+                        upload_to="media",
+                        validators=[
+                            django.core.validators.FileExtensionValidator(
+                                allowed_extensions=["txt"]
+                            )
+                        ],
+                    ),
+                ),
+                (
+                    "question",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="coder.Question"
+                    ),
+                ),
             ],
         ),
     ]

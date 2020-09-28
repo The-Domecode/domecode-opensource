@@ -8,20 +8,40 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Resource',
+            name="Resource",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100)),
-                ('content', ckeditor.fields.RichTextField()),
-                ('category', models.CharField(max_length=300)),
-                ('language', models.CharField(choices=[('JAVA', 'Java'), ('PYTHON', 'Python'), ('RUST', 'Rust'), ('C++', 'C++'), ('General', 'General')], default='PYTHON', max_length=10)),
-                ('slug', models.SlugField(null=True, unique=True)),
-                ('quizlink', models.CharField(max_length=100)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=100)),
+                ("content", ckeditor.fields.RichTextField()),
+                ("category", models.CharField(max_length=300)),
+                (
+                    "language",
+                    models.CharField(
+                        choices=[
+                            ("JAVA", "Java"),
+                            ("PYTHON", "Python"),
+                            ("RUST", "Rust"),
+                            ("C++", "C++"),
+                            ("General", "General"),
+                        ],
+                        default="PYTHON",
+                        max_length=10,
+                    ),
+                ),
+                ("slug", models.SlugField(null=True, unique=True)),
+                ("quizlink", models.CharField(max_length=100)),
             ],
         ),
     ]

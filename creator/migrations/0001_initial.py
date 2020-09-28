@@ -15,24 +15,44 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
-                ('date', models.DateTimeField(auto_now=True)),
-                ('description', models.TextField()),
-                ('category', models.CharField(max_length=50)),
-                ('github_repo', models.CharField(blank=True, max_length=80, null=True)),
-                ('producthunt', models.CharField(blank=True, max_length=80, null=True)),
-                ('youtube_videoid', models.CharField(blank=True, max_length=11, null=True)),
-                ('linkedin', models.CharField(blank=True, max_length=100, null=True)),
-                ('demo', models.CharField(blank=True, max_length=256, null=True)),
-                ('contributors', models.TextField()),
-                ('isreleased', models.BooleanField(default=False)),
-                ('readmeusers', models.CharField(blank=True, max_length=256, null=True)),
-                ('readmedevs', models.CharField(blank=True, max_length=256, null=True)),
-                ('slug', models.SlugField(max_length=256, null=True, unique=True)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
+                ("date", models.DateTimeField(auto_now=True)),
+                ("description", models.TextField()),
+                ("category", models.CharField(max_length=50)),
+                ("github_repo", models.CharField(blank=True, max_length=80, null=True)),
+                ("producthunt", models.CharField(blank=True, max_length=80, null=True)),
+                (
+                    "youtube_videoid",
+                    models.CharField(blank=True, max_length=11, null=True),
+                ),
+                ("linkedin", models.CharField(blank=True, max_length=100, null=True)),
+                ("demo", models.CharField(blank=True, max_length=256, null=True)),
+                ("contributors", models.TextField()),
+                ("isreleased", models.BooleanField(default=False)),
+                (
+                    "readmeusers",
+                    models.CharField(blank=True, max_length=256, null=True),
+                ),
+                ("readmedevs", models.CharField(blank=True, max_length=256, null=True)),
+                ("slug", models.SlugField(max_length=256, null=True, unique=True)),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

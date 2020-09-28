@@ -6,13 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('coder', '0013_answer_language'),
+        ("coder", "0013_answer_language"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='question',
-            name='typeof',
-            field=models.CharField(choices=[('JAVA', 'Java'), ('PYTHON', 'Python'), ('RUST', 'Rust'), ('C++', 'C++')], default='PYTHON', max_length=10),
+            model_name="question",
+            name="typeof",
+            field=models.CharField(
+                choices=[
+                    ("JAVA", "Java"),
+                    ("PYTHON", "Python"),
+                    ("RUST", "Rust"),
+                    ("C++", "C++"),
+                ],
+                default="PYTHON",
+                max_length=10,
+            ),
         ),
     ]

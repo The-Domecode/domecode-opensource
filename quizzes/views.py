@@ -9,7 +9,7 @@ class QuizHomeView(PageTitleMixin, ListView):
     model = Quiz
     template_name = "quizzes/quiz_home.html"
     context_object_name = "quiz"
-    title = 'Quizzes'
+    title = "Quizzes"
 
 
 """
@@ -36,41 +36,48 @@ class QuizDetailView(PageTitleMixin, DetailView):
     model = Quiz
     template_name = "quizzes/quiz_detail.html"
     context_object_name = "ques"
-    title = 'Quizzes - List'
+    title = "Quizzes - List"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         instance = self.get_object()
-        context['ques'] = instance.ques_set.all()
+        context["ques"] = instance.ques_set.all()
         return context
 
 
 # TODO: Can remove LoginRequiredMixin
 class QuesDetailView(PageTitleMixin, LoginRequiredMixin, DetailView):
     model = Ques
-    title = 'Quiz Question'
+    title = "Quiz Question"
     template_name = "quizzes/ques_detail.html"
 
 
 class AnswerCreateView(PageTitleMixin, LoginRequiredMixin, CreateView):
     model = Answer
-    title = 'Attempt Question'
-    fields = ['answer']
+    title = "Attempt Question"
+    fields = ["answer"]
 
     def get_success_url(self):
         question = self.object.question
-        return reverse('quizzes:detail', kwargs={'slug': question.slug})
+        return reverse("quizzes:detail", kwargs={"slug": question.slug})
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        question = Ques.objects.get(slug=self.kwargs['qslug'])
+        question = Ques.objects.get(slug=self.kwargs["qslug"])
 
         form.instance.question = question
 
         if form.instance.answer == question.solution:
             form.instance.iscorrect = True
 
-        if form.instance.iscorrect and Answer.objects.filter(question=question).filter(user=form.instance.user).filter(iscorrect=True).count() == 0:
+        if (
+            form.instance.iscorrect
+            and Answer.objects.filter(question=question)
+            .filter(user=form.instance.user)
+            .filter(iscorrect=True)
+            .count()
+            == 0
+        ):
             if form.instance.question.quiz.typeof == "EASY":
                 form.instance.user.profile.domes += 2
             if form.instance.question.quiz.typeof == "MEDIUM":

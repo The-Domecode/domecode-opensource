@@ -20,7 +20,7 @@ class Notes(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('notes:detail', kwargs={'slug': self.slug})
+        return reverse("notes:detail", kwargs={"slug": self.slug})
 
     def save(self, *args, **kwargs):
         uniqueid = get_random_string(length=64)

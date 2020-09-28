@@ -12,26 +12,26 @@ from domecode.mixins import PageTitleMixin
 
 
 def guidelines(request):
-    return render(request, 'forum/guidelines.html', {'title': 'Forum Guidelines'})
+    return render(request, "forum/guidelines.html", {"title": "Forum Guidelines"})
 
 
 class QueryListView(PageTitleMixin, generic.ListView):
     model = Query
     template_name = "forum/query_list.html"
     paginate_by = 15
-    context_object_name = 'query'
-    ordering = ['-last_modified']
-    title = 'Forum'
+    context_object_name = "query"
+    ordering = ["-last_modified"]
+    title = "Forum"
 
     def get_queryset(self, *args, **kwargs):
         object_list = super(QueryListView, self).get_queryset(*args, **kwargs)
-        search = self.request.GET.get('q', None)
+        search = self.request.GET.get("q", None)
         if search:
             object_list = object_list.filter(
-                Q(title__contains=search) |
-                Q(content__contains=search) |
-                Q(category__contains=search)
-            ).order_by('-last_modified')
+                Q(title__contains=search)
+                | Q(content__contains=search)
+                | Q(category__contains=search)
+            ).order_by("-last_modified")
             return object_list
         else:
             return object_list
@@ -40,24 +40,26 @@ class QueryListView(PageTitleMixin, generic.ListView):
 class QueryDetailView(PageTitleMixin, generic.DetailView):
     model = Query
     template_name = "forum/query_detail.html"
-    title = 'Forum'
+    title = "Forum"
 
 
 class QueryCreateView(PageTitleMixin, LoginRequiredMixin, generic.CreateView):
     model = Query
     template_name = "forum/query_form.html"
-    fields = ['title', 'content', 'category']
-    title = 'Ask'
+    fields = ["title", "content", "category"]
+    title = "Ask"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 
-class QueryUpdateView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.UpdateView):
+class QueryUpdateView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.UpdateView
+):
     model = Query
-    fields = ['title', 'content', 'category']
-    title = 'Edit Query'
+    fields = ["title", "content", "category"]
+    title = "Edit Query"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -69,10 +71,12 @@ class QueryUpdateView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, g
             return True
 
 
-class QueryDeleteView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.DeleteView):
+class QueryDeleteView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.DeleteView
+):
     model = Query
-    success_url = reverse_lazy('forum:list')
-    title = 'Delete Query'
+    success_url = reverse_lazy("forum:list")
+    title = "Delete Query"
 
     def test_func(self):
         query = self.get_object()
@@ -83,20 +87,22 @@ class QueryDeleteView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, g
 class AnswerCreateView(LoginRequiredMixin, PageTitleMixin, generic.CreateView):
     model = Answer
     template_name = "forum/answer_form.html"
-    fields = ['content']
-    title = 'Answer'
+    fields = ["content"]
+    title = "Answer"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        form.instance.query = Query.objects.get(slug=self.kwargs['qslug'])
+        form.instance.query = Query.objects.get(slug=self.kwargs["qslug"])
         return super().form_valid(form)
 
 
-class AnswerUpdateView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.UpdateView):
+class AnswerUpdateView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.UpdateView
+):
     model = Answer
     template_name = "forum/answer_form.html"
-    fields = ['content']
-    title = 'Edit Answer'
+    fields = ["content"]
+    title = "Edit Answer"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -108,10 +114,12 @@ class AnswerUpdateView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, 
             return True
 
 
-class AnswerDeleteView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.DeleteView):
+class AnswerDeleteView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.DeleteView
+):
     model = Answer
-    success_url = reverse_lazy('forum:list')
-    title = 'Delete Answer'
+    success_url = reverse_lazy("forum:list")
+    title = "Delete Answer"
 
     def test_func(self):
         answer = self.get_object()
@@ -119,11 +127,13 @@ class AnswerDeleteView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, 
             return True
 
 
-class AcceptAnswerView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.UpdateView):
+class AcceptAnswerView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.UpdateView
+):
     model = Answer
-    fields = ['isaccepted']
+    fields = ["isaccepted"]
     template_name = "forum/answer_accept.html"
-    title = 'Accept Answer'
+    title = "Accept Answer"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -138,26 +148,28 @@ class AcceptAnswerView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, 
 class AnswerDetailView(PageTitleMixin, generic.DetailView):
     model = Answer
     template_name = "forum/answer_detail.html"
-    title = 'Answer'
+    title = "Answer"
 
 
 class CommentCreateView(LoginRequiredMixin, PageTitleMixin, generic.CreateView):
     model = Comment
     template_name = "forum/comment_form.html"
-    fields = ['content']
-    title = 'Comment'
+    fields = ["content"]
+    title = "Comment"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        form.instance.answer = Answer.objects.get(slug=self.kwargs['aslug'])
+        form.instance.answer = Answer.objects.get(slug=self.kwargs["aslug"])
         return super().form_valid(form)
 
 
-class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.UpdateView):
+class CommentUpdateView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.UpdateView
+):
     model = Comment
     template_name = "forum/comment_form.html"
-    fields = ['content']
-    title = 'Edit Comment'
+    fields = ["content"]
+    title = "Edit Comment"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -169,10 +181,12 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
             return True
 
 
-class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.DeleteView):
+class CommentDeleteView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.DeleteView
+):
     model = Comment
-    success_url = reverse_lazy('forum:list')
-    title = 'Delete Comment'
+    success_url = reverse_lazy("forum:list")
+    title = "Delete Comment"
 
     def test_func(self):
         comment = self.get_object()
@@ -182,8 +196,8 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
 
 class QueryLikeToggle(generic.RedirectView):
     def get_redirect_url(self, *args, **kwargs):
-        query = get_object_or_404(Query, slug=self.kwargs['slug'])
-        slug = self.kwargs.get('slug')
+        query = get_object_or_404(Query, slug=self.kwargs["slug"])
+        slug = self.kwargs.get("slug")
         print(slug)
         obj = get_object_or_404(Query, slug=slug)
         url_ = obj.get_absolute_url()
@@ -197,8 +211,12 @@ class QueryLikeToggle(generic.RedirectView):
 
 
 class QueryLikeAPIToggle(APIView):
-    authentication_classes = [SessionAuthentication, ]
-    permission_clases = [IsAuthenticated, ]
+    authentication_classes = [
+        SessionAuthentication,
+    ]
+    permission_clases = [
+        IsAuthenticated,
+    ]
 
     def get(self, request, slug=None, format=None):
         obj = get_object_or_404(Query, slug=slug)
@@ -214,10 +232,7 @@ class QueryLikeAPIToggle(APIView):
                 obj.likes.add(user)
 
             updated = True
-        data = {
-            'updated': updated,
-            'liked': liked
-        }
+        data = {"updated": updated, "liked": liked}
         return Response(data)
 
 

@@ -7,13 +7,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('coder', '0011_auto_20200822_1942'),
+        ("coder", "0011_auto_20200822_1942"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='answer',
-            name='result',
-            field=models.FileField(blank=True, null=True, upload_to='media', validators=[django.core.validators.FileExtensionValidator(allowed_extensions=['txt', 'py', 'java', 'cpp', 'c++', 'rs'])]),
+            model_name="answer",
+            name="result",
+            field=models.FileField(
+                blank=True,
+                null=True,
+                upload_to="media",
+                validators=[
+                    django.core.validators.FileExtensionValidator(
+                        allowed_extensions=["txt", "py", "java", "cpp", "c++", "rs"]
+                    )
+                ],
+            ),
         ),
     ]

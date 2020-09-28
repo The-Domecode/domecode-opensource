@@ -9,13 +9,18 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('coder', '0002_answer_user'),
+        ("coder", "0002_answer_user"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='answer',
-            name='user',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='submissionuser', to=settings.AUTH_USER_MODEL),
+            model_name="answer",
+            name="user",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="submissionuser",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]

@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('resources', '0007_remove_resource_isdone'),
+        ("resources", "0007_remove_resource_isdone"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='resource',
-            name='isdone',
+            model_name="resource",
+            name="isdone",
             field=models.BooleanField(default=False),
         ),
     ]

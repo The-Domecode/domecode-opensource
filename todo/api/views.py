@@ -4,14 +4,15 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+
 class TodoList(generics.ListCreateAPIView):
-	queryset = Todo.objects.all()
-	serializer_class = TodoSerializer
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
 
 
 class TodoDetail(generics.RetrieveUpdateDestroyAPIView):
-	queryset = Todo.objects.all()
-	serializer_class = TodoSerializer
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
 
 
 """

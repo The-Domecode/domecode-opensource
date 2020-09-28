@@ -9,14 +9,16 @@ class UserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name']
+        fields = ["username", "email", "first_name"]
 
 
 class ProfileUpdateForm(forms.ModelForm):
-
     class Meta:
         model = Profile
-        fields = ['image', 'about', 'githubusername']
+        fields = ["image", "about", "githubusername"]
         labels = {
-            'image': 'Profile Pic (500x500 is preferred resolution)', 'about': 'About you (max 200 words)', 'githubusername': 'Github Username ( if you wanna let others see it )'}
-        widgets = {'image': forms.FileInput()}
+            "image": "Profile Pic (500x500 is preferred resolution)",
+            "about": "About you (max 200 words)",
+            "githubusername": "Github Username ( if you wanna let others see it )",
+        }
+        widgets = {"image": forms.FileInput()}
