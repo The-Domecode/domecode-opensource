@@ -28,7 +28,8 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("title", models.CharField(max_length=240)),
-                ("content", ckeditor.fields.RichTextField(blank=True, null=True)),
+                ("content", ckeditor.fields.RichTextField(blank=True,
+                                                          null=True)),
                 ("category", models.CharField(max_length=25)),
                 ("created", models.DateTimeField(auto_now_add=True)),
                 ("last_modified", models.DateTimeField(auto_now=True)),
@@ -78,8 +79,8 @@ class Migration(migrations.Migration):
                 (
                     "query",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="forum.Query"
-                    ),
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="forum.Query"),
                 ),
                 (
                     "user",

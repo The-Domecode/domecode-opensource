@@ -45,8 +45,7 @@ class Migration(migrations.Migration):
                             "rs",
                             "go",
                             "c",
-                        ]
-                    )
+                        ])
                 ],
             ),
         ),

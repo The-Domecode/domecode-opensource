@@ -47,8 +47,7 @@ class Migration(migrations.Migration):
                         upload_to="media",
                         validators=[
                             django.core.validators.FileExtensionValidator(
-                                allowed_extensions=["txt"]
-                            )
+                                allowed_extensions=["txt"])
                         ],
                     ),
                 ),
@@ -76,16 +75,15 @@ class Migration(migrations.Migration):
                         upload_to="media",
                         validators=[
                             django.core.validators.FileExtensionValidator(
-                                allowed_extensions=["txt"]
-                            )
+                                allowed_extensions=["txt"])
                         ],
                     ),
                 ),
                 (
                     "question",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="coder.Question"
-                    ),
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="coder.Question"),
                 ),
             ],
         ),

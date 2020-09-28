@@ -19,16 +19,20 @@ class Product(models.Model):
     demo = models.CharField(null=True, blank=True, max_length=256)
     contributors = models.TextField()
     isreleased = models.BooleanField(default=False)
-    documentation_Users_Link = models.CharField(null=True, blank=True, max_length=256)
-    documentation_Devs_Link = models.CharField(null=True, blank=True, max_length=256)
+    documentation_Users_Link = models.CharField(null=True,
+                                                blank=True,
+                                                max_length=256)
+    documentation_Devs_Link = models.CharField(null=True,
+                                               blank=True,
+                                               max_length=256)
     slug = models.SlugField(null=True, unique=True, max_length=256)
     additional_File = models.FileField(
         null=True,
         blank=True,
         validators=[
-            FileExtensionValidator(
-                allowed_extensions=["pdf", "pptx", "ppt", "md", "txt", "jpeg", "png"]
-            )
+            FileExtensionValidator(allowed_extensions=[
+                "pdf", "pptx", "ppt", "md", "txt", "jpeg", "png"
+            ])
         ],
         upload_to="media",
     )

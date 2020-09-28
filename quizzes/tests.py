@@ -53,8 +53,7 @@ class QuizDetailsViewTests(TestCase):
         create_ques(title="TestQues2", quiz=quiz1)
         create_ques(title="TestQues3", quiz=quiz2)
         response = self.client.get(
-            reverse("quizzes:detail-python", kwargs={"slug": quiz1.slug})
-        )
+            reverse("quizzes:detail-python", kwargs={"slug": quiz1.slug}))
         self.assertContains(response, "TestQues1")
         self.assertContains(response, "TestQues2")
         self.assertNotContains(response, "TestQues3")
@@ -70,9 +69,9 @@ class QuesDetailsViewTesst(TestCase):
         """
         quiz = create_quiz("TestQuiz")
         ques = create_ques(title="TestQues", quiz=quiz)
-        response = self.client.get(
-            reverse("quizzes:detail", kwargs={"slug": ques.slug}), follow=True
-        )
+        response = self.client.get(reverse("quizzes:detail",
+                                           kwargs={"slug": ques.slug}),
+                                   follow=True)
         self.assertNotContains(response, "TestQues")
 
     def test_authenticated_user_can_view_the_ques(self):
@@ -84,8 +83,7 @@ class QuesDetailsViewTesst(TestCase):
         quiz = create_quiz("TestQuiz")
         ques = create_ques(title="TestQues", quiz=quiz)
         response = self.client.get(
-            reverse("quizzes:detail", kwargs={"slug": ques.slug})
-        )
+            reverse("quizzes:detail", kwargs={"slug": ques.slug}))
         self.assertContains(response, "TestQues")
 
 
@@ -107,10 +105,8 @@ class AnswerCreateViewTests(TestCase):
         )
         user1.refresh_from_db()
         self.assertEquals(
-            Answer.objects.filter(question=ques1)
-            .filter(user=user1)
-            .filter(iscorrect=True)
-            .count(),
+            Answer.objects.filter(question=ques1).filter(user=user1).filter(
+                iscorrect=True).count(),
             0,
         )
         self.assertEquals(user1.profile.domes, 0)
@@ -120,10 +116,8 @@ class AnswerCreateViewTests(TestCase):
         )
         user1.refresh_from_db()
         self.assertEquals(
-            Answer.objects.filter(question=ques1)
-            .filter(user=user1)
-            .filter(iscorrect=True)
-            .count(),
+            Answer.objects.filter(question=ques1).filter(user=user1).filter(
+                iscorrect=True).count(),
             1,
         )
         self.assertEquals(user1.profile.domes, 2)
@@ -133,10 +127,8 @@ class AnswerCreateViewTests(TestCase):
         )
         user1.refresh_from_db()
         self.assertEquals(
-            Answer.objects.filter(question=ques1)
-            .filter(user=user1)
-            .filter(iscorrect=True)
-            .count(),
+            Answer.objects.filter(question=ques1).filter(user=user1).filter(
+                iscorrect=True).count(),
             2,
         )
         self.assertEquals(user1.profile.domes, 2)
@@ -210,10 +202,8 @@ class AnswerCreateViewTests(TestCase):
         )
         user1.refresh_from_db()
         self.assertEquals(
-            Answer.objects.filter(question=ques1)
-            .filter(user=user1)
-            .filter(iscorrect=True)
-            .count(),
+            Answer.objects.filter(question=ques1).filter(user=user1).filter(
+                iscorrect=True).count(),
             1,
         )
         self.assertEquals(user1.profile.domes, 2)
@@ -223,10 +213,8 @@ class AnswerCreateViewTests(TestCase):
         )
         user1.refresh_from_db()
         self.assertEquals(
-            Answer.objects.filter(question=ques2)
-            .filter(user=user1)
-            .filter(iscorrect=True)
-            .count(),
+            Answer.objects.filter(question=ques2).filter(user=user1).filter(
+                iscorrect=True).count(),
             1,
         )
         self.assertEquals(user1.profile.domes, 4)

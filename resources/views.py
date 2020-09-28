@@ -33,7 +33,8 @@ class ResourceDetailViewJava(PageTitleMixin, DetailView):
     template_name = "resources/resources_detail_java.html"
 
     def get_context_data(self, **kwargs):
-        context = super(ResourceDetailViewJava, self).get_context_data(**kwargs)
+        context = super(ResourceDetailViewJava,
+                        self).get_context_data(**kwargs)
         context["resources"] = Resource.objects.filter(language="JAVA")
         return context
 

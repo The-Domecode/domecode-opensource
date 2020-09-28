@@ -6,7 +6,8 @@ register = template.Library()
 
 @register.simple_tag
 def notsolved(user, question):
-    if Answer.objects.filter(user=user, question=question, iscorrect=True).count() < 1:
+    if Answer.objects.filter(user=user, question=question,
+                             iscorrect=True).count() < 1:
         return True
     else:
         return False

@@ -33,7 +33,8 @@ class Migration(migrations.Migration):
                         default="default.jpg",
                         upload_to="profile_pics/",
                         validators=[
-                            django.core.validators.validate_image_file_extension
+                            django.core.validators.
+                            validate_image_file_extension
                         ],
                     ),
                 ),

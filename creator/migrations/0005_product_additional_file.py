@@ -28,8 +28,7 @@ class Migration(migrations.Migration):
                             "txt",
                             "jpeg",
                             "png",
-                        ]
-                    )
+                        ])
                 ],
             ),
         ),

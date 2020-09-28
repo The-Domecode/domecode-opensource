@@ -5,8 +5,7 @@ from .models import Answer
 
 class ResultForm(forms.ModelForm):
     result = forms.FileField(
-        validators=[FileExtensionValidator(allowed_extensions=["txt"])]
-    )
+        validators=[FileExtensionValidator(allowed_extensions=["txt"])])
 
     class Meta:
         model = Answer
