@@ -16,11 +16,14 @@ class Query(models.Model):
     ]
 
     title = models.CharField(max_length=240)
-    user = models.ForeignKey(get_user_model(), null=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(get_user_model(),
+                             null=True,
+                             on_delete=models.SET_NULL)
     content = RichTextField(null=True, blank=True)
-    likes = models.ManyToManyField(
-        User, default=None, blank=True, related_name="query_likes"
-    )
+    likes = models.ManyToManyField(User,
+                                   default=None,
+                                   blank=True,
+                                   related_name="query_likes")
     category = models.CharField(max_length=30, choices=CATEGORY, default="GEN")
     created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
@@ -41,14 +44,17 @@ class Query(models.Model):
 
 
 class Answer(models.Model):
-    user = models.ForeignKey(get_user_model(), null=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(get_user_model(),
+                             null=True,
+                             on_delete=models.SET_NULL)
     query = models.ForeignKey(Query, on_delete=models.CASCADE)
     content = RichTextField()
     created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
-    likes = models.ManyToManyField(
-        User, default=None, blank=True, related_name="answer_likes"
-    )
+    likes = models.ManyToManyField(User,
+                                   default=None,
+                                   blank=True,
+                                   related_name="answer_likes")
     slug = models.SlugField(null=True, unique=True, max_length=256)
     isaccepted = models.BooleanField(default=False)
 
@@ -62,7 +68,9 @@ class Answer(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(get_user_model(), null=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(get_user_model(),
+                             null=True,
+                             on_delete=models.SET_NULL)
     answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
     content = RichTextField()
     created = models.DateTimeField(auto_now_add=True)

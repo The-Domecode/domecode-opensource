@@ -14,7 +14,8 @@ def notsolved(user, question):
 
 @register.simple_tag
 def notcorrect(user, question):
-    if Answer.objects.filter(user=user, question=question, iscorrect=True).count() < 1:
+    if Answer.objects.filter(user=user, question=question,
+                             iscorrect=True).count() < 1:
         return True
     else:
         return False

@@ -88,9 +88,10 @@ class NotesListViewTests(TestCase):
         The view must return only the queried notes
         """
         user = create_user(username="TestUser", password="test000")
-        self.client.post(
-            reverse("login"), {"username": "TestUser", "password": "test000"}
-        )
+        self.client.post(reverse("login"), {
+            "username": "TestUser",
+            "password": "test000"
+        })
         create_note(title="TestNote1", user=user)
         create_note(title="TestNote2", user=user)
         response = self.client.get(
@@ -110,7 +111,11 @@ class NotesCreateViewTests(TestCase):
         """
         self.client.post(
             reverse("notes:create"),
-            {"title": "Test Note", "content": "Test Content", "category": "Test cat"},
+            {
+                "title": "Test Note",
+                "content": "Test Content",
+                "category": "Test cat"
+            },
         )
         self.assertEquals(Notes.objects.all().count(), 0)
 
@@ -122,7 +127,11 @@ class NotesCreateViewTests(TestCase):
         self.client.login(username="TestUser", password="test000")
         self.client.post(
             reverse("notes:create"),
-            {"title": "Test Note", "content": "Test Content", "category": "Test cat"},
+            {
+                "title": "Test Note",
+                "content": "Test Content",
+                "category": "Test cat"
+            },
         )
         self.assertEquals(Notes.objects.all().count(), 1)
 
@@ -168,9 +177,10 @@ class NotesDetailsViewTests(TestCase):
         user1 = create_user(username="TestUser1", password="test000")
         self.client.login(username="TestUser1", password="test000")
         note = create_note(
-            title="TestNote1", user=user1
-        )  # User1 created the note and they will try to see it
-        response = self.client.get(reverse("notes:detail", kwargs={"slug": note.slug}))
+            title="TestNote1",
+            user=user1)  # User1 created the note and they will try to see it
+        response = self.client.get(
+            reverse("notes:detail", kwargs={"slug": note.slug}))
         self.assertContains(response, "TestNote1")
 
     def test_incorrect_user_cannot_view(self):
@@ -181,9 +191,10 @@ class NotesDetailsViewTests(TestCase):
         user2 = create_user(username="TestUser2", password="test000")
         self.client.login(username="TestUser1", password="test000")
         note = create_note(
-            title="TestNote1", user=user2
-        )  # User2 created the note and user1 will try to view it
-        response = self.client.get(reverse("notes:detail", kwargs={"slug": note.slug}))
+            title="TestNote1",
+            user=user2)  # User2 created the note and user1 will try to view it
+        response = self.client.get(
+            reverse("notes:detail", kwargs={"slug": note.slug}))
         self.assertEquals(response.status_code, 403)
 
 
@@ -202,7 +213,11 @@ class NotesUpdateViewTests(TestCase):
         )  # User1 created the note and they will try to update it
         self.client.post(
             reverse("notes:update", kwargs={"slug": note.slug}),
-            {"title": "Updated_test_note", "content": "test_content", "category": "CS"},
+            {
+                "title": "Updated_test_note",
+                "content": "test_content",
+                "category": "CS"
+            },
         )
         self.assertEqual(Notes.objects.all()[0].title, "Updated_test_note")
 
@@ -218,6 +233,10 @@ class NotesUpdateViewTests(TestCase):
         )  # User2 created the note and user1 will try to update it
         self.client.post(
             reverse("notes:update", kwargs={"slug": note.slug}),
-            {"title": "Updated_test_note", "content": "test_content", "category": "CS"},
+            {
+                "title": "Updated_test_note",
+                "content": "test_content",
+                "category": "CS"
+            },
         )
         self.assertNotEqual(Notes.objects.all()[0].title, "Updated_test_note")

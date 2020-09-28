@@ -18,7 +18,10 @@ def create_user(username, password):
 def create_question(language="PYTHON"):
     with open("coder/testfiles/output.txt") as file:
         f = SimpleUploadedFile("normal.txt", str.encode(file.read()))
-    question = Question(title="Test", content="Test", solution=f, typeof=language)
+    question = Question(title="Test",
+                        content="Test",
+                        solution=f,
+                        typeof=language)
     question.save()
     return question
 
@@ -37,7 +40,10 @@ class CoderCreateViewTests(TestCase):
         with open("coder/testfiles/normal.py") as f:
             self.client.post(
                 reverse("coder:submit", kwargs={"qslug": ques1.slug}),
-                data={"language": "PYTHON", "result": f},
+                data={
+                    "language": "PYTHON",
+                    "result": f
+                },
             )
         self.assertTrue(Answer.objects.all()[0].iscorrect)
 
@@ -51,7 +57,10 @@ class CoderCreateViewTests(TestCase):
         with open("coder/testfiles/normal.java") as f:
             self.client.post(
                 reverse("coder:submit", kwargs={"qslug": ques1.slug}),
-                data={"language": "JAVA", "result": f},
+                data={
+                    "language": "JAVA",
+                    "result": f
+                },
             )
         self.assertTrue(Answer.objects.all()[0].iscorrect)
 
@@ -65,7 +74,10 @@ class CoderCreateViewTests(TestCase):
         with open("coder/testfiles/normal.cpp") as f:
             self.client.post(
                 reverse("coder:submit", kwargs={"qslug": ques1.slug}),
-                data={"language": "C++", "result": f},
+                data={
+                    "language": "C++",
+                    "result": f
+                },
             )
         self.assertTrue(Answer.objects.all()[0].iscorrect)
 
@@ -79,7 +91,10 @@ class CoderCreateViewTests(TestCase):
         with open("coder/testfiles/normal.rs") as f:
             self.client.post(
                 reverse("coder:submit", kwargs={"qslug": ques1.slug}),
-                data={"language": "RUST", "result": f},
+                data={
+                    "language": "RUST",
+                    "result": f
+                },
             )
         self.assertTrue(Answer.objects.all()[0].iscorrect)
 
@@ -93,7 +108,10 @@ class CoderCreateViewTests(TestCase):
         with open("coder/testfiles/normal.go") as f:
             self.client.post(
                 reverse("coder:submit", kwargs={"qslug": ques1.slug}),
-                data={"language": "GO", "result": f},
+                data={
+                    "language": "GO",
+                    "result": f
+                },
             )
         self.assertTrue(Answer.objects.all()[0].iscorrect)
 
@@ -107,7 +125,10 @@ class CoderCreateViewTests(TestCase):
         with open("coder/testfiles/normal.c") as f:
             self.client.post(
                 reverse("coder:submit", kwargs={"qslug": ques1.slug}),
-                data={"language": "C", "result": f},
+                data={
+                    "language": "C",
+                    "result": f
+                },
             )
         self.assertTrue(Answer.objects.all()[0].iscorrect)
 
@@ -122,7 +143,10 @@ class CoderCreateViewTests(TestCase):
         with open("coder/testfiles/normal.java") as f:
             self.client.post(
                 reverse("coder:submit", kwargs={"qslug": ques1.slug}),
-                data={"language": "PYTHON", "result": f},
+                data={
+                    "language": "PYTHON",
+                    "result": f
+                },
             )
         user.refresh_from_db()
         self.assertEqual(user.profile.domes, 0)
@@ -130,12 +154,18 @@ class CoderCreateViewTests(TestCase):
         with open("coder/testfiles/normal.py") as f:
             self.client.post(
                 reverse("coder:submit", kwargs={"qslug": ques1.slug}),
-                data={"language": "PYTHON", "result": f},
+                data={
+                    "language": "PYTHON",
+                    "result": f
+                },
             )
 
             self.client.post(
                 reverse("coder:submit", kwargs={"qslug": ques1.slug}),
-                data={"language": "PYTHON", "result": f},
+                data={
+                    "language": "PYTHON",
+                    "result": f
+                },
             )  # Post the correct answer twice
         user.refresh_from_db()
         self.assertEqual(user.profile.domes, 15)

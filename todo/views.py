@@ -22,15 +22,13 @@ class TodoListView(PageTitleMixin, LoginRequiredMixin, ListView):
             ).order_by("created")
             return object_list
         else:
-            object_list = Todo.objects.filter(user=self.request.user).order_by(
-                "created"
-            )
+            object_list = Todo.objects.filter(
+                user=self.request.user).order_by("created")
             return object_list
 
 
-class TodoUpdateView(
-    PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin, UpdateView
-):
+class TodoUpdateView(PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin,
+                     UpdateView):
     model = Todo
     success_url = reverse_lazy("todo:list")
     title = "Update Task"

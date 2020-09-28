@@ -19,6 +19,7 @@ class ProfileUpdateForm(forms.ModelForm):
         labels = {
             "image": "Profile Pic (500x500 is preferred resolution)",
             "about": "About you (max 200 words)",
-            "githubusername": "Github Username ( if you wanna let others see it )",
+            "githubusername":
+            "Github Username ( if you wanna let others see it )",
         }
         widgets = {"image": forms.FileInput()}
