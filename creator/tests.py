@@ -109,7 +109,8 @@ class ProductDeleteViewTests(TestCase):
         self.client.login(username="TestUser1", password="test000")
         product = create_product(name="TestProduct1", user=user1)
         # User1 created the product and they will try to delete it
-        self.client.post(reverse("creator:delete", kwargs={"slug": product.slug}))
+        self.client.post(
+            reverse("creator:delete", kwargs={"slug": product.slug}))
         self.assertEquals(Product.objects.all().count(), 0)
 
     def test_incorrect_user_cannot_delete(self):
@@ -121,7 +122,8 @@ class ProductDeleteViewTests(TestCase):
         self.client.login(username="TestUser1", password="test000")
         product = create_product(name="TestProduct1", user=user2)
         # User2 created the product and user1 will try to delete it
-        self.client.post(reverse("creator:delete", kwargs={"slug": product.slug}))
+        self.client.post(
+            reverse("creator:delete", kwargs={"slug": product.slug}))
         self.assertEquals(Product.objects.all().count(), 1)
 
 
@@ -138,8 +140,7 @@ class ProductDetailsViewTests(TestCase):
         product = create_product(name="TestProduct1", user=user1)
         # User1 created the product and they will try to see it
         response = self.client.get(
-            reverse("creator:detail", kwargs={"slug": product.slug})
-        )
+            reverse("creator:detail", kwargs={"slug": product.slug}))
         self.assertContains(response, "TestProduct1")
 
     def test_incorrect_user_can_also_view(self):
@@ -152,13 +153,11 @@ class ProductDetailsViewTests(TestCase):
         product = create_product(name="TestProduct1", user=user2)
         # User2 created the product and user1 will try to view it
         response = self.client.get(
-            reverse("creator:detail", kwargs={"slug": product.slug})
-        )
+            reverse("creator:detail", kwargs={"slug": product.slug}))
         self.assertContains(response, "TestProduct1")
         self.client.logout()
         response = self.client.get(
-            reverse("creator:detail", kwargs={"slug": product.slug})
-        )
+            reverse("creator:detail", kwargs={"slug": product.slug}))
         self.assertContains(response, "TestProduct1")
 
 
@@ -203,4 +202,5 @@ class ProductUpdateViewTests(TestCase):
                 "contributors": "None",
             },
         )
-        self.assertNotEqual(Product.objects.all()[0].name, "Updated_test_product")
+        self.assertNotEqual(Product.objects.all()[0].name,
+                            "Updated_test_product")

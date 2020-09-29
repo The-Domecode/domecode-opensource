@@ -74,7 +74,8 @@ class Migration(migrations.Migration):
                 (
                     "solution",
                     models.CharField(
-                        choices=[("A", "A"), ("B", "B"), ("C", "C"), ("D", "D")],
+                        choices=[("A", "A"), ("B", "B"), ("C", "C"),
+                                 ("D", "D")],
                         default="A",
                         max_length=1,
                     ),
@@ -106,7 +107,8 @@ class Migration(migrations.Migration):
                 (
                     "answer",
                     models.CharField(
-                        choices=[("A", "A"), ("B", "B"), ("C", "C"), ("D", "D")],
+                        choices=[("A", "A"), ("B", "B"), ("C", "C"),
+                                 ("D", "D")],
                         default="A",
                         max_length=1,
                     ),
@@ -114,8 +116,8 @@ class Migration(migrations.Migration):
                 (
                     "question",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="quizzes.Ques"
-                    ),
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="quizzes.Ques"),
                 ),
                 (
                     "user",

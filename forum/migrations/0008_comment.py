@@ -33,8 +33,8 @@ class Migration(migrations.Migration):
                 (
                     "answer",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="forum.Answer"
-                    ),
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="forum.Answer"),
                 ),
                 (
                     "user",

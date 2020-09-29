@@ -6,4 +6,5 @@ def FusionHomeView(requests):
 
 
 def FusionDetailView(requests):
-    return render(requests, "fusion/fusion_detail.html", {"title": "Fusion Immerse"})
+    return render(requests, "fusion/fusion_detail.html",
+                  {"title": "Fusion Immerse"})

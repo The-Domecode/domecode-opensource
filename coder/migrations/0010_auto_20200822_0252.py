@@ -25,8 +25,7 @@ class Migration(migrations.Migration):
                 upload_to="media",
                 validators=[
                     django.core.validators.FileExtensionValidator(
-                        allowed_extensions=["txt, py, java, cpp, c++"]
-                    )
+                        allowed_extensions=["txt, py, java, cpp, c++"])
                 ],
             ),
         ),

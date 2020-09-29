@@ -3,7 +3,6 @@ from django.views import generic
 from .models import Product
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from domecode.mixins import PageTitleMixin
-
 """
 Product List View - Lists your products in the creator space (logged in, your
 products)
@@ -33,7 +32,8 @@ class ProductDetailView(PageTitleMixin, generic.DetailView):
     context_object_name = "product"
 
 
-class ProductCreateView(PageTitleMixin, LoginRequiredMixin, generic.CreateView):
+class ProductCreateView(PageTitleMixin, LoginRequiredMixin,
+                        generic.CreateView):
     model = Product
     title = "Create Product"
     template_name = "creator/product_form.html"
@@ -59,9 +59,8 @@ class ProductCreateView(PageTitleMixin, LoginRequiredMixin, generic.CreateView):
         return super().form_valid(form)
 
 
-class ProductUpdateView(
-    PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView
-):
+class ProductUpdateView(PageTitleMixin, LoginRequiredMixin,
+                        UserPassesTestMixin, generic.UpdateView):
     model = Product
     title = "Update Product"
     template_name = "creator/product_form.html"
@@ -93,9 +92,8 @@ class ProductUpdateView(
             return True
 
 
-class ProductDeleteView(
-    PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
-):
+class ProductDeleteView(PageTitleMixin, LoginRequiredMixin,
+                        UserPassesTestMixin, generic.DeleteView):
     model = Product
     title = "Delete Product"
     template_name = "creator/product_confirm_delete.html"

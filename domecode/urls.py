@@ -6,7 +6,6 @@ from . import devsettings
 from django.conf.urls.static import static
 from decouple import config
 
-
 admin.autodiscover()
 
 urlpatterns = [
@@ -34,9 +33,13 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
 
 elif devsettings.DEBUG:
-    urlpatterns += static(devsettings.MEDIA_URL, document_root=devsettings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=devsettings.STATIC_ROOT)
+    urlpatterns += static(devsettings.MEDIA_URL,
+                          document_root=devsettings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=devsettings.STATIC_ROOT)
