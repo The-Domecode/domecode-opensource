@@ -1,0 +1,4 @@
+[flake8]
+ignore = W191,E101,E117,F811,W503,W504,E501,E124
+exclude = venv
+max_line_length=90
