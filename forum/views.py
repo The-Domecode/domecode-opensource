@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import generic
 from .models import Query, Answer, Comment
@@ -12,8 +12,7 @@ from domecode.mixins import PageTitleMixin
 
 
 def guidelines(request):
-    return render(request, "forum/guidelines.html",
-                  {"title": "Forum Guidelines"})
+    return render(request, "forum/guidelines.html", {"title": "Forum Guidelines"})
 
 
 class QueryListView(PageTitleMixin, generic.ListView):
@@ -31,7 +30,8 @@ class QueryListView(PageTitleMixin, generic.ListView):
             object_list = object_list.filter(
                 Q(title__contains=search)
                 | Q(content__contains=search)
-                | Q(category__contains=search)).order_by("-last_modified")
+                | Q(category__contains=search)
+            ).order_by("-last_modified")
             return object_list
         else:
             return object_list
@@ -54,8 +54,9 @@ class QueryCreateView(PageTitleMixin, LoginRequiredMixin, generic.CreateView):
         return super().form_valid(form)
 
 
-class QueryUpdateView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
-                      generic.UpdateView):
+class QueryUpdateView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.UpdateView
+):
     model = Query
     fields = ["title", "content", "category"]
     title = "Edit Query"
@@ -70,8 +71,9 @@ class QueryUpdateView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
             return True
 
 
-class QueryDeleteView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
-                      generic.DeleteView):
+class QueryDeleteView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.DeleteView
+):
     model = Query
     success_url = reverse_lazy("forum:list")
     title = "Delete Query"
@@ -94,8 +96,9 @@ class AnswerCreateView(LoginRequiredMixin, PageTitleMixin, generic.CreateView):
         return super().form_valid(form)
 
 
-class AnswerUpdateView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
-                       generic.UpdateView):
+class AnswerUpdateView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.UpdateView
+):
     model = Answer
     template_name = "forum/answer_form.html"
     fields = ["content"]
@@ -111,8 +114,9 @@ class AnswerUpdateView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
             return True
 
 
-class AnswerDeleteView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
-                       generic.DeleteView):
+class AnswerDeleteView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.DeleteView
+):
     model = Answer
     success_url = reverse_lazy("forum:list")
     title = "Delete Answer"
@@ -123,8 +127,9 @@ class AnswerDeleteView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
             return True
 
 
-class AcceptAnswerView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
-                       generic.UpdateView):
+class AcceptAnswerView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.UpdateView
+):
     model = Answer
     fields = ["isaccepted"]
     template_name = "forum/answer_accept.html"
@@ -146,8 +151,7 @@ class AnswerDetailView(PageTitleMixin, generic.DetailView):
     title = "Answer"
 
 
-class CommentCreateView(LoginRequiredMixin, PageTitleMixin,
-                        generic.CreateView):
+class CommentCreateView(LoginRequiredMixin, PageTitleMixin, generic.CreateView):
     model = Comment
     template_name = "forum/comment_form.html"
     fields = ["content"]
@@ -159,8 +163,9 @@ class CommentCreateView(LoginRequiredMixin, PageTitleMixin,
         return super().form_valid(form)
 
 
-class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin,
-                        PageTitleMixin, generic.UpdateView):
+class CommentUpdateView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.UpdateView
+):
     model = Comment
     template_name = "forum/comment_form.html"
     fields = ["content"]
@@ -176,8 +181,9 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin,
             return True
 
 
-class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin,
-                        PageTitleMixin, generic.DeleteView):
+class CommentDeleteView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, generic.DeleteView
+):
     model = Comment
     success_url = reverse_lazy("forum:list")
     title = "Delete Comment"
@@ -189,8 +195,9 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin,
 
 
 class QueryLikeToggle(generic.RedirectView):
+
     def get_redirect_url(self, *args, **kwargs):
-        query = get_object_or_404(Query, slug=self.kwargs["slug"])
+        # query = get_object_or_404(Query, slug=self.kwargs["slug"])
         slug = self.kwargs.get("slug")
         print(slug)
         obj = get_object_or_404(Query, slug=slug)
@@ -212,7 +219,7 @@ class QueryLikeAPIToggle(APIView):
         IsAuthenticated,
     ]
 
-    def get(self, request, slug=None, format=None):
+    def get(self, request, slug=None):
         obj = get_object_or_404(Query, slug=slug)
         updated = False
         liked = False
