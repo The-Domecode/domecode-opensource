@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 from notes.api import views
 
 app_name = "notes"

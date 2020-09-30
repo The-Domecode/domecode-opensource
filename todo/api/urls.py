@@ -1,6 +1,4 @@
-from django.urls import path, include
-from rest_framework.urlpatterns import format_suffix_patterns
-from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope, TokenHasScope
+from django.urls import path
 from todo.api import views
 
 app_name = "todo"

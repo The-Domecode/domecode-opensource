@@ -34,8 +34,7 @@ def privacy(request):
 
 
 def tos(request):
-    return render(request, "notes/termsofservice.html",
-                  {"title": "Terms of Service"})
+    return render(request, "notes/termsofservice.html", {"title": "Terms of Service"})
 
 
 class NotesListView(LoginRequiredMixin, PageTitleMixin, ListView):
@@ -57,12 +56,14 @@ class NotesListView(LoginRequiredMixin, PageTitleMixin, ListView):
             return object_list
         else:
             object_list = Notes.objects.filter(
-                user=self.request.user).order_by("-last_modified")
+                user=self.request.user
+            ).order_by("-last_modified")
             return object_list
 
 
-class NotesUpdateView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
-                      UpdateView):
+class NotesUpdateView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, UpdateView
+):
     model = Notes
     success_url = reverse_lazy("notes:list")
     title = "Update Note"
@@ -78,8 +79,9 @@ class NotesUpdateView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
             return True
 
 
-class NotesDetailView(PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin,
-                      DetailView):
+class NotesDetailView(
+    PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin, DetailView
+):
     model = Notes
     title = "Notes"
 
@@ -89,8 +91,9 @@ class NotesDetailView(PageTitleMixin, LoginRequiredMixin, UserPassesTestMixin,
             return True
 
 
-class NotesDeleteView(LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin,
-                      DeleteView):
+class NotesDeleteView(
+    LoginRequiredMixin, UserPassesTestMixin, PageTitleMixin, DeleteView
+):
     model = Notes
     success_url = reverse_lazy("notes:list")
     title = "Delete Note"
