@@ -70,12 +70,10 @@ class AnswerCreateView(PageTitleMixin, LoginRequiredMixin, CreateView):
         if form.instance.answer == question.solution:
             form.instance.iscorrect = True
 
-        if (
-                form.instance.iscorrect
-                and Answer.objects.filter(question=question
-                                          ).filter(user=form.instance.user
-                                                   ).filter(iscorrect=True).count() == 0
-        ):
+        if (form.instance.iscorrect
+                and Answer.objects.filter(question=question).filter(
+                    user=form.instance.user).filter(iscorrect=True).count()
+                == 0):
             if form.instance.question.quiz.typeof == "EASY":
                 form.instance.user.profile.domes += 2
             if form.instance.question.quiz.typeof == "MEDIUM":

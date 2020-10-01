@@ -5,6 +5,10 @@ app_name = "resources"
 
 urlpatterns = [
     path("", ResourcesHome.as_view(), name="home"),
-    path("python/<slug:slug>/", ResourceDetailViewPy.as_view(), name="detail-python"),
-    path("java/<slug:slug>/", ResourceDetailViewJava.as_view(), name="detail-java"),
+    path("python/<slug:slug>/",
+         ResourceDetailViewPy.as_view(),
+         name="detail-python"),
+    path("java/<slug:slug>/",
+         ResourceDetailViewJava.as_view(),
+         name="detail-java"),
 ]

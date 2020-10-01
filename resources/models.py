@@ -18,7 +18,9 @@ class Resource(models.Model):
     serialno = models.IntegerField(null=True, blank=True)
     content = RichTextField()
     category = models.CharField(max_length=300)
-    language = models.CharField(max_length=10, choices=LANGUAGE, default="PYTHON")
+    language = models.CharField(max_length=10,
+                                choices=LANGUAGE,
+                                default="PYTHON")
     slug = models.SlugField(null=True, unique=True, max_length=256)
     quizlink = models.CharField(max_length=100, null=True, blank=True)
 
@@ -35,7 +37,9 @@ class Resource(models.Model):
 
 class Progress(models.Model):
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
-    user = models.ForeignKey(get_user_model(), null=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(get_user_model(),
+                             null=True,
+                             on_delete=models.SET_NULL)
     isdone = models.BooleanField(default=False)
     slug = models.SlugField(null=True, unique=True, max_length=256)
 
