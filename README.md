@@ -104,6 +104,29 @@ Please refer to the [Contribution Guide](https://github.com/The-Domecode/domecod
 
 - The variables you should include are the ones with `config()` next to them in the `devmanage.py` file. If there's an error due to the missing value of an environment variable, it can be fixed with ease by passing in appropriate variables. It's pretty generic stuff. 
 
+
+
+Here's a dummy .env file you can use:
+```
+SECRET_KEY="hk"
+DB_HOST="abcd"
+SOCIAL_AUTH_GITHUB_KEY="hk"
+SOCIAL_AUTH_GITHUB_SECRET="hk"
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY="hk"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET="hk"
+SECURE_HSTS_SECONDS="10"
+SESSION_COOKIE_SECURE="False"
+CSRF_COOKIE_SECURE="False"
+AWS_ACCESS_KEY_ID="hc"
+AWS_SECRET_ACCESS_KEY="hc"
+AWS_STORAGE_BUCKET_NAME="hc"
+ADMIN_URL="admin"
+JUDGE0_RAPID_API_KEY="abc"
+HONEYBADGER_KEY="abc"
+```
+
+- If you want to do something involving the judge api, get your own api key from [here](https://rapidapi.com/hermanzdosilovic/api/judge0) and place that key in the ```JUDGE0_RAPID_API_KEY``` variable in .env
+
 - Once you're done with that, you can start working on fixing the nitty gritty details, make improvements, finding issues and reporting them in the issues tab of this repository. Create PRs and have fun!
 
 **Note : You should take note of that if you are working on the fork of this repository, you have to sync it before pushing changes to the fork and making a PR to this repo. How to sync changes made on this repo to your fork? Have a look at [this](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork).**
