@@ -1,5 +1,5 @@
 from django import template
-from coder.models import Question, Answer
+from coder.models import Answer
 
 register = template.Library()
 

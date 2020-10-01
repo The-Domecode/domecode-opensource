@@ -1,4 +1,4 @@
-from django.db import models, transaction
+from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
@@ -33,7 +33,6 @@ class Quiz(models.Model):
 
 
 class Ques(models.Model):
-
     Choices = [("A", "A"), ("B", "B"), ("C", "C"), ("D", "D")]
     Language = [
         ("JAVA", "Java"),

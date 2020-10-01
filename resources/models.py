@@ -1,5 +1,4 @@
 from django.db import models
-from django.db import models, transaction
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 from django.utils.text import slugify
@@ -8,7 +7,6 @@ from django.utils.crypto import get_random_string
 
 
 class Resource(models.Model):
-
     LANGUAGE = [
         ("JAVA", "Java"),
         ("PYTHON", "Python"),

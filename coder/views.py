@@ -1,16 +1,12 @@
-from typing import List
-from django.shortcuts import get_object_or_404, render
-from django.urls import reverse_lazy, reverse
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.shortcuts import render
+from django.urls import reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
     ListView,
     DetailView,
     CreateView,
-    UpdateView,
-    RedirectView,
 )
 from django.db.models import Q
-from . import compare
 from domecode.mixins import PageTitleMixin
 
 from django.conf import settings
@@ -183,10 +179,9 @@ class CoderCreateView(PageTitleMixin, LoginRequiredMixin, CreateView):
         form.instance.status = status
         form.instance.response_from_judge = response2.text
         form.instance.iscorrect = form.instance.status == "Accepted"
-        if (form.instance.iscorrect
-                and Answer.objects.filter(question=question).filter(
-                    iscorrect=True).filter(user=form.instance.user).count()
-                == 0):
+        if (form.instance.iscorrect and
+            (Answer.objects.filter(question=question).filter(
+                iscorrect=True).filter(user=form.instance.user).count() == 0)):
             if form.instance.question.category == "EASY":
                 form.instance.user.profile.domes += 10
             if form.instance.question.category == "MEDIUM":
@@ -200,25 +195,3 @@ class CoderCreateView(PageTitleMixin, LoginRequiredMixin, CreateView):
         form.save()
 
         return super().form_valid(form)
-
-
-"""
-	def upload_file(request):
-		if request.method == 'POST':
-			form = UploadFileForm(request.POST, request.FILES)
-			if form.is_valid():
-				compare.compare(request.FILES['file'])
-				return HttpResponseRedirect('/success/url/')
-		else:
-			form = UploadFileForm()
-		return render(request, 'upload.html', {'form': form})
-
-   #   form.instance.question.iscorrect = compare.compare((
-  #      list(self.request.FILES.values())[0], question.solution), (list(self.request.FILES.values())[0], form.instance.result))
-  #  form.instance.iscorrect = compare.compare(
-   #     (list(self.request.FILES.values())[
-        #     0].file.read(), question.solution),
-        #   (list(self.request.FILES.values())[
-        #   0].file.read(), form.instance.result)
-        # )
-"""

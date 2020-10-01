@@ -223,7 +223,7 @@ def get_cache():
                 },
             }
         }
-    except:
+    except BaseException:
         return {
             "default": {
                 "BACKEND": "django.core.cache.backends.locmem.LocMemCache"

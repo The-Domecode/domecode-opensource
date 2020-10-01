@@ -67,8 +67,8 @@ class Answer(models.Model):
     language = models.CharField(max_length=10, choices=TYPE,
                                 default="PYTHON")  # Stores the language ofc
 
-    status = models.CharField(max_length=100,
-                              default="In Queue")  # Added the status field
+    # Added the status field
+    status = models.CharField(max_length=100, default="In Queue")
     response_from_judge = models.TextField(null=True)
     # Stores the response received from judge. Can be helpful in debugging later.
 
@@ -82,7 +82,3 @@ class Answer(models.Model):
         blank=True,
         null=True,
     )  # Allowed for other types of file extensions
-
-
-#    result = models.FileField( null= True, blank=True, default = 'media/media/output.txt',
-#   validators=[FileExtensionValidator(allowed_extensions=['txt'])], upload_to= 'media')

@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import generic
 from .models import Query, Answer, Comment
@@ -190,7 +190,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin,
 
 class QueryLikeToggle(generic.RedirectView):
     def get_redirect_url(self, *args, **kwargs):
-        query = get_object_or_404(Query, slug=self.kwargs["slug"])
+        # query = get_object_or_404(Query, slug=self.kwargs["slug"])
         slug = self.kwargs.get("slug")
         print(slug)
         obj = get_object_or_404(Query, slug=slug)
@@ -212,7 +212,7 @@ class QueryLikeAPIToggle(APIView):
         IsAuthenticated,
     ]
 
-    def get(self, request, slug=None, format=None):
+    def get(self, request, slug=None):
         obj = get_object_or_404(Query, slug=slug)
         updated = False
         liked = False

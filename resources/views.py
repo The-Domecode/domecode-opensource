@@ -1,8 +1,6 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView
 from domecode.mixins import PageTitleMixin
-from .models import Progress, Resource
-from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from .models import Resource
 
 
 class ResourcesHome(PageTitleMixin, ListView):

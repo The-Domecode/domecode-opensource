@@ -1,6 +1,5 @@
-from forum.models import Query
 from django.contrib import admin
-from .models import *
+from .models import Query, Answer, Comment
 
 # Register your models here.
 admin.site.register(Query)
