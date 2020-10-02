@@ -98,6 +98,8 @@ Please refer to the [Contribution Guide](https://github.com/The-Domecode/domecod
 
 **Things to take care of :**
 
+- Have at the very least **some** level of prior knowledge in Django, enough to know how to make migrations, create super user and other very simple tasks. Recommended knowledge to substantially contribute in the project is, you should know how to work with Django Channels, build your own APIs, work with async Python, use Celery without running into issues all the time, know how web servers work in general and know how to properly use Docker. These are not the requirements per se but it's all recommended. 
+
 - Use the `devmanage.py` command instead of `manage.py` command on development environments.
 
 - This project uses `decouple` so make sure to make a local `.env` file in your root directory of the project containing all the variables with dummy values.
