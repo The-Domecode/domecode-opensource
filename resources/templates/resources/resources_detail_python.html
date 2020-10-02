@@ -1,4 +1,5 @@
-{% extends "notes/base.html" %}
+{% extends 'notes/base.html' %}
+{% load static %}
 {% block content %}
 
 <!--Add navigation to other resources-->
@@ -62,4 +63,8 @@
 <p>Optional Python Editor for your use</p>
 <iframe src="https://trinket.io/embed/python3/9d578a67e3" width="90%" height="400" frameborder="0" marginwidth="0"
   marginheight="0"></iframe>
+
+<!-- Run video fix. Has to be at the bottom for this to work. -->
+<script src="{% static 'js/resources.js' %}"></script>
+
 {% endblock content %}
