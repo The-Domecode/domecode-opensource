@@ -10,8 +10,10 @@ Most open source development activity is coordinated through our Discord. The Wi
 - Join our [Discord](https://discord.domecode.com/)
 - Make sure you have a [GitHub account](https://github.com/signup/free)
 - Fork [our repository(ies)](https://github.com/the-domecode) on GitHub
-- Run the migrations.
-- Run this on your localhost.
+- Install all the dependencies using pipenv or just normal pip.
+- Run the migrations by running: `python devmanage.py migrate`
+- Run this on your localhost, by running: `python devmanage.py runserver`
+
 
 **Things to take care of :**
 
