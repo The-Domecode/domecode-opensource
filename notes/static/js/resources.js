@@ -29,7 +29,6 @@ for (var i=0, max=all.length; i < max; i++) {
     // get element name
     var el = all[i];
     var name = el.nodeName.toLowerCase();
-    console.log(name);
     if (name == "iframe") {
         // if it's an iframe, push it to the list.
         elements.push(el);
@@ -44,7 +43,6 @@ for (var i=0, max=elements.length; i < max; i++) {
     if(frame.src.includes("trinket")) {
         continue;
     }
-    console.log(frame.src);
     // Wrap the video inside the video-wrapper class
     
     // get the frame's current parent
