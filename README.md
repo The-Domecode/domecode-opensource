@@ -87,6 +87,34 @@ Unreleased features are **highlighted**.
 - More than **2** sessions on average per user where the users include unregistered users as well.
 - **Upcoming** - Stable Release in October.
 - **Upcoming** - An exclusive blog. Apply to become a DomeCode blogger **[here](https://forms.gle/8Q6gQYBJxsKYgxMP7)**.
+i
+
+## Modules part of only the Proprietary repository
+
+- Coder 
+- Fusion
+- Messages and its notification system
+- Upcoming 1v1 features
+- Upcoming Bored! feature
+- Upcoming Help! feature
+- Updated Music Player
+
+If you want to work on anything apart from the modules present in the open-source repository, please contact us.
+
+## Features that are part of the open-source repo
+
+
+- Notes 
+- Tasks
+- Quizzes
+- Forum
+- Resources
+- Upcoming Blog
+- Upcoming User Finder
+- Current Music player
+- Upcoming Blog Platform by DomeCode
+
+You will be able to contribute to all of these features and they *will be kept* open-source forever. You will also be able to contribute to the base front-end of DomeCode without having to apply to be a part of the internal development team.
 
 ## Setup
 
