@@ -5,6 +5,7 @@
 <meta name="monetization" content="$ilp.uphold.com/DFYMWhkmjUND">
 
 <head>
+	{% block head %}
 	<!-- Primary Meta Tags -->
 	<meta name="monetization" content="$ilp.uphold.com/DFYMWhkmjUND">
 	<title>DomeCode - A single platform to learn to code</title>
@@ -75,10 +76,11 @@
 	{%else%}
 	<title>DomeCode</title>
 	{%endif%}
+	{% endblock %}
 </head>
 
 <body>
-
+	{%block body%}
 	<script src="{%static 'js/script.js'%}"></script>
 
 	<header class="site-header">
@@ -237,6 +239,8 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
 		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 		crossorigin="anonymous"></script>
+	
+		{%endblock%}
 
 </body>
 
