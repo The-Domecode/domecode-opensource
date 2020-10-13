@@ -35,7 +35,7 @@ body {
   border: 1px rgb(0, 0, 0) solid;
 }
 
-/* .footer {
+.footer {
   font-family: "Roboto Mono";
   font-size: 18px;
   font-weight: bolder;
@@ -47,4 +47,4 @@ body {
   background: #1c1c1c;
   color: white;
   text-align: center;
-} */
+}
