@@ -20,13 +20,14 @@ if (!String.prototype.includes) {
     };
 }
 
+// Polyfill HTMLCollection.forEach from Array.forEach
+if (!HTMLCollection.prototype.forEach) HTMLCollection.prototype.forEach = Array.prototype.forEach;
+
 console.log("Starting script...");
 var t0 = performance.now();
 
 // Gather all video frames
-const frames = Array.from(document.getElementsByTagName("IFRAME")).filter((frame) => {
-    if (frame.src.includes("trinket")) return false; else return true;
-}).map((frame) => { return frame; });
+const frames = document.getElementsByTagName("IFRAME");
 
 // Loop over each frame we got
 frames.forEach((frame) => {
