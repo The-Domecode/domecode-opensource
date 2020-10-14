@@ -20,21 +20,26 @@ if (!String.prototype.includes) {
     };
 }
 
+console.log("Starting script...");
+var t0 = performance.now();
 
 // Gather all video frames
-var frames = $("iframe").map(function() {
-    if (this.src.includes("trinket")) {
-        // This is a trinket frame, skip
-        return;
-    } else {
-        // This is not a trinket frame, return this
-        return this;
-    }
-});
+var frames = Array.from(document.getElementsByTagName("IFRAME")).filter((frame) => {
+    if (frame.src.includes("trinket")) return false; else return true;
+}).map((frame) => { return frame; });
 
 // Loop over each frame we got
-frames.each(function() {
-    // Create our wrapper div and wrap the frame
-    $("<div/>", {"class": "video-container"}).wrap($(this));
+frames.forEach((frame) => {
+    // Get the frame's parent
+    var parent = frame.parentNode;
+    // Create the wrapper div and set its class
+    var wrapper = document.createElement("div");
+    wrapper.className = "video-container";
 
-});
+    // Wrap the frame in the wrapper
+    parent.replaceChild(wrapper, frame);
+    wrapper.appendChild(frame);
+})
+
+var t1 = performance.now();
+console.log("This script took " + (t1 - t0) + " ms.");
