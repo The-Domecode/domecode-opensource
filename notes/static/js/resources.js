@@ -24,16 +24,16 @@ console.log("Starting script...");
 var t0 = performance.now();
 
 // Gather all video frames
-var frames = Array.from(document.getElementsByTagName("IFRAME")).filter((frame) => {
+const frames = Array.from(document.getElementsByTagName("IFRAME")).filter((frame) => {
     if (frame.src.includes("trinket")) return false; else return true;
 }).map((frame) => { return frame; });
 
 // Loop over each frame we got
 frames.forEach((frame) => {
     // Get the frame's parent
-    var parent = frame.parentNode;
+    let parent = frame.parentNode;
     // Create the wrapper div and set its class
-    var wrapper = document.createElement("div");
+    let wrapper = document.createElement("div");
     wrapper.className = "video-container";
 
     // Wrap the frame in the wrapper
