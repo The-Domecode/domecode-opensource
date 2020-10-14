@@ -23,9 +23,6 @@ if (!String.prototype.includes) {
 // Polyfill HTMLCollection.forEach from Array.forEach
 if (!HTMLCollection.prototype.forEach) HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
-console.log("Starting script...");
-var t0 = performance.now();
-
 // Gather all video frames
 const frames = document.getElementsByTagName("IFRAME");
 
@@ -41,6 +38,3 @@ frames.forEach((frame) => {
     parent.replaceChild(wrapper, frame);
     wrapper.appendChild(frame);
 })
-
-var t1 = performance.now();
-console.log("This script took " + (t1 - t0) + " ms.");
