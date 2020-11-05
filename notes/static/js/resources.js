@@ -23,10 +23,17 @@ if (!String.prototype.includes) {
 // Polyfill HTMLCollection.forEach from Array.forEach
 if (!HTMLCollection.prototype.forEach) HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
-// Gather all video frames
-const frames = document.getElementsByTagName("IFRAME");
 
-// Loop over each frame we got
+// List of elements to work on. To add new types of elements, just add mroe tag names to this array.
+const elements = ["IFRAME", "IMG"];
+let frames = [];
+
+// Grab all the elements
+elements.forEach((element) => {
+    frames = frames.concat(Array.from(document.getElementsByTagName(element)));
+});
+
+// Apply our modifications
 frames.forEach((frame) => {
     // Get the frame's parent
     let parent = frame.parentNode;
