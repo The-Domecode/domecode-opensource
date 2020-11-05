@@ -3,7 +3,8 @@ https://github.com/The-Domecode/domecode-opensource/issues/3#issuecomment-685106
 for more info. */
 
 
-// polyfill "String.includes" function. required for bowsers without ES6 support, like Internet Explorer.
+// polyfill "String.includes" function. 
+// Required for bowsers without ES6 support, like Internet Explorer.
 if (!String.prototype.includes) {
     String.prototype.includes = function(search, start) {
         'use strict';
@@ -19,40 +20,28 @@ if (!String.prototype.includes) {
     };
 }
 
-var all = document.getElementsByTagName("*");
+// Polyfill HTMLCollection.forEach from Array.forEach
+if (!HTMLCollection.prototype.forEach) HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
-var name;
-var elements = [];
 
-// loop through all elements on page to find all the iframes
-for (var i=0, max=all.length; i < max; i++) {
-    // get element name
-    var el = all[i];
-    var name = el.nodeName.toLowerCase();
-    if (name == "iframe") {
-        // if it's an iframe, push it to the list.
-        elements.push(el);
-    }
-}
+// List of elements to work on. To add new types of elements, just add mroe tag names to this array.
+const elements = ["IFRAME", "IMG"];
+let frames = [];
 
-// loop through all the iframes we found
-for (var i=0, max=elements.length; i < max; i++) {
-    // get the frame to work on
-    var frame = elements[i];
-    // Skip trinket python editor
-    if(frame.src.includes("trinket")) {
-        continue;
-    }
-    // Wrap the video inside the video-wrapper class
-    
-    // get the frame's current parent
-    var parent = frame.parentNode;
-    // create the wrapper div and set its class
-    var wrapper = document.createElement("div");
-    wrapper.className = "video-container"
+// Grab all the elements
+elements.forEach((element) => {
+    frames = frames.concat(Array.from(document.getElementsByTagName(element)));
+});
 
-    // set the wrapper as the parent's child instead of the frame
+// Apply our modifications
+frames.forEach((frame) => {
+    // Get the frame's parent
+    let parent = frame.parentNode;
+    // Create the wrapper div and set its class
+    let wrapper = document.createElement("div");
+    wrapper.className = "video-container";
+
+    // Wrap the frame in the wrapper
     parent.replaceChild(wrapper, frame);
-    // set the frame as the child of the wrapper
     wrapper.appendChild(frame);
-}
+})

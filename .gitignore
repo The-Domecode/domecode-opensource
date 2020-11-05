@@ -7,3 +7,5 @@ media/media/
 .idea/
 venv/
 __pycache__
+.vscode/
+jsconfig.json
