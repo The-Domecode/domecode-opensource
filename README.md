@@ -71,6 +71,8 @@ Notes, Creator, Tasks
 
 Music, Forum, Leaderboard, **1v1 challenges**
 
+- ➔ Blog
+
 - ➔ Social Tools
 
 **Messaging, User Finder, Bored!**
@@ -85,9 +87,9 @@ Unreleased features are **highlighted**.
 - Bounce Rate **optimal** according to Google Analytics.
 - Total number of users over the past 4 weeks ( both registered and unregistered ) sum up to **2, 400+** according to Google Analytics.
 - More than **2** sessions on average per user where the users include unregistered users as well.
-- **Upcoming** - Stable Release in October.
-- **Upcoming** - An exclusive blog. Apply to become a DomeCode blogger **[here](https://forms.gle/8Q6gQYBJxsKYgxMP7)**.
-i
+- **Upcoming** - Stable Release in December.
+- An exclusive blog. Apply to become a DomeCode blogger **[here](https://blog.domecode.com/apply/)**.
+- According to Alexa Analytics, DomeCode is ranked 28k in India and 485k in world ( out of 3M websites ) as of 9th November '20.
 
 ## Modules part of only the Proprietary repository
 
@@ -109,10 +111,9 @@ If you want to work on anything apart from the modules present in the open-sourc
 - Quizzes
 - Forum
 - Resources
-- Upcoming Blog
 - Upcoming User Finder
 - Current Music player
-- Upcoming Blog Platform by DomeCode
+- Blog Platform by DomeCode
 
 You will be able to contribute to all of these features and they *will be kept* open-source forever. You will also be able to contribute to the base front-end of DomeCode without having to apply to be a part of the internal development team.
 
@@ -182,6 +183,7 @@ Note : In the repo's language stats, HTML and CSS have been disabled intentional
 
 - [Arth Tyagi](https://github.com/arthtyagi) - Founder, CEO, Full Stack Developer, [DomeCode](https://domecode.com/)
 - [Arhaan Ahmad](https://github.com/Arhaan) - Back-end developer, [DomeCode](https://domecode.com/).
+- [Yash Karandikar](https://github.com/karx1) - Junior Dev, [DomeCode](https://domecode.com/).
 
 ## 💼 Work on DomeCode
 
