@@ -75,7 +75,9 @@ Music, Forum, Leaderboard, **1v1 challenges**
 
 - ➔ Social Tools
 
-**Messaging, User Finder, Bored!**
+- ➔ Messaging
+
+**User Finder, Bored!**
 
 Unreleased features are **highlighted**.
 
@@ -93,29 +95,31 @@ Unreleased features are **highlighted**.
 
 ## Modules part of only the Proprietary repository
 
-- Coder 
+- Upcoming Coding workspace 
 - Fusion
 - Messages and its notification system
 - Upcoming 1v1 features
 - Upcoming Bored! feature
 - Upcoming Help! feature
-- Updated Music Player
+- Music Player ( updated )
 
 If you want to work on anything apart from the modules present in the open-source repository, please contact us.
 
 ## Features that are part of the open-source repo
 
-
 - Notes 
 - Tasks
+- Coder
 - Quizzes
 - Forum
 - Resources
 - Upcoming User Finder
-- Current Music player
+- Music player ( current version )
 - Blog Platform by DomeCode
 
 You will be able to contribute to all of these features and they *will be kept* open-source forever. You will also be able to contribute to the base front-end of DomeCode without having to apply to be a part of the internal development team.
+
+Once we are profitable, we might reconsider some of the modules that are kept private to be made open-source. We <3 open-source. However, at the same time it's important to minimize the chances of replicability by making the parts of DomeCode that are not generic in nature, closed-source at least until we are a bigger player in the market.
 
 ## Setup
 
@@ -135,7 +139,7 @@ Please refer to the [Contribution Guide](https://github.com/The-Domecode/domecod
 
 - The variables you should include are the ones with `config()` next to them in the `devmanage.py` file. If there's an error due to the missing value of an environment variable, it can be fixed with ease by passing in appropriate variables. It's pretty generic stuff. 
 
-
+- The Postgres DB user should be a SUPERUSER to apply migrations for the latest search technique being used in DomeCode.
 
 Here's a dummy .env file you can use:
 ```
@@ -154,6 +158,9 @@ AWS_STORAGE_BUCKET_NAME="hc"
 ADMIN_URL="admin"
 JUDGE0_RAPID_API_KEY="abc"
 HONEYBADGER_KEY="abc"
+DB_NAME="domecode"
+DB_USER="dummy"
+DB_PASSWORD="password"
 ```
 
 - If you want to do something involving the judge api, get your own api key from [here](https://rapidapi.com/hermanzdosilovic/api/judge0) and place that key in the ```JUDGE0_RAPID_API_KEY``` variable in .env
@@ -182,7 +189,7 @@ Note : In the repo's language stats, HTML and CSS have been disabled intentional
 ## 🧑 Contributors
 
 - [Arth Tyagi](https://github.com/arthtyagi) - Founder, CEO, Full Stack Developer, [DomeCode](https://domecode.com/)
-- [Arhaan Ahmad](https://github.com/Arhaan) - Back-end developer, [DomeCode](https://domecode.com/).
+- [Arhaan Ahmad](https://github.com/Arhaan) - Back-end Developer, [DomeCode](https://domecode.com/).
 - [Yash Karandikar](https://github.com/karx1) - Junior Dev, [DomeCode](https://domecode.com/).
 
 ## 💼 Work on DomeCode
