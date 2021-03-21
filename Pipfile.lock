@@ -25,10 +25,10 @@
         },
         "asgiref": {
             "hashes": [
-                "sha256:7e51911ee147dd685c3c8b805c0ad0cb58d360987b56953878f8c06d2d1c6f1a",
-                "sha256:9fc6fb5d39b8af147ba40765234fa822b39818b12cc80b35ad9b0cef3a476aed"
+                "sha256:5ee950735509d04eb673bd7f7120f8fa1c9e2df495394992c73234d526907e17",
+                "sha256:7162a3cb30ab0609f1a4c95938fd73e8604f63bdba516a7f7d64b83ff09478f0"
             ],
-            "version": "==3.2.10"
+            "version": "==3.3.1"
         },
         "boto3": {
             "hashes": [
@@ -188,11 +188,11 @@
         },
         "django": {
             "hashes": [
-                "sha256:1a63f5bb6ff4d7c42f62a519edc2adbb37f9b78068a5a862beff858b68e3dc8b",
-                "sha256:2d390268a13c655c97e0e2ede9d117007996db692c1bb93eabebd4fb7ea7012b"
+                "sha256:169e2e7b4839a7910b393eec127fd7cbae62e80fa55f89c6510426abf673fe5f",
+                "sha256:c6c0462b8b361f8691171af1fb87eceb4442da28477e12200c40420176206ba7"
             ],
             "index": "pypi",
-            "version": "==3.1"
+            "version": "==3.1.6"
         },
         "django-appconf": {
             "hashes": [
@@ -303,6 +303,14 @@
             ],
             "version": "==3.0.12"
         },
+        "futures": {
+            "hashes": [
+                "sha256:3a44f286998ae64f0cc083682fcfec16c406134a81a589a5de445d7bb7c2751b",
+                "sha256:51ecb45f0add83c806c68e4b06106f90db260585b25ef2abfcda0bd95c0132fd",
+                "sha256:c4884a65654a7c45435063e14ae85280eb1f111d94e542396717ba9828c4337f"
+            ],
+            "version": "==3.1.1"
+        },
         "honeybadger": {
             "hashes": [
                 "sha256:24ffd11271a695b308b44941f51a9a0fb3a18aadba057f482922155f49d6a7c3"
@@ -320,6 +328,7 @@
         },
         "identify": {
             "hashes": [
+
                 "sha256:99d40094d8c9fc0b88b379200ecb4f8345a593878656867fa5363abc850766ab",
                 "sha256:f516f69e62df018a3965a835dccfb3397ed02ddaf513584633c9acaf084be3f2"
             ],
