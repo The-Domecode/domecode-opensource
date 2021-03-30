@@ -11,6 +11,10 @@
 <a href="https://ko-fi.com/C0C4226J0"><img src="https://www.ko-fi.com/img/githubbutton_sm.svg"/></a>
 </p>
 
+## Note 
+
+We need maintainers. Please get in touch with [Arth Tyagi](mailto:founder@domecode.com). You can start off by working on the issues too, making PRs, and suggesting new features. If your code is good, you'll be made a maintainer of DomeCode.
+
 ## What is DomeCode?🤔
 
 [DomeCode](https://domecode.com) is a coding platform that unifies the coding experience by providing all relevant resources and tools in a single platform.
