@@ -18,14 +18,14 @@ class TestUrls(SimpleTestCase):
         url = reverse("todo:detail", args=["3"])
         self.assertEquals(resolve(url).func.view_class, TodoDetailView)
 
-    def test_list_url_is_resolves_two(self):
+    def test_list_url_is_resolves_three(self):
         url = reverse("todo:create")
         self.assertEquals(resolve(url).func.view_class, TodoCreateView)
 
-    def test_list_url_is_resolves_two(self):
+    def test_list_url_is_resolves_four(self):
         url = reverse("todo:delete", args=["3"])
         self.assertEquals(resolve(url).func.view_class, TodoDeleteView)
 
-    def test_list_url_is_resolves_two(self):
+    def test_list_url_is_resolves_five(self):
         url = reverse("todo:update", args=["3"])
         self.assertEquals(resolve(url).func.view_class, TodoUpdateView)
