@@ -13,6 +13,6 @@ class TestModels(TestCase):
         task = baker.make(Todo, title="Sum2Prove")
         self.assertEqual(str(task), "Sum2Prove")
 
-    def test_event_model(self):
+    def test_event_model_two(self):
         task = baker.make(Todo, title="Sum2Prove")
         self.assertEqual(str(task), "Sum2Prove")
