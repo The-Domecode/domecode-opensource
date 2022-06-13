@@ -21,6 +21,7 @@ def create_user(username, password):
 
 
 class ProductListViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 
@@ -61,6 +62,7 @@ class ProductListViewTests(TestCase):
 
 
 class ProductCreateViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 
@@ -98,6 +100,7 @@ class ProductCreateViewTests(TestCase):
 
 
 class ProductDeleteViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 
@@ -128,6 +131,7 @@ class ProductDeleteViewTests(TestCase):
 
 
 class ProductDetailsViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 
@@ -162,6 +166,7 @@ class ProductDetailsViewTests(TestCase):
 
 
 class ProductUpdateViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 

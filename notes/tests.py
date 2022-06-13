@@ -21,6 +21,7 @@ def create_user(username, password):
 
 
 class StaticViewsTests(TestCase):
+
     def setup(self):
         self.client = Client()
 
@@ -68,6 +69,7 @@ class StaticViewsTests(TestCase):
 
 
 class NotesListViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 
@@ -102,6 +104,7 @@ class NotesListViewTests(TestCase):
 
 
 class NotesCreateViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 
@@ -137,6 +140,7 @@ class NotesCreateViewTests(TestCase):
 
 
 class NotesDeleteViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 
@@ -167,6 +171,7 @@ class NotesDeleteViewTests(TestCase):
 
 
 class NotesDetailsViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 
@@ -199,6 +204,7 @@ class NotesDetailsViewTests(TestCase):
 
 
 class NotesUpdateViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 

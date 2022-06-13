@@ -27,6 +27,7 @@ def create_question(language="PYTHON"):
 
 
 class CoderCreateViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 

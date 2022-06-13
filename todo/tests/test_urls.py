@@ -10,6 +10,7 @@ from todo.views import (
 
 
 class TestUrls(SimpleTestCase):
+
     def test_list_url_is_resolves(self):
         url = reverse("todo:list")
         self.assertEquals(resolve(url).func.view_class, TodoListView)

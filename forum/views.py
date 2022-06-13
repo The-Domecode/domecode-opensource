@@ -189,6 +189,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin,
 
 
 class QueryLikeToggle(generic.RedirectView):
+
     def get_redirect_url(self, *args, **kwargs):
         # query = get_object_or_404(Query, slug=self.kwargs["slug"])
         slug = self.kwargs.get("slug")

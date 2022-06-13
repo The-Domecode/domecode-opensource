@@ -27,6 +27,7 @@ def create_user(username, password):
 
 
 class QuizHomeViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 
@@ -40,6 +41,7 @@ class QuizHomeViewTests(TestCase):
 
 
 class QuizDetailsViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 
@@ -60,6 +62,7 @@ class QuizDetailsViewTests(TestCase):
 
 
 class QuesDetailsViewTesst(TestCase):
+
     def setup(self):
         self.client = Client()
 
@@ -88,6 +91,7 @@ class QuesDetailsViewTesst(TestCase):
 
 
 class AnswerCreateViewTests(TestCase):
+
     def setup(self):
         self.client = Client()
 

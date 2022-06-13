@@ -9,6 +9,7 @@ def createCustomUser():
 
 
 class TestModels(TestCase):
+
     def test_event_model(self):
         task = baker.make(Todo, title="Sum2Prove")
         self.assertEqual(str(task), "Sum2Prove")

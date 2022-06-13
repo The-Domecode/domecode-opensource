@@ -1,4 +1,5 @@
 class PageTitleMixin(object):
+
     def get_page_title(self, context):
         return getattr(self, "title", "Default Page Title")
 
